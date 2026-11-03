@@ -107,6 +107,19 @@ applying a queued `log_meal` into Apple Health.
 
 ---
 
+## Maintenance tickets (found during the build, not planned up front)
+
+**ASC-19 — Toolchain alignment**
+Every package manifest built under laxer rules than the app target, which sets
+`SWIFT_STRICT_CONCURRENCY=complete`. A Swift 6 concurrency error in `SyncClient`
+therefore passed the package's own tests and only failed the `app` job (ASC-12, PR #9).
+Pins `.swiftLanguageMode(.v6)` on every target so a package cannot pass while the app
+it ships in does not compile. Also extends the opt-in simulator test list ASC-9 added
+to CI — `FeatureEat`'s and `FeatureTrain`'s tests were not running anywhere.
+Origin: an ASC-1 scaffolding gap.
+
+---
+
 ## Orchestration
 
 | Wave | Parallel sessions | Blocks on |
