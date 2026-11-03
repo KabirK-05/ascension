@@ -17,8 +17,10 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 .swiftpm/
-Packages/
 .build/
+# NOTE: do not add `Packages/` here. git runs with core.ignorecase=true on macOS,
+# so it also matches our `packages/` source tree and silently un-tracks every
+# module. SwiftPM build output is already covered by `.build/`.
 
 # macOS
 .DS_Store
