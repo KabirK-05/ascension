@@ -1,4 +1,5 @@
 import AscensionCore
+import AscensionEngines
 import DesignSystem
 import Foundation
 
@@ -18,12 +19,19 @@ public enum VerdictDisplay: Hashable, Sendable {
 
     /// The verdict shown beside the score. This is a value, not a label — it is the
     /// answer the screen exists to give, and nothing explains it underneath.
-    public var text: String {
+    public var text: String { text(in: nil) }
+
+    /// The same verdict, naming a swap the way the program names it.
+    ///
+    /// A swap is the one verdict that has to say *what to swap to* — the engine only
+    /// ever emits it alongside a session it has already checked is legal, so leaving
+    /// that session unnamed would throw away the answer.
+    public func text(in program: ProgramDocument?) -> String {
         switch self {
         case .rest: return "Rest day"
         case .trainAsPlanned: return "Train as planned"
         case .capIntensity: return "Cap intensity"
-        case .swap(let kind): return "Swap to \(SessionName.of(kind))"
+        case .swap(let kind): return "Swap to \(SessionName.of(kind, in: program))"
         case .activeRecovery: return "Active recovery"
         }
     }
@@ -86,9 +94,38 @@ public struct SessionPlan: Hashable, Sendable {
 /// The readiness hero.
 public struct ReadinessPanel: Hashable, Sendable {
     public let score: Int
+
+    /// The score as it is written.
+    ///
+    /// At `low` confidence the engine has measured too little of its weight for a
+    /// definite integer, so the number is prefixed `~` rather than dressed up as one it
+    /// did not give (spec §F5). Nothing here invents a figure: the score is the
+    /// engine's own, only reported as the estimate it is.
+    public let scoreText: String
+
+    /// What VoiceOver reads instead of the glyphs, so the estimate is not carried by a
+    /// tilde and a colour alone.
+    public let spokenScore: String
+
+    public let confidence: ReadinessConfidence
     public let verdict: VerdictDisplay
+    /// The verdict's words, with a swap named by the program (spec §F5).
+    public let verdictText: String
     /// The engine's top two facts, verbatim. Facts with units, never advice (spec §F5).
     public let reasons: [String]
+
+    public init(score: Int, confidence: ReadinessConfidence,
+                verdict: VerdictDisplay, verdictText: String, reasons: [String]) {
+        self.score = score
+        self.scoreText = confidence == .low ? "~\(score.formatted())" : score.formatted()
+        self.spokenScore = confidence == .low
+            ? "Approximately \(score), low confidence"
+            : score.formatted()
+        self.confidence = confidence
+        self.verdict = verdict
+        self.verdictText = verdictText
+        self.reasons = reasons
+    }
 }
 
 /// Calories and protein against their targets.
@@ -137,6 +174,11 @@ public struct TodayPresentation: Hashable, Sendable {
     /// The one-line rule-based summary (spec §F1). Facts, never encouragement.
     public let summary: String
     public let readiness: ReadinessPanel
+
+    /// The morning check-in, while today still needs one. `nil` once it is in, which is
+    /// how the controls leave the screen for the day (spec §F4).
+    public let checkIn: CheckInPanel?
+
     /// `nil` on a rest day or a stand-down.
     public let session: SessionPlan?
     public let nutrition: NutritionPanel
