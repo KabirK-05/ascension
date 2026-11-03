@@ -16,9 +16,34 @@ acceptance test.
 |---|---|
 | Apple Developer team | `open https://developer.apple.com/account` → Membership → Team ID |
 | Cloudflare account | `npx wrangler login` |
-| Node 22 | `fnm use 22` (the repo pins `>=22`) |
+| Node 22 | see below — **this is the first thing that bites** |
 | Xcode 26+ | `xcodebuild -version` |
 | Tuist, SwiftLint | `brew install tuist swiftlint` |
+
+### Node 22 — do this before any `npx wrangler` command
+
+Wrangler refuses to run on Node 20 and the repo pins `>=22`. `fnm` is installed
+and so is v22, but it defaults to v20, and **`fnm use` only affects the shell you
+run it in**:
+
+```bash
+fnm use 22
+```
+
+Make it the default for new shells too, or this recurs every time:
+
+```bash
+fnm default 22
+```
+
+Confirm before continuing — every step below assumes it:
+
+```bash
+node --version
+```
+
+The repo carries a `.node-version` file. If you add `--use-on-cd` to the `fnm env`
+line in your `~/.zshrc`, fnm switches automatically whenever you `cd` here.
 
 ---
 
