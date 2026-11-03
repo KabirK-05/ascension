@@ -7,7 +7,10 @@ let package = Package(
     products: [.library(name: "AscensionCore", targets: ["AscensionCore"])],
     dependencies: [],
     targets: [
-        .target(name: "AscensionCore"),
+        .target(
+            name: "AscensionCore",
+            resources: [.copy("Resources/ExerciseLibrary")]
+        ),
         .testTarget(name: "AscensionCoreTests", dependencies: ["AscensionCore"])
     ]
 )
