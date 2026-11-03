@@ -95,3 +95,12 @@ jobs:
           xcodebuild -workspace Ascension.xcworkspace -scheme Ascension \
             -destination 'generic/platform=iOS Simulator' \
             -quiet build
+
+      # The composition root is the only place the packages are actually joined up, so
+      # its tests are the only ones that can catch a seam that no longer fits. They need
+      # a booted simulator, which is why they run here rather than in the `packages` job.
+      - name: Test the app shell on the simulator
+        run: |
+          xcodebuild -workspace Ascension.xcworkspace -scheme Ascension \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 17 Pro' \
+            -quiet test
