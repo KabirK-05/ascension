@@ -75,6 +75,45 @@ enum TodayFixtures {
                                         .lowerBody: Timestamp.literal("2026-11-02T19:40:00-05:00")])
     }
 
+    /// Tuesday morning, before the check-in. Sleep and vitals are already read, so the
+    /// score stands on them while soreness and energy — fifteen of the hundred points —
+    /// are still waiting on the one tap this screen exists to collect.
+    static var checkInPending: TodaySnapshot {
+        var snapshot = snapshot(on: tuesday,
+                                today: today(on: tuesday,
+                                             asleepMinutes: 448,
+                                             bedtimeSd: 22,
+                                             steps: 1_240,
+                                             activeEnergy: 86,
+                                             exerciseMinutes: 4,
+                                             kcal: 320,
+                                             proteinG: 32,
+                                             restingHr: 51,
+                                             hrvSdnn: 70,
+                                             checkIn: CheckInRollup(energy: 4,
+                                                                    soreness: Soreness())))
+        snapshot.clock = clock(on: tuesday, at: "07:30:00")
+        snapshot.today.checkIn = nil
+        return snapshot
+    }
+
+    /// Everything measured and most of it bad, on a training day: the score falls under
+    /// the floor, so nothing is trained however legal the session is.
+    static var standDown: TodaySnapshot {
+        snapshot(on: tuesday,
+                 today: today(on: tuesday,
+                              asleepMinutes: 260,
+                              bedtimeSd: 70,
+                              steps: 2_100,
+                              activeEnergy: 120,
+                              exerciseMinutes: 6,
+                              kcal: 740,
+                              proteinG: 41,
+                              restingHr: 62,
+                              hrvSdnn: 45,
+                              checkIn: CheckInRollup(energy: 2, soreness: Soreness())))
+    }
+
     /// First launch: the seed is installed, nothing has been measured.
     static var emptyDay: TodaySnapshot {
         TodaySnapshot(clock: clock(on: tuesday, at: "07:05:00"),
@@ -190,4 +229,36 @@ struct FixtureDataSource: TodayDataSource {
     }
 
     func snapshot() async throws -> TodaySnapshot { snapshotValue }
+}
+
+/// Keeps what it was handed, so a test can assert the committed check-in is the one the
+/// taps built — group by group, not just "something was saved".
+actor RecordingCheckInStore: CheckInStore {
+    private(set) var saved: [CheckInRollup] = []
+    private(set) var dates: [CalendarDate] = []
+
+    func save(_ checkIn: CheckInRollup, on date: CalendarDate) async throws {
+        saved.append(checkIn)
+        dates.append(date)
+    }
+}
+
+/// A store whose first `failures` writes throw. Counts its attempts, so a retry can be
+/// shown to have actually gone back to the store.
+actor UnreliableCheckInStore: CheckInStore {
+    struct Failure: Error {}
+
+    private(set) var attempts = 0
+    private var failuresRemaining: Int
+
+    init(failures: Int = Int.max) {
+        self.failuresRemaining = failures
+    }
+
+    func save(_ checkIn: CheckInRollup, on date: CalendarDate) async throws {
+        attempts += 1
+        guard failuresRemaining > 0 else { return }
+        failuresRemaining -= 1
+        throw Failure()
+    }
 }

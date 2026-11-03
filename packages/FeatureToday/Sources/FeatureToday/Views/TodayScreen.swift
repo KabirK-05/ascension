@@ -9,10 +9,10 @@ import SwiftUI
 /// line and the readiness hero answer the question above the fold at the default type
 /// size (§5.1); everything below it is detail that may scroll.
 ///
-/// Both actions on the screen are injected. Sending a session to the Watch is
-/// WorkoutKit's job and belongs to the Train ticket; opening Eat belongs to the shell.
-/// This package depends on `AscensionCore`, `AscensionEngines` and `DesignSystem` and
-/// nothing else.
+/// Every edge of the screen is injected. Sending a session to the Watch is WorkoutKit's
+/// job and belongs to the Train ticket; opening Eat belongs to the shell; and storing a
+/// check-in is one method the shell supplies. This package depends on `AscensionCore`,
+/// `AscensionEngines` and `DesignSystem` and nothing else.
 public struct TodayScreen: View {
     @State private var model: TodayModel
 
@@ -21,8 +21,10 @@ public struct TodayScreen: View {
 
     public init(dataSource: any TodayDataSource = DefaultTodayDataSource(),
                 sendToWatch: ((SessionKind) async throws -> Void)? = nil,
-                openEat: (() -> Void)? = nil) {
-        _model = State(initialValue: TodayModel(dataSource: dataSource))
+                openEat: (() -> Void)? = nil,
+                checkInStore: (any CheckInStore)? = nil) {
+        _model = State(initialValue: TodayModel(dataSource: dataSource,
+                                                checkInStore: checkInStore))
         self.sendToWatch = sendToWatch
         self.openEat = openEat
     }
@@ -66,7 +68,13 @@ public struct TodayScreen: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.regular) {
                 summary(presentation.summary)
-                ReadinessCard(panel: presentation.readiness)
+                ReadinessCard(panel: presentation.readiness,
+                              checkIn: presentation.checkIn,
+                              cycleSoreness: model.cycleSoreness,
+                              submitCheckIn: { energy in
+                                  Task { await model.submitCheckIn(energy: energy) }
+                              },
+                              retryCheckIn: { Task { await model.retryCheckIn() } })
                 if let session = presentation.session {
                     SessionCard(plan: session, sendToWatch: sendToWatch)
                 }
@@ -122,6 +130,20 @@ public struct TodayScreen: View {
 
 #Preview("Rest day — light") {
     TodayScreen(dataSource: FixtureDataSource(TodayFixtures.restDay),
+                sendToWatch: { _ in },
+                openEat: {})
+        .preferredColorScheme(.light)
+}
+
+#Preview("Check-in — dark") {
+    TodayScreen(dataSource: FixtureDataSource(TodayFixtures.checkInPending),
+                sendToWatch: { _ in },
+                openEat: {})
+        .preferredColorScheme(.dark)
+}
+
+#Preview("Check-in — light") {
+    TodayScreen(dataSource: FixtureDataSource(TodayFixtures.checkInPending),
                 sendToWatch: { _ in },
                 openEat: {})
         .preferredColorScheme(.light)

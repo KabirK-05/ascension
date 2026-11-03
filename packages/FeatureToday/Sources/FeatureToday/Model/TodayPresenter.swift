@@ -10,20 +10,26 @@ import Foundation
 /// running clock.
 public enum TodayPresenter {
 
-    public static func present(_ snapshot: TodaySnapshot) -> TodayPresentation {
+    public static func present(_ snapshot: TodaySnapshot,
+                               checkIn: CheckInState = CheckInState()) -> TodayPresentation {
         let assessment = ReadinessEngine.assess(snapshot.readinessInput)
         let verdict = VerdictDisplay.of(assessment.verdict,
                                         plannedSession: snapshot.plannedSession,
                                         suggestedSession: assessment.suggestedSession)
         let calendar = ConsistencyMapping.calendar(timezone: snapshot.clock.timezone)
+        let pending = snapshot.today.checkIn == nil ? CheckInPanel.of(checkIn) : nil
 
         return TodayPresentation(
             date: ConsistencyMapping.date(of: snapshot.clock.today, in: calendar)
                 ?? Date(timeIntervalSince1970: 0),
             summary: SummaryLine.text(for: snapshot, verdict: verdict),
             readiness: ReadinessPanel(score: assessment.score,
+                                      confidence: assessment.confidence,
                                       verdict: verdict,
-                                      reasons: reasons(assessment.reasons)),
+                                      verdictText: verdict.text(in: snapshot.program),
+                                      reasons: reasons(assessment.reasons,
+                                                       checkInPending: pending != nil)),
+            checkIn: pending,
             session: plan(for: snapshot, verdict: verdict),
             nutrition: nutrition(for: snapshot),
             measurements: measurements(for: snapshot),
@@ -41,13 +47,31 @@ public enum TodayPresenter {
     /// does not ship, so the duplicate goes. The survivors get sentence case, because
     /// the engine writes its facts lower-case for the summary line and "HRV" keeps its
     /// capitals either way.
-    static func reasons(_ reasons: [String]) -> [String] {
+    static func reasons(_ reasons: [String], checkInPending: Bool = false) -> [String] {
         var seen: Set<String> = []
         return reasons.compactMap { reason in
             let key = reason.lowercased()
             guard !key.isEmpty, seen.insert(key).inserted else { return nil }
+            guard !(checkInPending && isAboutTheCheckIn(key)) else { return nil }
             return reason.capitalizedFirst
         }
+    }
+
+    /// Facts the pending check-in is itself the answer to.
+    ///
+    /// The engine is right to report "no check-in" — it is why the score is soft. But
+    /// while the check-in's own controls are on this card, printing it above them says
+    /// nothing the controls do not, and §2.1 removes what the card works without. Once
+    /// the check-in is in, the engine measures both factors and the reason never arises.
+    ///
+    /// On a quiet morning this can leave no reasons at all, which is the right answer:
+    /// nothing measured was worth reporting, so the card is a score, a verdict and the
+    /// one control that would sharpen them. A fact that matters still outranks the gap
+    /// and still prints.
+    private static let checkInMarkers = ["check-in", "energy rating", "soreness"]
+
+    private static func isAboutTheCheckIn(_ lowercasedReason: String) -> Bool {
+        checkInMarkers.contains { lowercasedReason.contains($0) }
     }
 
     // MARK: - Session
