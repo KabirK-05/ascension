@@ -36,6 +36,8 @@ struct MutationApplicationTests {
                 suiteName: "ascension.tests.mutations.\(UUID().uuidString)") ?? .standard),
             watch: watch,
             export: export,
+            changes: ChangeLog(url: FileManager.default.temporaryDirectory
+                .appending(path: "changes-\(UUID().uuidString).json")),
             now: { HealthDates.fixedNow })
     }
 

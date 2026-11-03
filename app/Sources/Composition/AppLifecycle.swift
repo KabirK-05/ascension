@@ -25,12 +25,14 @@ final class AppLifecycle {
     static let apnsTokenKey = "ascension.apns.deviceToken"
 
     private let composition: AppComposition
+    private let notifications: NotificationScheduler
     private let defaults: UserDefaults
     private let logger = Logger(subsystem: "com.kabirkumar.ascension", category: "lifecycle")
     private var didStartObserving = false
 
     init(composition: AppComposition, defaults: UserDefaults = .standard) {
         self.composition = composition
+        self.notifications = NotificationScheduler(composition: composition)
         self.defaults = defaults
     }
 
@@ -61,15 +63,7 @@ final class AppLifecycle {
             }
             task.expirationHandler = { work.cancel() }
         }
-        // The drain's identifier is `SyncClient`'s outright: it registers it and reschedules
-        // itself. Nothing registers it when the device is unpaired, which would leave a
-        // permitted identifier unhandled — so an unpaired launch registers a handler that
-        // reschedules nothing and reports success.
-        if let sync = composition.backgroundSync {
-            sync.registerMutationDrain()
-        } else {
-            registerIdleDrain()
-        }
+        registerMutationDrain()
         #endif
     }
 
@@ -81,8 +75,11 @@ final class AppLifecycle {
     /// no export folder chosen and nothing to push has not failed, it has nothing to do.
     func runNightly() async -> Bool {
         let exported = await composition.export.run(trigger: .nightly) != nil
+        await publishSurfaces()
+        await notifications.reschedule()
         guard let sync = composition.backgroundSync else { return true }
         let pushed = await sync.runNightlyPush()
+        if pushed { composition.activity.recordPush() }
         return exported || pushed
     }
 
@@ -97,6 +94,43 @@ final class AppLifecycle {
         request.requiresExternalPower = true
         submit(request)
         #endif
+    }
+
+    /// A single handler for the drain's identifier, whatever the pairing state is.
+    ///
+    /// `BackgroundSyncCoordinator.registerMutationDrain()` would be the natural call, but
+    /// it captures the coordinator — and therefore the engine — at registration, while
+    /// `BGTaskScheduler.register` may only be called once per identifier per launch. Since
+    /// ASC-16 lets Settings pair the device on a running app, the handler has to ask for
+    /// the coordinator when it fires. An unpaired wake then has nothing to do and reports
+    /// success, which is the same thing the old idle handler did.
+    private func registerMutationDrain() {
+        #if canImport(BackgroundTasks) && os(iOS)
+        BGTaskScheduler.shared.register(
+            forTaskWithIdentifier: SyncTaskIdentifier.mutationDrain, using: nil
+        ) { [weak self] task in
+            // The same deliberate crossing the nightly handler makes, for the same reason:
+            // `BGTask` is not `Sendable`, exactly one `Task` touches it, once, and the
+            // expiration handler only cancels that `Task`.
+            nonisolated(unsafe) let handle = task
+            let work = Task { @MainActor [weak self] in
+                let succeeded = await self?.runMutationDrain() ?? true
+                self?.scheduleMutationDrain()
+                handle.setTaskCompleted(success: succeeded)
+            }
+            task.expirationHandler = { work.cancel() }
+        }
+        #endif
+    }
+
+    /// Drains Muse's write log on a background wake. An unpaired device has nothing to
+    /// drain, which is a success rather than a failure.
+    func runMutationDrain() async -> Bool {
+        guard let sync = composition.backgroundSync else { return true }
+        let drained = await sync.runMutationDrain()
+        if drained { composition.activity.recordDrain() }
+        await publishSurfaces()
+        return drained
     }
 
     func scheduleMutationDrain() {
@@ -165,6 +199,18 @@ final class AppLifecycle {
         scheduleNightly()
         scheduleMutationDrain()
         await syncNow()
+        await publishSurfaces()
+        await notifications.reschedule()
+    }
+
+    /// Writes the snapshot the widgets, the App Intents and the notification scheduler all
+    /// read, and asks WidgetKit to redraw.
+    ///
+    /// Called after every refresh rather than on a timer: a widget cannot read HealthKit or
+    /// SwiftData from its own process, so this file is the only thing it has, and a
+    /// snapshot that lags a tab by an hour is a widget showing yesterday's protein.
+    func publishSurfaces() async {
+        await SurfacePublisher(composition: composition).publish()
     }
 
     /// Drain then push, which is the order that matters: a queued `log_meal` becomes part
@@ -175,6 +221,8 @@ final class AppLifecycle {
         do {
             _ = try await engine.syncNow(rollups: pending)
             await composition.ledger.markPushed(pending)
+            composition.activity.recordPush()
+            composition.activity.recordDrain()
         } catch {
             logger.info("sync did not complete: \(error, privacy: .public)")
         }
@@ -207,7 +255,10 @@ final class AppLifecycle {
         guard let engine = composition.sync,
               SilentPushHandler.wantsDrain(userInfo: userInfo) else { return false }
         do {
-            return try await engine.drain().didApplyAnything
+            let applied = try await engine.drain().didApplyAnything
+            composition.activity.recordDrain()
+            if applied { await publishSurfaces() }
+            return applied
         } catch {
             logger.info("silent push drain failed: \(error, privacy: .public)")
             return false
@@ -225,20 +276,6 @@ extension AppLifecycle {
             // Background App Refresh switched off. Neither is a failure worth surfacing:
             // the foreground path does the same work.
             logger.info("background task not submitted: \(error, privacy: .public)")
-        }
-    }
-
-    /// A handler for the drain's identifier on an unpaired device.
-    ///
-    /// `BGTaskSchedulerPermittedIdentifiers` lists it, and the system terminates an app
-    /// that is launched for an identifier it never registered. Nothing is scheduled against
-    /// this, so it should never run — but "should never" is not a thing to leave to chance
-    /// in a launch handler.
-    private func registerIdleDrain() {
-        BGTaskScheduler.shared.register(
-            forTaskWithIdentifier: SyncTaskIdentifier.mutationDrain, using: nil
-        ) { task in
-            task.setTaskCompleted(success: true)
         }
     }
 }

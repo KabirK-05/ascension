@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [AscensionCore, AscensionEngines, ExportKit, SyncClient]
+        package: [AscensionCore, AscensionEngines, ExportKit, SyncClient, SystemSurfaces]
     steps:
       - uses: actions/checkout@v5
       - name: Select newest Xcode

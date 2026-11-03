@@ -17,11 +17,16 @@ enum TrainEnvironmentFactory {
     static func environment(bridge: HealthBridgeService,
                             store: LocalStore,
                             watch: WatchSessionSender,
+                            calendar: any TrainingBlockSource,
                             timeZone: TimeZone) -> TrainEnvironment {
         let program: @Sendable () async -> ProgramDocument = { await store.program }
 
         let sessions: @Sendable (DateInterval) async -> [CompletedSession] = { interval in
             await completedSessions(in: interval, bridge: bridge, timeZone: timeZone)
+        }
+
+        let blocks: @Sendable (DateInterval) async -> [TrainingBlock] = { interval in
+            await calendar.blocks(in: interval, program: await store.program)
         }
 
         let topSets: @Sendable (DateInterval) async -> [LoggedTopSet] = { interval in
@@ -43,10 +48,10 @@ enum TrainEnvironmentFactory {
         return TrainEnvironment(
             program: program,
             sessions: sessions,
-            // EventKit is not read anywhere in the app yet, so there are no calendar blocks
-            // to hand the matcher. Its documented consequence: a day holding two eligible
-            // workouts credits the longest rather than the one on the calendar.
-            blocks: { _ in [] },
+            // The user's calendar, filtered to training blocks. When access is refused
+            // this answers with none, and the matcher falls back to ASC-10's documented
+            // rule: the longest eligible workout of the day is the one credited.
+            blocks: blocks,
             topSets: topSets,
             saveTopSets: saveTopSets,
             sendToWatch: send,

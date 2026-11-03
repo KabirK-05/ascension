@@ -34,6 +34,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions options: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         composition.startup.log()
+        // The one composition, for the App Intents the system resolves in whatever process
+        // it launches. Set before anything can run an intent, which is why it is here and
+        // not in the scene.
+        AppComposition.shared = composition
         lifecycle.registerBackgroundTasks()
         // No authorization prompt: a `content-available` push needs none, which is why
         // `remote-notification` is the only notification entry in `UIBackgroundModes`.
