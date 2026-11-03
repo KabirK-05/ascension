@@ -1,0 +1,251 @@
+{
+  "flags" : {
+    "foundationModelsEnabled" : true,
+    "museWriteMode" : "propose",
+    "museWritesEnabled" : false,
+    "rawDetailSyncEnabled" : false,
+    "remoteBridgeEnabled" : false
+  },
+  "goalSettings" : {
+    "body" : {
+      "goalWeightKg" : 68,
+      "heightCm" : 170
+    },
+    "deloadEveryWeeks" : 5,
+    "dietaryRules" : {
+      "allowedDairy" : [
+        "milk_bournvita"
+      ],
+      "excludedMeats" : [
+        "pork",
+        "beef"
+      ],
+      "noLiquidCalories" : true
+    },
+    "programStartDate" : "2026-11-03",
+    "targets" : {
+      "fatMaxG" : 70,
+      "fatMinG" : 60,
+      "kcal" : 2200,
+      "proteinG" : 150,
+      "proteinMinG" : 140,
+      "sleepMinutes" : 450,
+      "steps" : 10000
+    },
+    "timezone" : "America/Toronto"
+  },
+  "program" : {
+    "days" : [
+      {
+        "kind" : "upperA",
+        "weekday" : 1
+      },
+      {
+        "kind" : "lowerA",
+        "weekday" : 2
+      },
+      {
+        "kind" : "rest",
+        "weekday" : 3
+      },
+      {
+        "kind" : "upperB",
+        "weekday" : 4
+      },
+      {
+        "kind" : "lowerB",
+        "weekday" : 5
+      },
+      {
+        "kind" : "rest",
+        "weekday" : 6
+      },
+      {
+        "kind" : "rest",
+        "weekday" : 7
+      }
+    ],
+    "deload" : {
+      "active" : false,
+      "loadFactor" : 0.6,
+      "volumeFactor" : 0.5
+    },
+    "finisher" : {
+      "daysPerWeek" : 2,
+      "inclinePct" : 9,
+      "kind" : "inclineWalk",
+      "minutes" : 15
+    },
+    "name" : "Upper/Lower 4-day",
+    "progression" : {
+      "incrementKg" : 2.5,
+      "rule" : "rir2"
+    },
+    "sessions" : {
+      "lowerA" : {
+        "exercises" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "finisher" : false,
+            "order" : 1,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "DB_Romanian_Deadlift",
+            "finisher" : false,
+            "order" : 2,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Walking_Lunge",
+            "finisher" : false,
+            "order" : 3,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Plank",
+            "finisher" : false,
+            "order" : 4,
+            "repsHigh" : 1,
+            "repsLow" : 1,
+            "sets" : 3
+          }
+        ],
+        "name" : "Lower A"
+      },
+      "lowerB" : {
+        "exercises" : [
+          {
+            "exerciseId" : "Leg_Press",
+            "finisher" : false,
+            "order" : 1,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Hip_Thrust",
+            "finisher" : false,
+            "order" : 2,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Lying_Leg_Curl",
+            "finisher" : false,
+            "order" : 3,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Hanging_Leg_Raise",
+            "finisher" : false,
+            "order" : 4,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Incline_Treadmill_Walk",
+            "finisher" : true,
+            "order" : 5,
+            "repsHigh" : 1,
+            "repsLow" : 1,
+            "sets" : 1
+          }
+        ],
+        "name" : "Lower B"
+      },
+      "upperA" : {
+        "exercises" : [
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "finisher" : false,
+            "order" : 1,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Lat_Pulldown",
+            "finisher" : false,
+            "order" : 2,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Overhead_DB_Press",
+            "finisher" : false,
+            "order" : 3,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Seated_Cable_Row",
+            "finisher" : false,
+            "order" : 4,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Incline_Treadmill_Walk",
+            "finisher" : true,
+            "order" : 5,
+            "repsHigh" : 1,
+            "repsLow" : 1,
+            "sets" : 1
+          }
+        ],
+        "name" : "Upper A"
+      },
+      "upperB" : {
+        "exercises" : [
+          {
+            "exerciseId" : "Incline_DB_Press",
+            "finisher" : false,
+            "order" : 1,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Bent_Over_DB_Row",
+            "finisher" : false,
+            "order" : 2,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Close_Grip_Lat_Pulldown",
+            "finisher" : false,
+            "order" : 3,
+            "repsHigh" : 12,
+            "repsLow" : 10,
+            "sets" : 3
+          },
+          {
+            "exerciseId" : "Farmers_Carry",
+            "finisher" : false,
+            "order" : 4,
+            "repsHigh" : 1,
+            "repsLow" : 1,
+            "sets" : 3
+          }
+        ],
+        "name" : "Upper B"
+      }
+    }
+  }
+}
