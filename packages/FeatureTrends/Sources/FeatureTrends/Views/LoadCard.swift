@@ -13,16 +13,26 @@ import SwiftUI
 struct LoadCard: View {
     let panel: LoadPanel
 
+    @Environment(\.dynamicTypeSize) private var typeSize
+
     @ScaledMetric(relativeTo: .body) private var chartHeight: CGFloat = 96
 
     var body: some View {
         StatCard("Load") {
             VStack(alignment: .leading, spacing: Spacing.regular) {
-                HStack(alignment: .firstTextBaseline, spacing: Spacing.regular) {
-                    ValueRow("Ratio", value: panel.ratio,
-                             emphasis: .hero, spokenValue: panel.spokenRatio)
-                    Spacer(minLength: Spacing.snug)
-                    status
+                // The ratio and its band stack once they no longer fit side by side. At
+                // an accessibility size the hero value takes the width, and a band
+                // squeezed in beside it hyphenates a single word across three lines.
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .firstTextBaseline, spacing: Spacing.regular) {
+                        ratio
+                        Spacer(minLength: Spacing.snug)
+                        status
+                    }
+                    VStack(alignment: .leading, spacing: Spacing.snug) {
+                        ratio
+                        status
+                    }
                 }
                 chart
                 if let week = panel.deloadWeek {
@@ -31,6 +41,11 @@ struct LoadCard: View {
                 }
             }
         }
+    }
+
+    private var ratio: some View {
+        ValueRow("Ratio", value: panel.ratio,
+                 emphasis: .hero, spokenValue: panel.spokenRatio)
     }
 
     /// The band as one word, coloured by status and nothing else (§2.4). The spike
@@ -79,7 +94,9 @@ struct LoadCard: View {
                     .foregroundStyle(Palette.accent.opacity(0.75))
             }
             .chartXAxis {
-                AxisMarks(values: .automatic(desiredCount: 3)) { AxisValueLabel() }
+                if !typeSize.isAccessibilitySize {
+                    AxisMarks(values: .automatic(desiredCount: 3)) { AxisValueLabel() }
+                }
             }
             .chartYAxis(.hidden)
             .frame(height: chartHeight)

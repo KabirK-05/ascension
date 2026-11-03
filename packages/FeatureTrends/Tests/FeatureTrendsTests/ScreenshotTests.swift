@@ -45,28 +45,42 @@ struct ScreenshotTests {
                 snapshot, review: WeeklyReview.isDue(snapshot.clock.today) ? text : nil)
 
             for scheme in [ColorScheme.dark, .light] {
-                let image = try render(presentation, scheme: scheme)
                 let suffix = scheme == .dark ? "dark" : "light"
-                guard let data = image.pngData() else {
-                    Issue.record("could not encode \(name)-\(suffix)")
-                    return
-                }
-                try data.write(to: directory.appendingPathComponent("\(name)-\(suffix).png"))
+                try write(render(presentation, scheme: scheme),
+                          to: directory, named: "\(name)-\(suffix)")
             }
         }
+
+        // The largest accessibility size, where the sparklines give up their width to the
+        // numbers and every row stacks (§4.3).
+        let largest = TrendsPresenter.present(TrendsFixtures.stalled)
+        // At 1x: the stack is several times taller at this size, and a 3x render of it
+        // is past what PNG will encode.
+        try write(render(largest, scheme: .dark, typeSize: .accessibility5, scale: 1),
+                  to: directory, named: "ax-max")
     }
 
-    /// An iPhone-width render of the card stack at the default type size.
+    private func write(_ image: UIImage, to directory: URL, named name: String) throws {
+        guard let data = image.pngData() else {
+            throw ScreenshotError.encodeFailed(name)
+        }
+        try data.write(to: directory.appendingPathComponent("\(name).png"))
+    }
+
+    /// An iPhone-width render of the card stack.
     private func render(_ presentation: TrendsPresentation,
-                        scheme: ColorScheme) throws -> UIImage {
+                        scheme: ColorScheme,
+                        typeSize: DynamicTypeSize = .large,
+                        scale: CGFloat = 3) throws -> UIImage {
         let view = TrendsCards(presentation: presentation, acceptState: .idle, accept: { _ in })
             .padding(.top, Spacing.regular)
             .frame(width: 393)
             .background(Palette.background)
             .environment(\.colorScheme, scheme)
+            .dynamicTypeSize(typeSize)
 
         let renderer = ImageRenderer(content: view)
-        renderer.scale = 3
+        renderer.scale = scale
         renderer.proposedSize = ProposedViewSize(width: 393, height: nil)
         guard let image = renderer.uiImage else {
             throw ScreenshotError.renderFailed
@@ -76,5 +90,6 @@ struct ScreenshotTests {
 
     enum ScreenshotError: Error {
         case renderFailed
+        case encodeFailed(String)
     }
 }

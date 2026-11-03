@@ -16,6 +16,8 @@ import SwiftUI
 struct WeightCard: View {
     let panel: WeightPanel
 
+    @Environment(\.dynamicTypeSize) private var typeSize
+
     @ScaledMetric(relativeTo: .body) private var chartHeight: CGFloat = 148
     @ScaledMetric(relativeTo: .body) private var pointSize: CGFloat = 14
 
@@ -53,13 +55,21 @@ struct WeightCard: View {
                 }
             }
             .chartYScale(domain: .automatic(includesZero: false))
+            // At an accessibility size the axis labels are wider than the space between
+            // them and collide into something unreadable. The chart becomes a shape, and
+            // the numbers above and below it carry the data — which is §4.3's bargain:
+            // Dynamic Type wins, and VoiceOver reads `chartDescription` either way.
             .chartXAxis {
-                AxisMarks(values: .automatic(desiredCount: 3)) { AxisValueLabel() }
+                if !typeSize.isAccessibilitySize {
+                    AxisMarks(values: .automatic(desiredCount: 3)) { AxisValueLabel() }
+                }
             }
             .chartYAxis {
-                AxisMarks(position: .trailing, values: .automatic(desiredCount: 3)) {
-                    AxisGridLine().foregroundStyle(Palette.separator.opacity(0.5))
-                    AxisValueLabel()
+                if !typeSize.isAccessibilitySize {
+                    AxisMarks(position: .trailing, values: .automatic(desiredCount: 3)) {
+                        AxisGridLine().foregroundStyle(Palette.separator.opacity(0.5))
+                        AxisValueLabel()
+                    }
                 }
             }
             .frame(height: chartHeight)
