@@ -20,7 +20,8 @@ This app never records a workout. The Watch does that.
 
 ## Start here
 
-- [`docs/PLAN.md`](docs/PLAN.md) — the 18 tickets and their dependency waves
+- [`docs/GOING_LIVE.md`](docs/GOING_LIVE.md) — **deploy, install and connect Muse, step by step**
+- [`docs/PLAN.md`](docs/PLAN.md) — the tickets and their dependency waves
 - [`docs/TECH_STACK.md`](docs/TECH_STACK.md) — stack, module graph, the two-way sync architecture
 - [`docs/DESIGN_RULES.md`](docs/DESIGN_RULES.md) — **read before any UI work**
 - [`docs/MUSE_CAPABILITIES.md`](docs/MUSE_CAPABILITIES.md) — the MCP tool contract
