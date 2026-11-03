@@ -14,7 +14,7 @@ Everything blocks on this, so it is not parallelised.
 
 **ASC-1 — Repo, tooling, scaffold, contracts**
 - `git init`; `main` + `staging`; public repo `KabirK-05/ascension`; rulesets.
-- Tuist project, the 9 SPM packages as empty compiling targets, 4-tab shell.
+- Tuist project, the 10 SPM packages as empty compiling targets, 4-tab shell.
 - SwiftLint, swift-format, CI workflows, PR template, `.gitignore`.
 - `docs/`: this plan, TECH_STACK, DESIGN_RULES, DELIVERY, MUSE_CAPABILITIES,
   **EXPORT_SCHEMA.md v1** (the rollup + document contract — this is what unblocks the

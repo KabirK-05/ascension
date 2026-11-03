@@ -26,18 +26,38 @@ This app never records a workout. The Watch does that.
 - [`docs/MUSE_CAPABILITIES.md`](docs/MUSE_CAPABILITIES.md) — the MCP tool contract
 - [`docs/DELIVERY.md`](docs/DELIVERY.md) — branches, CI, definition of done
 
+## Setup
+
+Requires Xcode 26+ (iOS 26 SDK), Tuist, SwiftLint, node 20+.
+
+Tuist has no Homebrew bottle on macOS 26, so `brew install tuist` compiles from
+source and takes a while. The quicker route is mise:
+
+```
+curl https://mise.run | sh && mise use -g tuist swiftlint
+```
+
+Or let Homebrew build them in the background:
+
+```
+brew install tuist swiftlint
+```
+
 ## Build
 
 ```
 tuist generate      # the .xcodeproj is generated and gitignored
 ```
 
-## Setup
+Per-module work needs no Tuist at all — each package builds standalone:
 
-Requires Xcode 26+ (iOS 26 SDK), Tuist, SwiftLint, node 20+.
+```
+swift test --package-path packages/AscensionEngines
+```
 
-No health data lives in this repo. API keys live in Keychain (app) and
-`wrangler secret` (edge) — never in version control.
+Device builds need your Apple Developer team set in Xcode's signing tab; the
+simulator needs nothing. No health data lives in this repo, and API keys live in
+Keychain (app) and `wrangler secret` (edge) — never in version control.
 
 ## Third-party data
 

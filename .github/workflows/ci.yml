@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [staging, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # `main` holds production code and accepts PRs from `staging` only.
+  # GitHub rulesets cannot express "restrict the source branch", so this job is
+  # the enforcement. See docs/DELIVERY.md.
+  guard-release:
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Only staging may merge into main
+        run: |
+          if [ "${{ github.head_ref }}" != "staging" ]; then
+            echo "::error::main accepts PRs from staging only; this PR is from '${{ github.head_ref }}'."
+            echo "Cut your branch from staging and target staging. See docs/DELIVERY.md."
+            exit 1
+          fi
+          echo "Release PR from staging — allowed."
+
+  lint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install SwiftLint
+        run: brew install swiftlint
+      - name: SwiftLint
+        run: swiftlint lint --strict --reporter github-actions-logging
+
+  # Pure-logic packages test on macOS with no simulator, so this is the fast,
+  # cheap gate. The engines are the product (spec §8) and live here.
+  packages:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [AscensionCore, AscensionEngines, ExportKit, SyncClient]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+      - name: Test ${{ matrix.package }}
+        run: swift test --package-path packages/${{ matrix.package }}
+
+  # iOS-only packages: build for the simulator. No tests here yet; UI tests land
+  # with the feature tickets.
+  ios-packages:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [DesignSystem, HealthBridge, FeatureToday, FeatureTrain, FeatureEat, FeatureTrends]
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+      - name: Build ${{ matrix.package }} for iOS
+        working-directory: packages/${{ matrix.package }}
+        run: |
+          xcodebuild -scheme ${{ matrix.package }} \
+            -destination 'generic/platform=iOS Simulator' \
+            -quiet build
+
+  app:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select newest Xcode
+        run: |
+          sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+          xcodebuild -version
+      - name: Install Tuist
+        run: brew install tuist
+      - name: Generate project
+        run: tuist generate --no-open
+      - name: Build app
+        run: |
+          xcodebuild -workspace Ascension.xcworkspace -scheme Ascension \
+            -destination 'generic/platform=iOS Simulator' \
+            -quiet build

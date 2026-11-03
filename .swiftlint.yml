@@ -1,0 +1,48 @@
+# Ascension — lint rules. See docs/DELIVERY.md.
+included:
+  - app/Sources
+  - packages
+
+excluded:
+  - "**/.build"
+  - "**/Derived"
+
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+  - redundant_nil_coalescing
+  - toggle_bool
+  - unneeded_parentheses_in_closure_argument
+  - sorted_imports
+  - closure_spacing
+  - first_where
+  - last_where
+  - contains_over_filter_count
+
+disabled_rules:
+  - todo
+
+line_length:
+  warning: 110
+  error: 140
+  ignores_comments: true
+
+type_body_length:
+  warning: 300
+  error: 400
+
+file_length:
+  warning: 450
+  error: 600
+
+function_body_length:
+  warning: 60
+  error: 100
+
+identifier_name:
+  min_length: 2
+  excluded: [id, up, to, x, y, z]
+
+# The engines are the product (spec §8) — force unwrapping is an error there.
+force_unwrapping:
+  severity: error
