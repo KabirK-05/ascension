@@ -128,6 +128,18 @@ it ships in does not compile. Also extends the opt-in simulator test list ASC-9 
 to CI — `FeatureEat`'s and `FeatureTrain`'s tests were not running anywhere.
 Origin: an ASC-1 scaffolding gap.
 
+**ASC-20 — Composition root**
+Every feature package was built to receive HealthKit, networking and write-back through
+protocols injected by the app shell — which is what keeps them building and testing with
+no device, since CI has no HealthKit. No ticket owned that injection, so after twelve
+merges `app/Sources/RootTabView.swift` was still the ASC-1 scaffold and nothing was
+connected to anything. Adds the composition root, the app lifecycle (HealthKit
+authorization and observers, the two background tasks, APNs, the nightly export), the
+Send-to-Watch link both Today and Train leave to the shell, and a rollup ledger — the
+store of `DayRollup`s that `AscensionSchema` has no entity for and that the grid, the
+export and the Worker push all read.
+Origin: a gap in this plan, not in any ticket's execution.
+
 ---
 
 ## Orchestration
