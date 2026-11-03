@@ -11,6 +11,7 @@ public struct TrainScreen: View {
         NavigationStack {
             Color.clear
                 .navigationTitle("Train")
+                .toolbar { ExerciseLibraryToolbarItem() }
         }
     }
 }
