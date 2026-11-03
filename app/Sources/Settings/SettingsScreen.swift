@@ -133,7 +133,7 @@ struct SettingRow: View {
 /// Dates on this screen are relative, because the question is "how long ago", and an em
 /// dash where there is no answer rather than a sentence saying there is none.
 enum Stamp {
-    static func relative(_ date: Date?, now: Date = Date()) -> String {
+    static func relative(_ date: Date?) -> String {
         guard let date else { return "—" }
         return date.formatted(.relative(presentation: .numeric))
     }
