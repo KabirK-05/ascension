@@ -39,3 +39,21 @@ export async function bearerMatches(
 ): Promise<boolean> {
   return secretMatches(/^Bearer (.+)$/.exec(header ?? "")?.[1], expected);
 }
+
+/**
+ * Stream B's device half, like `POST /v1/ingest`, authenticates with the device
+ * token in the phone's Keychain, never with an OAuth grant
+ * (docs/TECH_STACK.md §2.6). Returns the 401 to send, or `null` when the token
+ * is good.
+ */
+export async function requireDeviceToken(
+  request: Request,
+  expected: string | undefined,
+): Promise<Response | null> {
+  if (await bearerMatches(request.headers.get("Authorization"), expected)) {
+    return null;
+  }
+  return problem(401, "unauthorized", {
+    hint: "present the device token as `Authorization: Bearer <token>`",
+  });
+}

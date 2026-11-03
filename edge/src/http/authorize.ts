@@ -46,6 +46,18 @@ function html(body: string, status = 200): Response {
   });
 }
 
+/**
+ * What this grant actually permits, in the owner's words rather than in scope
+ * slugs. `mcp:write` lets a client change targets, the program and the flags and
+ * queue logs for the phone, so the page has to say so before the password is
+ * typed -- the scope list alone is not consent anyone can read.
+ */
+function permission(scopes: string[]): string {
+  return scopes.includes("mcp:write")
+    ? "read <strong>and change</strong> your Ascension data"
+    : "read your Ascension data";
+}
+
 function consentPage(
   details: ConsentDescription,
   handle: string,
@@ -53,7 +65,12 @@ function consentPage(
 ): string {
   const name = escape(details.clientName);
   return `<title>Authorize ${name}</title>${style}
-<h1>Allow ${name} to read your Ascension data?</h1>
+<h1>Allow ${name} to ${permission(details.scope)}?</h1>
+${
+  details.scope.includes("mcp:write")
+    ? `<p class="warn">It will be able to set your calorie and macro targets, rewrite your training program, change feature flags, and queue meals, water, check-ins and top sets for your phone to write to Apple Health. It cannot delete anything, and every change is listed in Settings → Changes.</p>`
+    : ""
+}
 <dl>
   <dt>Publisher</dt>
   <dd>${
@@ -93,7 +110,7 @@ ${
 /** A retry that does not consume the handle, so a typo is not a dead end. */
 function retryPage(handle: string, scope: string[], error: string): string {
   return `<title>Authorize</title>${style}
-<h1>Allow access to your Ascension data?</h1>
+<h1>Allow a client to ${permission(scope)}?</h1>
 <form method="post">
   <input type="hidden" name="handle" value="${escape(handle)}">
   ${scope

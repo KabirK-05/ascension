@@ -1,24 +1,35 @@
 /**
- * Ascension — the cloud bridge (ASC-4).
+ * Ascension — the cloud bridge (ASC-4, ASC-13).
  *
  * Two streams, in opposite directions (docs/TECH_STACK.md §2.3):
  *   Stream A  observed  phone -> `POST /v1/ingest` -> `rollups`      one-way
  *   Stream B  intent    `documents` + `mutations` <-> phone          two-way
  *
- * This ticket owns Stream A's ingest endpoint and the Tier-3 read tools on
- * `/mcp`. Stream B's write tools and endpoints are ASC-13.
+ * Stream A is `POST /v1/ingest` and the Tier-3 read tools. Stream B is the
+ * Tier-1 and Tier-2 write tools on `/mcp`, plus the four endpoints the phone
+ * drives: the mutation drain and its ack, the documents it also edits, and where
+ * it registers for the silent push that wakes it (ASC-13).
  */
 import OAuthProvider, {
   type OAuthHelpers,
 } from "@cloudflare/workers-oauth-provider";
 import type { Env } from "./env";
 import { handleAuthorize } from "./http/authorize";
+import { handlePushToken } from "./http/device";
+import { handleDocument } from "./http/documents";
 import { handleIngest } from "./http/ingest";
+import { handleMutationAck, handleMutations } from "./http/mutations";
+import { handleSuggestions } from "./http/suggestions";
 import { json, problem } from "./http/respond";
 import { mcpHandler } from "./mcp/server";
 
-/** Read-only today. ASC-13 adds `mcp:write`, which clients obtain by step-up. */
-const SCOPES = ["mcp:read", "offline_access"];
+/**
+ * `mcp:write` is what the Tier-1 and Tier-2 tools need. It is not in
+ * `requiredScopes`: a client may hold `mcp:read` alone and still read, and the
+ * consent page lists whatever it asked for, so granting write is a decision made
+ * once, in the open, with the password.
+ */
+const SCOPES = ["mcp:read", "mcp:write", "offline_access"];
 
 type DefaultEnv = Env & { OAUTH_PROVIDER: OAuthHelpers };
 
@@ -37,8 +48,30 @@ const defaultHandler: ExportedHandler<DefaultEnv> = {
     if (pathname === "/v1/ingest") {
       return handleIngest(request, env);
     }
+    if (pathname === "/v1/mutations") {
+      return handleMutations(request, env);
+    }
+    if (pathname === "/v1/mutations/ack") {
+      return handleMutationAck(request, env);
+    }
+    if (pathname === "/v1/suggestions") {
+      return handleSuggestions(request, env);
+    }
+    if (pathname === "/v1/device/push-token") {
+      return handlePushToken(request, env);
+    }
+    const document = /^\/v1\/documents\/([^/]+)$/.exec(pathname);
+    if (document) {
+      return handleDocument(request, env, decodeURIComponent(document[1] as string));
+    }
     if (pathname === "/" || pathname === "/health") {
-      return json({ service: "ascension-edge", mcp: "/mcp", ingest: "/v1/ingest" });
+      return json({
+        service: "ascension-edge",
+        mcp: "/mcp",
+        ingest: "/v1/ingest",
+        mutations: "/v1/mutations",
+        documents: "/v1/documents/<key>",
+      });
     }
     return problem(404, "not_found");
   },
