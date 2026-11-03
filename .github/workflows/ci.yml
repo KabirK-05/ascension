@@ -50,8 +50,9 @@ jobs:
       - name: Test ${{ matrix.package }}
         run: swift test --package-path packages/${{ matrix.package }}
 
-  # iOS-only packages: build for the simulator. No tests here yet; UI tests land
-  # with the feature tickets.
+  # iOS-only packages: build for the simulator, and test the ones that have tests.
+  # A package opts in by adding itself to the list in the test step below; it needs a
+  # booted simulator, so it stays opt-in rather than running for every scaffold.
   ios-packages:
     runs-on: macos-latest
     strategy:
@@ -68,6 +69,14 @@ jobs:
           xcodebuild -scheme ${{ matrix.package }} \
             -destination 'generic/platform=iOS Simulator' \
             -quiet build
+
+      - name: Test ${{ matrix.package }} on the simulator
+        if: contains(fromJSON('["FeatureToday"]'), matrix.package)
+        working-directory: packages/${{ matrix.package }}
+        run: |
+          xcodebuild -scheme ${{ matrix.package }} \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 17 Pro' \
+            -quiet test
 
   app:
     runs-on: macos-latest
