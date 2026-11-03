@@ -6,6 +6,9 @@ included:
 excluded:
   - "**/.build"
   - "**/Derived"
+  # Manifests are boilerplate whose natural style fights `trailing_comma`, and
+  # every ticket that adds a dependency would otherwise trip the linter.
+  - "**/Package.swift"
 
 opt_in_rules:
   - empty_count

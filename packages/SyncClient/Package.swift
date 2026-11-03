@@ -5,9 +5,14 @@ let package = Package(
     name: "SyncClient",
     platforms: [.iOS(.v26), .macOS(.v15)],
     products: [.library(name: "SyncClient", targets: ["SyncClient"])],
-    dependencies: [.package(path: "../AscensionCore")],
+    dependencies: [
+        .package(path: "../AscensionCore")
+    ],
     targets: [
-        .target(name: "SyncClient", dependencies: ["AscensionCore"]),
-        .testTarget(name: "SyncClientTests", dependencies: ["SyncClient"]),
+        .target(
+            name: "SyncClient",
+            dependencies: ["AscensionCore"]
+        ),
+        .testTarget(name: "SyncClientTests", dependencies: ["SyncClient"])
     ]
 )

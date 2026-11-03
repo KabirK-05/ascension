@@ -1,4 +1,5 @@
 import Testing
+
 @testable import DesignSystem
 
 @Test("module is pinned to the current schema version")

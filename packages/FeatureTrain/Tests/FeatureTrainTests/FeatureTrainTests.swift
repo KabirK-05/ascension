@@ -1,4 +1,5 @@
 import Testing
+
 @testable import FeatureTrain
 
 @Test("module is pinned to the current schema version")

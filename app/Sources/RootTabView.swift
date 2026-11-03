@@ -1,8 +1,8 @@
-import SwiftUI
 import FeatureEat
 import FeatureToday
 import FeatureTrain
 import FeatureTrends
+import SwiftUI
 
 /// The four tabs from spec §4. Settings lives inside Today, not as a fifth tab.
 struct RootTabView: View {
