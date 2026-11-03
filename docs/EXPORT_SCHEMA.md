@@ -185,7 +185,12 @@ the offending pair named — so Muse cannot author an invalid week.
 ```
 
 `museWriteMode` is `apply` | `propose`. Read at runtime by both the app and the
-Worker, so launch-phase behaviour is a flag flip, never a release.
+Worker, so launch-phase behaviour is a flag flip, never a release. In `propose` the
+Worker records a Tier-1 write as a pending suggestion (§3) and changes nothing.
+
+`museWritesEnabled: false` makes the Worker refuse every write tool, including a
+`set_flag` that would turn it back on — that switch is the app's, so a client cannot
+restore its own authority.
 
 ---
 
@@ -224,6 +229,69 @@ mutations are applied by the Worker and marked immediately.
 | `trigger_export` | 2 | `{}` |
 
 `meal` is `breakfast` | `lunch` | `dinner` | `snack`.
+
+The kinds are a closed set in code as well as here: `edge/src/contract.ts` exports
+`mutationKinds` in this order, and `AscensionCore.MutationKind` mirrors it.
+
+### `FoodItem` — the `set_staples` payload shape
+
+Named by `set_staples` above and not declared anywhere else, so it is declared here.
+Macros are **per 100 g** for every food, so a barcode, a USDA entry and a hand-built
+staple all scale the same way (spec §7). `servingGrams` is what a one-tap staple logs,
+and is `null` for a food that only makes sense weighed.
+
+```json
+{
+  "id": "staple_chicken_rice_veg",
+  "name": "Chicken breast, rice, vegetables",
+  "brand": null,
+  "kcalPer100g": 118.2,
+  "proteinPer100g": 10.0,
+  "fatPer100g": 2.5,
+  "carbsPer100g": 13.8,
+  "source": "staple",
+  "barcode": null,
+  "servingGrams": 550,
+  "servingName": "1 plate"
+}
+```
+
+`source` is the closed set `staple` | `OFF` | `USDA` | `custom` — spec §7's spelling, so
+`OFF` and `USDA` are uppercase. `brand`, `barcode`, `servingGrams` and `servingName` are
+written as explicit `null` by the device and may be omitted by Muse; both are accepted.
+
+A `log_meal` item is a different shape — absolute macros for the portion eaten, not per
+100 g — because a logged meal records what was weighed, not what the food is.
+
+### Suggestions — what a one-tap accept acts on
+
+An open suggestion is either the §F6 calorie auto-adjust the device raised, or a Tier-1
+write Muse asked for while `flags.museWriteMode` was `propose`. Both live in the Worker's
+`suggestions` table, and `accept_suggestion` takes an `id` from either.
+
+```json
+{
+  "id": "sug_weekly_1",
+  "createdAt": "2026-11-03T08:00:00-05:00",
+  "source": "device",
+  "kind": "calorieAdjust",
+  "text": "Down 0.6 kg a week — hold calories at 2,050",
+  "action": { "kind": "set_targets", "payload": { "kcal": 2050 } },
+  "status": "pending",
+  "decidedAt": null
+}
+```
+
+`source` is `muse` | `device`; `status` is `pending` | `accepted`. `kind` is the
+suggestion's own label and is deliberately open — §4's `suggestions[]` rows pin no set.
+
+`action` is what accepting *does*, and it is `null` for a suggestion only the phone can
+apply: `accept_suggestion` then queues an `accept_suggestion` mutation instead of writing
+a document, because the phone raised it and knows the id. Nothing is ever deleted here —
+a decided suggestion keeps its row, which is the record of what was accepted and when.
+
+**In `propose` mode a Tier-1 write records a suggestion and appends no mutation.** A
+proposal is not yet a change, and the mutations table is the log of changes.
 
 **Tier-2 tools must return `pending_device_apply`.** An assistant may never report a
 HealthKit write as complete before the device has applied it.

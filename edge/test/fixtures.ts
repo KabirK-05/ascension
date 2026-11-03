@@ -7,7 +7,13 @@
  * computes them, because the Worker must never recompute them: the fixture is
  * standing in for the phone.
  */
-import type { DayRollup } from "../src/contract";
+import type {
+  DayRollup,
+  FlagsBody,
+  FoodItem,
+  GoalSettingsBody,
+  ProgramBody,
+} from "../src/contract";
 import { addDays, isoWeekday } from "../src/dates";
 import documentedExample from "./export-schema-example.json" with { type: "json" };
 
@@ -221,3 +227,144 @@ export function seedSeries(days = 126): DayRollup[] {
   });
   return [...generated, DOCUMENTED_EXAMPLE];
 }
+
+/* -------------------------------------------------------------- documents -- */
+
+/** The `goalSettings` body migration 0002 seeds, verbatim. */
+export const GOAL_SETTINGS: GoalSettingsBody = {
+  targets: {
+    kcal: 2200,
+    proteinG: 150,
+    proteinMinG: 140,
+    fatMinG: 60,
+    fatMaxG: 70,
+    steps: 10000,
+    sleepMinutes: 450,
+  },
+  body: { goalWeightKg: 68, heightCm: 170 },
+  programStartDate: LAST_DAY,
+  deloadEveryWeeks: 5,
+  timezone: TIMEZONE,
+  dietaryRules: {
+    // Chicken and eggs are the only meats (spec §2). Not negotiable, and this
+    // fixture is the shape a legal write has.
+    excludedMeats: ["pork", "beef"],
+    allowedDairy: ["milk_bournvita"],
+    noLiquidCalories: true,
+  },
+};
+
+/** The `flags` body migration 0002 seeds, verbatim. */
+export const FLAGS: FlagsBody = {
+  remoteBridgeEnabled: true,
+  museWritesEnabled: true,
+  museWriteMode: "apply",
+  rawDetailSyncEnabled: false,
+  foundationModelsEnabled: true,
+};
+
+type SessionExercises = NonNullable<ProgramBody["sessions"]["upperA"]>["exercises"];
+
+function exercises(ids: string[]): SessionExercises {
+  return ids.map((exerciseId, index) => ({
+    order: index + 1,
+    exerciseId,
+    sets: 3,
+    repsLow: 10,
+    repsHigh: 12,
+    finisher: false,
+  }));
+}
+
+/**
+ * The four-day Upper/Lower split of docs/EXPORT_SCHEMA.md §2.2 — and a legal
+ * week: no two non-rest days share a muscle region, Sunday → Monday included.
+ *
+ * `program` is deliberately not seeded by a migration, so a test that needs one
+ * writes this.
+ */
+export const PROGRAM: ProgramBody = {
+  name: "Upper/Lower 4-day",
+  days: [
+    { weekday: 1, kind: "upperA" },
+    { weekday: 2, kind: "lowerA" },
+    { weekday: 3, kind: "rest" },
+    { weekday: 4, kind: "upperB" },
+    { weekday: 5, kind: "lowerB" },
+    { weekday: 6, kind: "rest" },
+    { weekday: 7, kind: "rest" },
+  ],
+  sessions: {
+    upperA: { name: "Upper A", exercises: exercises(EXERCISES.upperA ?? []) },
+    lowerA: { name: "Lower A", exercises: exercises(EXERCISES.lowerA ?? []) },
+    upperB: { name: "Upper B", exercises: exercises(EXERCISES.upperB ?? []) },
+    lowerB: { name: "Lower B", exercises: exercises(EXERCISES.lowerB ?? []) },
+  },
+  progression: { rule: "rir2", incrementKg: 2.5 },
+  finisher: { kind: "inclineWalk", minutes: 15, inclinePct: 9, daysPerWeek: 2 },
+  deload: { active: false, loadFactor: 0.6, volumeFactor: 0.5 },
+};
+
+/** A week shaped like the program, with `days` replaced. */
+export function programWith(days: ProgramBody["days"]): ProgramBody {
+  const planned = new Set(days.map((day) => day.kind).filter((kind) => kind !== "rest"));
+  const sessions: ProgramBody["sessions"] = {};
+  for (const kind of planned) {
+    sessions[kind] =
+      PROGRAM.sessions[kind] ?? { name: kind, exercises: exercises(["Goblet_Squat"]) };
+  }
+  return { ...PROGRAM, days, sessions };
+}
+
+/**
+ * Four staples, invented. Chicken and eggs only, and `milk_bournvita` is the one
+ * accepted dairy drink (spec §2).
+ */
+export const STAPLES: FoodItem[] = [
+  {
+    id: "staple_chicken_rice_veg",
+    name: "Chicken breast, rice, vegetables",
+    brand: null,
+    kcalPer100g: 118.2,
+    proteinPer100g: 10,
+    fatPer100g: 2.5,
+    carbsPer100g: 13.8,
+    source: "staple",
+    barcode: null,
+    servingGrams: 550,
+    servingName: "1 plate",
+  },
+  {
+    id: "staple_eggs_three",
+    name: "Three eggs, scrambled",
+    kcalPer100g: 148,
+    proteinPer100g: 12.6,
+    fatPer100g: 10.6,
+    carbsPer100g: 1.1,
+    source: "staple",
+    servingGrams: 165,
+    servingName: "3 eggs",
+  },
+  {
+    id: "staple_greek_yoghurt",
+    name: "Greek yoghurt",
+    kcalPer100g: 59,
+    proteinPer100g: 10,
+    fatPer100g: 0.4,
+    carbsPer100g: 3.6,
+    source: "staple",
+    servingGrams: 200,
+    servingName: "1 tub",
+  },
+  {
+    id: "staple_milk_bournvita",
+    name: "Milk with Bournvita",
+    kcalPer100g: 72,
+    proteinPer100g: 3.3,
+    fatPer100g: 1.8,
+    carbsPer100g: 11,
+    source: "staple",
+    servingGrams: 250,
+    servingName: "1 glass",
+  },
+];
