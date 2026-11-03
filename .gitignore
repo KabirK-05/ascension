@@ -1,0 +1,50 @@
+# Tuist — the project file is GENERATED, never committed (docs/TECH_STACK.md §1.1)
+*.xcodeproj
+*.xcworkspace
+Derived/
+.tuist-derived/
+graph.png
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+.swiftpm/
+Packages/
+.build/
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Secrets — never commit (docs/TECH_STACK.md §2.6)
+*.p8
+*.p12
+*.mobileprovision
+.env
+.env.*
+!.env.example
+secrets.json
+*.xcconfig.local
+
+# Node / Cloudflare
+node_modules/
+.wrangler/
+dist/
+.dev.vars
+*.tsbuildinfo
+
+# Exports — real health data must never land in git
+exports/
+*.export.json
+daily-log.md
+summary-latest.md
