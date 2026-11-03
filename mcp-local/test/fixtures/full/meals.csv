@@ -1,0 +1,92 @@
+date,meal,foodItemId,name,grams,kcal,proteinG,fatG,carbsG
+2026-11-03,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-03,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-03,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-03,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-04,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-04,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-04,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-05,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-05,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-05,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-06,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-06,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-06,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-06,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-07,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-07,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-07,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-08,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-08,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-08,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-09,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-09,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-09,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-09,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-10,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-10,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-10,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-11,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-11,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-11,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-12,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-12,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-12,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-12,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-13,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-13,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-13,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-14,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-14,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-14,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-15,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-15,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-15,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-15,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-16,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-16,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-16,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-17,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-17,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-17,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-18,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-18,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-18,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-18,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-19,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-19,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-19,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-20,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-20,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-20,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-21,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-21,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-21,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-21,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-22,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-22,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-22,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-24,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-24,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-24,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-24,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-25,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-25,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-25,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-26,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-26,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-26,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-27,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-27,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-27,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-27,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5
+2026-11-28,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-28,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-28,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-29,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-29,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-29,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-30,breakfast,staple_omelette_toast,"3-egg omelette, veggies, 2 toast",315,430,23.9,21.1,35.9
+2026-11-30,lunch,staple_chicken_breast_rice,"Chicken breast, rice, vegetables",550,650.1,55,13.8,75.9
+2026-11-30,dinner,staple_chicken_thighs_potatoes,"Chicken thighs, potatoes, salad",600,700.2,49.8,28.8,60
+2026-11-30,snack,staple_milk_bournvita,Milk with Bournvita,250,231.5,9.3,7.5,32.5

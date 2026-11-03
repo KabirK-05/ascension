@@ -1,0 +1,42 @@
+name: MCP local
+
+on:
+  pull_request:
+    paths:
+      - 'mcp-local/**'
+      # The parity tests diff `mcp-local/src` against the cloud server's contract and
+      # tool bodies, so a change in `edge/` can break this job without touching it.
+      - 'edge/src/contract.ts'
+      - 'edge/src/dates.ts'
+      - 'edge/src/mcp/tools.ts'
+      - '.github/workflows/mcp-local.yml'
+  push:
+    branches: [staging, main]
+    paths:
+      - 'mcp-local/**'
+      - 'edge/src/contract.ts'
+      - 'edge/src/dates.ts'
+      - 'edge/src/mcp/tools.ts'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mcp-local:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp-local
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mcp-local/package-lock.json
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Test
+        run: npm test
