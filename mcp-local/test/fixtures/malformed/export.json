@@ -1,0 +1,704 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-11-30T06:00:00-05:00",
+  "documents": {
+    "flags": {
+      "foundationModelsEnabled": true,
+      "museWriteMode": "propose",
+      "museWritesEnabled": false,
+      "rawDetailSyncEnabled": false,
+      "remoteBridgeEnabled": false,
+      "version": 1
+    },
+    "goalSettings": {
+      "body": {
+        "goalWeightKg": 68,
+        "heightCm": 170
+      },
+      "deloadEveryWeeks": 5,
+      "dietaryRules": {
+        "allowedDairy": [
+          "milk_bournvita"
+        ],
+        "excludedMeats": [
+          "pork",
+          "beef"
+        ],
+        "noLiquidCalories": true
+      },
+      "programStartDate": "2026-11-03",
+      "targets": {
+        "fatMaxG": 70,
+        "fatMinG": 60,
+        "kcal": 2200,
+        "proteinG": 150,
+        "proteinMinG": 140,
+        "sleepMinutes": 450,
+        "steps": 10000
+      },
+      "timezone": "America/Toronto",
+      "updatedAt": "2026-11-03T00:00:00-05:00",
+      "updatedBy": "device",
+      "version": 1
+    },
+    "program": {
+      "days": [
+        {
+          "kind": "upperA",
+          "weekday": 1
+        },
+        {
+          "kind": "lowerA",
+          "weekday": 2
+        },
+        {
+          "kind": "rest",
+          "weekday": 3
+        },
+        {
+          "kind": "upperB",
+          "weekday": 4
+        },
+        {
+          "kind": "lowerB",
+          "weekday": 5
+        },
+        {
+          "kind": "rest",
+          "weekday": 6
+        },
+        {
+          "kind": "rest",
+          "weekday": 7
+        }
+      ],
+      "deload": {
+        "active": false,
+        "loadFactor": 0.6,
+        "volumeFactor": 0.5
+      },
+      "finisher": {
+        "daysPerWeek": 2,
+        "inclinePct": 9,
+        "kind": "inclineWalk",
+        "minutes": 15
+      },
+      "name": "Upper/Lower 4-day",
+      "progression": {
+        "incrementKg": 2.5,
+        "rule": "rir2"
+      },
+      "sessions": {
+        "lowerA": {
+          "exercises": [
+            {
+              "exerciseId": "Goblet_Squat",
+              "finisher": false,
+              "order": 1,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "DB_Romanian_Deadlift",
+              "finisher": false,
+              "order": 2,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Walking_Lunge",
+              "finisher": false,
+              "order": 3,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Plank",
+              "finisher": false,
+              "order": 4,
+              "repsHigh": 1,
+              "repsLow": 1,
+              "sets": 3
+            }
+          ],
+          "name": "Lower A"
+        },
+        "lowerB": {
+          "exercises": [
+            {
+              "exerciseId": "Leg_Press",
+              "finisher": false,
+              "order": 1,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Hip_Thrust",
+              "finisher": false,
+              "order": 2,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Lying_Leg_Curl",
+              "finisher": false,
+              "order": 3,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Hanging_Leg_Raise",
+              "finisher": false,
+              "order": 4,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Incline_Treadmill_Walk",
+              "finisher": true,
+              "order": 5,
+              "repsHigh": 1,
+              "repsLow": 1,
+              "sets": 1
+            }
+          ],
+          "name": "Lower B"
+        },
+        "upperA": {
+          "exercises": [
+            {
+              "exerciseId": "DB_Bench_Press",
+              "finisher": false,
+              "order": 1,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Lat_Pulldown",
+              "finisher": false,
+              "order": 2,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Overhead_DB_Press",
+              "finisher": false,
+              "order": 3,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Seated_Cable_Row",
+              "finisher": false,
+              "order": 4,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Incline_Treadmill_Walk",
+              "finisher": true,
+              "order": 5,
+              "repsHigh": 1,
+              "repsLow": 1,
+              "sets": 1
+            }
+          ],
+          "name": "Upper A"
+        },
+        "upperB": {
+          "exercises": [
+            {
+              "exerciseId": "Incline_DB_Press",
+              "finisher": false,
+              "order": 1,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Bent_Over_DB_Row",
+              "finisher": false,
+              "order": 2,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Close_Grip_Lat_Pulldown",
+              "finisher": false,
+              "order": 3,
+              "repsHigh": 12,
+              "repsLow": 10,
+              "sets": 3
+            },
+            {
+              "exerciseId": "Farmers_Carry",
+              "finisher": false,
+              "order": 4,
+              "repsHigh": 1,
+              "repsLow": 1,
+              "sets": 3
+            }
+          ],
+          "name": "Upper B"
+        }
+      },
+      "updatedAt": "2026-11-03T00:00:00-05:00",
+      "updatedBy": "device",
+      "version": 1
+    }
+  },
+  "rollups": [
+    {
+      "activity": {
+        "activeEnergyKcal": 520,
+        "exerciseMinutes": 52,
+        "standHours": 9,
+        "steps": 8600
+      },
+      "body": {
+        "bodyFatPct": null,
+        "rateKgPerWeek": -0.4,
+        "waistCm": null,
+        "weightAvg7Kg": 74.5,
+        "weightKg": 74.4
+      },
+      "checkIn": {
+        "energy": 3,
+        "soreness": {
+          "arms": "none",
+          "back": "none",
+          "chest": "none",
+          "core": "none",
+          "glutes": "none",
+          "hamstrings": "sore",
+          "quads": "mild",
+          "shoulders": "none"
+        }
+      },
+      "date": "2026-11-03",
+      "nutrition": {
+        "carbsG": 230,
+        "fatG": 61,
+        "kcal": 2050,
+        "proteinG": 132,
+        "waterMl": 2000
+      },
+      "readiness": {
+        "reasons": [
+          "slept 6h50",
+          "HRV near baseline"
+        ],
+        "score": 68,
+        "verdict": "swapSession"
+      },
+      "sleep": {
+        "asleepMinutes": 410,
+        "consistencySd7Minutes": 28,
+        "inBedMinutes": 440
+      },
+      "timezone": "America/Toronto",
+      "training": {
+        "loadAu": 101.1,
+        "sessionDone": true,
+        "sessionPlanned": "lowerA",
+        "topSets": [
+          {
+            "exerciseId": "Goblet_Squat",
+            "reps": 12,
+            "weightKg": 24
+          },
+          {
+            "exerciseId": "Romanian_Deadlift",
+            "reps": 12,
+            "weightKg": 22
+          }
+        ],
+        "workouts": [
+          {
+            "activeEnergyKcal": 340,
+            "durationMinutes": 48,
+            "endedAt": "2026-11-03T19:52:00-05:00",
+            "healthKitId": "A1B2C3D4-0000-0000-0000-000000000001",
+            "hrAvgBpm": 118,
+            "hrMaxBpm": 146,
+            "source": "Apple Workout",
+            "startedAt": "2026-11-03T19:04:00-05:00",
+            "timeInZonesMinutes": {
+              "z1": 4,
+              "z2": 22,
+              "z3": 18,
+              "z4": 6,
+              "z5": 1
+            },
+            "type": "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt": "2026-11-03T23:05:00-05:00",
+      "vitals": {
+        "hrvSdnnMs": 38,
+        "respiratoryRate": 14.1,
+        "restingHrBpm": 56,
+        "spo2Pct": 97,
+        "vo2Max": 44.2
+      },
+      "wins": {
+        "protein": false,
+        "session": true,
+        "sleep": false,
+        "steps": false,
+        "total": 1
+      }
+    },
+    {
+      "activity": {
+        "activeEnergyKcal": 551,
+        "exerciseMinutes": 18,
+        "standHours": 10,
+        "steps": 8737
+      },
+      "body": {
+        "bodyFatPct": null,
+        "rateKgPerWeek": -0.4,
+        "waistCm": null,
+        "weightAvg7Kg": 74.5,
+        "weightKg": 74.4
+      },
+      "checkIn": {
+        "energy": 4,
+        "soreness": {
+          "arms": "none",
+          "back": "mild",
+          "chest": "none",
+          "core": "none",
+          "glutes": "none",
+          "hamstrings": "none",
+          "quads": "sore",
+          "shoulders": "none"
+        }
+      },
+      "date": "2026-11-04",
+      "nutrition": {
+        "carbsG": 259,
+        "fatG": 68,
+        "kcal": "lots",
+        "proteinG": 143,
+        "waterMl": 2097
+      },
+      "readiness": {
+        "reasons": [
+          "slept 7h07",
+          "HRV near baseline"
+        ],
+        "score": 75,
+        "verdict": "capIntensity"
+      },
+      "sleep": {
+        "asleepMinutes": 427,
+        "consistencySd7Minutes": 29,
+        "inBedMinutes": 457
+      },
+      "timezone": "America/Toronto",
+      "training": {
+        "loadAu": null,
+        "sessionDone": false,
+        "sessionPlanned": "rest",
+        "topSets": [],
+        "workouts": []
+      },
+      "updatedAt": "2026-11-04T23:05:00-05:00",
+      "vitals": {
+        "hrvSdnnMs": 39,
+        "respiratoryRate": 14.1,
+        "restingHrBpm": 57,
+        "spo2Pct": 97,
+        "vo2Max": 44.2
+      },
+      "wins": {
+        "protein": true,
+        "session": true,
+        "sleep": false,
+        "steps": false,
+        "total": 2
+      }
+    },
+    {
+      "activity": {
+        "activeEnergyKcal": 582,
+        "exerciseMinutes": 52,
+        "standHours": 11,
+        "steps": 8874
+      },
+      "body": {
+        "bodyFatPct": null,
+        "rateKgPerWeek": -0.4,
+        "waistCm": null,
+        "weightAvg7Kg": 74.4,
+        "weightKg": 74.3
+      },
+      "checkIn": null,
+      "date": "2026-11-05",
+      "nutrition": {
+        "carbsG": 248,
+        "fatG": 66,
+        "kcal": 2156,
+        "proteinG": 154,
+        "waterMl": 2194
+      },
+      "readiness": {
+        "reasons": [
+          "slept 7h24",
+          "HRV near baseline"
+        ],
+        "score": 82,
+        "verdict": "trainAsPlanned"
+      },
+      "sleep": {
+        "asleepMinutes": 444,
+        "consistencySd7Minutes": 30,
+        "inBedMinutes": 474
+      },
+      "timezone": "America/Toronto",
+      "training": {
+        "loadAu": 103.4,
+        "sessionDone": true,
+        "sessionPlanned": "upperB",
+        "topSets": [
+          {
+            "exerciseId": "DB_Bench_Press",
+            "reps": 11,
+            "weightKg": 20
+          },
+          {
+            "exerciseId": "Lat_Pulldown",
+            "reps": 12,
+            "weightKg": 45
+          }
+        ],
+        "workouts": [
+          {
+            "activeEnergyKcal": 366,
+            "durationMinutes": 50,
+            "endedAt": "2026-11-05T19:54:00-05:00",
+            "healthKitId": "A1B2C3D4-0000-0000-0000-000000000003",
+            "hrAvgBpm": 120,
+            "hrMaxBpm": 148,
+            "source": "Apple Workout",
+            "startedAt": "2026-11-05T19:04:00-05:00",
+            "timeInZonesMinutes": {
+              "z1": 4,
+              "z2": 22,
+              "z3": 18,
+              "z4": 6,
+              "z5": 1
+            },
+            "type": "traditionalStrengthTraining"
+          }
+        ],
+        "notes": "felt strong"
+      },
+      "updatedAt": "2026-11-05T23:05:00-05:00",
+      "vitals": {
+        "hrvSdnnMs": 40,
+        "respiratoryRate": 14.1,
+        "restingHrBpm": 58,
+        "spo2Pct": 97,
+        "vo2Max": 44.2
+      },
+      "wins": {
+        "protein": true,
+        "session": true,
+        "sleep": false,
+        "steps": false,
+        "total": 2
+      }
+    },
+    {
+      "activity": {
+        "activeEnergyKcal": 613,
+        "exerciseMinutes": 52,
+        "standHours": 12,
+        "steps": 9011
+      },
+      "body": {
+        "bodyFatPct": null,
+        "rateKgPerWeek": -0.4,
+        "waistCm": null,
+        "weightAvg7Kg": 74.4,
+        "weightKg": 74.3
+      },
+      "checkIn": {
+        "energy": 3,
+        "soreness": {
+          "arms": "none",
+          "back": "none",
+          "chest": "none",
+          "core": "none",
+          "glutes": "none",
+          "hamstrings": "sore",
+          "quads": "mild",
+          "shoulders": "none"
+        }
+      },
+      "date": "2026-11-06",
+      "nutrition": {
+        "carbsG": 237,
+        "fatG": 64,
+        "kcal": 2209,
+        "proteinG": 135,
+        "waterMl": 2291
+      },
+      "readiness": {
+        "reasons": [
+          "slept 7h41",
+          "HRV near baseline"
+        ],
+        "score": 89,
+        "verdict": "trainAsPlanned"
+      },
+      "sleep": {
+        "asleepMinutes": 461,
+        "consistencySd7Minutes": 31,
+        "inBedMinutes": 491
+      },
+      "timezone": "America/Toronto",
+      "training": {
+        "loadAu": 104.6,
+        "sessionDone": true,
+        "sessionPlanned": "lowerB",
+        "topSets": [
+          {
+            "exerciseId": "Goblet_Squat",
+            "reps": 12,
+            "weightKg": 24
+          },
+          {
+            "exerciseId": "Romanian_Deadlift",
+            "reps": 12,
+            "weightKg": 22
+          }
+        ],
+        "workouts": [
+          {
+            "activeEnergyKcal": 379,
+            "durationMinutes": 51,
+            "endedAt": "2026-11-06T19:55:00-05:00",
+            "healthKitId": "A1B2C3D4-0000-0000-0000-000000000004",
+            "hrAvgBpm": 121,
+            "hrMaxBpm": 149,
+            "source": "Apple Workout",
+            "startedAt": "2026-11-06T19:04:00-05:00",
+            "timeInZonesMinutes": {
+              "z1": 4,
+              "z2": 22,
+              "z3": 18,
+              "z4": 6,
+              "z5": 1
+            },
+            "type": "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt": "2026-11-06T23:05:00-05:00",
+      "vitals": {
+        "hrvSdnnMs": null,
+        "respiratoryRate": 14.1,
+        "restingHrBpm": 59,
+        "spo2Pct": 97,
+        "vo2Max": 44.2
+      },
+      "wins": {
+        "protein": false,
+        "session": true,
+        "sleep": true,
+        "steps": false,
+        "total": 2
+      }
+    },
+    {
+      "activity": {
+        "activeEnergyKcal": 644,
+        "exerciseMinutes": 18,
+        "standHours": 9,
+        "steps": 9148
+      },
+      "body": {
+        "bodyFatPct": null,
+        "rateKgPerWeek": -0.4,
+        "waistCm": null,
+        "weightAvg7Kg": 74.4,
+        "weightKg": 74.3
+      },
+      "checkIn": {
+        "energy": 4,
+        "soreness": {
+          "arms": "none",
+          "back": "mild",
+          "chest": "none",
+          "core": "none",
+          "glutes": "none",
+          "hamstrings": "none",
+          "quads": "sore",
+          "shoulders": "none"
+        }
+      },
+      "nutrition": {
+        "carbsG": 266,
+        "fatG": 62,
+        "kcal": 2262,
+        "proteinG": 146,
+        "waterMl": 2388
+      },
+      "readiness": {
+        "reasons": [
+          "slept 7h58",
+          "HRV near baseline"
+        ],
+        "score": 69,
+        "verdict": "swapSession"
+      },
+      "sleep": {
+        "asleepMinutes": 478,
+        "consistencySd7Minutes": 32,
+        "inBedMinutes": 508
+      },
+      "timezone": "America/Toronto",
+      "training": {
+        "loadAu": null,
+        "sessionDone": false,
+        "sessionPlanned": "rest",
+        "topSets": [],
+        "workouts": []
+      },
+      "updatedAt": "2026-11-07T23:05:00-05:00",
+      "vitals": {
+        "hrvSdnnMs": 42,
+        "respiratoryRate": 14.1,
+        "restingHrBpm": 60,
+        "spo2Pct": 97,
+        "vo2Max": 44.2
+      },
+      "wins": {
+        "protein": true,
+        "session": true,
+        "sleep": true,
+        "steps": false,
+        "total": 3
+      }
+    }
+  ],
+  "meals": [],
+  "suggestions": []
+}
