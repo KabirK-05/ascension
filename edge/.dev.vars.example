@@ -1,0 +1,4 @@
+# Copy to `.dev.vars` (gitignored) for `wrangler dev`. Local values only --
+# production secrets go in `wrangler secret put`, never in a file.
+DEVICE_TOKEN="dev-device-token-change-me"
+OWNER_PASSWORD="dev-password-change-me"
