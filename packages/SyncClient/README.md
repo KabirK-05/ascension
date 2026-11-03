@@ -62,6 +62,14 @@ A silent APNs push (`SilentPushHandler`) makes a drain happen in seconds instead
 next refresh. It is an accelerator only: foreground sync and background refresh do
 everything it does, so nothing is correct *because* a push arrived.
 
+**Registering the nightly handler will fight Swift 6.** `BGTask` is not `Sendable` and the
+work is async, so the task has to outlive the launch handler — and the handler is
+task-isolated, so hopping to the main actor does not rescue it. There is no spelling
+complete concurrency checking accepts; `registerMutationDrain` marks the one crossing
+`nonisolated(unsafe)` with the reasoning written out, and the nightly handler in the app
+shell will need the same. This package builds in Swift 6 language mode precisely so that
+shows up here rather than only in the `app` job.
+
 ## Four things that will bite you
 
 1. **A document `PUT` body carries no `version`, `updatedAt` or `updatedBy`.** Those are

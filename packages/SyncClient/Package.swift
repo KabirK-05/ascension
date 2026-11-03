@@ -9,10 +9,19 @@ let package = Package(
         .package(path: "../AscensionCore")
     ],
     targets: [
+        // Swift 6 language mode, because `Project.swift` builds the app with
+        // `SWIFT_STRICT_CONCURRENCY=complete`. Without it this package compiles under
+        // laxer rules than the target that consumes it, and a concurrency error can only
+        // surface in the `app` CI job — which is exactly what happened once.
         .target(
             name: "SyncClient",
-            dependencies: ["AscensionCore"]
+            dependencies: ["AscensionCore"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
         ),
-        .testTarget(name: "SyncClientTests", dependencies: ["SyncClient"])
+        .testTarget(
+            name: "SyncClientTests",
+            dependencies: ["SyncClient"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        )
     ]
 )

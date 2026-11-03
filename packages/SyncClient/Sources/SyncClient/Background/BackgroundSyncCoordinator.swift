@@ -87,10 +87,23 @@ public struct BackgroundSyncCoordinator: Sendable {
     public func registerMutationDrain(scheduler: BGTaskScheduler = .shared) -> Bool {
         scheduler.register(forTaskWithIdentifier: SyncTaskIdentifier.mutationDrain,
                            using: nil) { task in
+            // `BGTask` is not `Sendable`, and the drain is async, so the task has to
+            // outlive this closure: there is no spelling of "await, then report the
+            // outcome" that complete concurrency checking accepts, and hopping to the
+            // main actor does not help — the launch handler itself is task-isolated, so
+            // the task cannot leave it by any route.
+            //
+            // The crossing is therefore made explicit here rather than hidden behind an
+            // `@unchecked Sendable` wrapper. It is sound because exactly one `Task` ever
+            // touches `handle`, once, after its own `await` has returned; the expiration
+            // handler only cancels that `Task`, which is `Sendable`. The reschedule goes
+            // through `.shared` because `BGTaskScheduler` has no public initialiser —
+            // `scheduler` is always that same object, so there is nothing to forward.
+            nonisolated(unsafe) let handle = task
             let work = Task {
                 let succeeded = await self.runMutationDrain()
-                try? self.scheduleMutationDrain(scheduler: scheduler)
-                task.setTaskCompleted(success: succeeded)
+                try? self.scheduleMutationDrain()
+                handle.setTaskCompleted(success: succeeded)
             }
             task.expirationHandler = { work.cancel() }
         }
