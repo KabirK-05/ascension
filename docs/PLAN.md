@@ -97,6 +97,7 @@ verdicts with their top two reasons on Today.
 suggestions, load/deload, VO2/RHR/sleep trends, Sunday review (F7).
 **ASC-16 — System surfaces** — widgets, App Intents/Siri, smart notifications (only the
 four in §F8), optional Live Activity. Plus **Settings → Changes** with Muse-write undo.
+**Runs after ASC-20**, not beside it: both own `app/` and `Project.swift`.
 **ASC-17 — Local stdio MCP** · `mcp-local/` — read-only server over the export folder,
 for Claude Code on the Mac.
 
@@ -108,6 +109,15 @@ applying a queued `log_meal` into Apple Health.
 ---
 
 ## Maintenance tickets (found during the build, not planned up front)
+
+**ASC-20 — Composition root**
+Every feature package takes HealthKit, networking and write-back through protocols
+injected "by the app shell" — and no ticket owned that wiring. `app/` is still the
+ASC-1 scaffold: `RootTabView` constructs each screen with no arguments, so the app
+runs with nothing connected to anything. Builds the composition root in `app/`,
+wiring `HealthBridge`, `SyncClient`, `ExportKit` and the engines into all four tabs.
+Origin: a gap in this plan — the composition root was never assigned. **ASC-16 is
+resequenced to run after it**, since it extends the same shell.
 
 **ASC-19 — Toolchain alignment**
 Every package manifest built under laxer rules than the app target, which sets
