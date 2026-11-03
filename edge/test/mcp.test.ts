@@ -1,9 +1,10 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { mcpHandler } from "../src/mcp/server";
 import { readTools } from "../src/mcp/tools";
+import { writeTools } from "../src/mcp/writes";
 import { testEnv } from "./env";
 import { LAST_DAY } from "./fixtures";
-import { seedRollups } from "./helpers";
+import { seedDocuments, seedRollups } from "./helpers";
 
 const ENDPOINT = "http://localhost:8787/mcp";
 
@@ -63,11 +64,11 @@ describe("the MCP server over Streamable HTTP", () => {
     expect(payload.result.instructions).toContain("daily rollups");
   });
 
-  it("lists the eight read tools, each with a schema and a description", async () => {
+  it("lists the read and write tools, each with a schema and a description", async () => {
     const { payload } = await rpc("tools/list");
     const tools = payload.result.tools as Array<Record<string, any>>;
     expect(tools.map((tool) => tool.name).sort()).toEqual(
-      readTools.map((tool) => tool.name).sort(),
+      [...readTools, ...writeTools].map((tool) => tool.name).sort(),
     );
     for (const tool of tools) {
       expect(tool.description?.length, tool.name).toBeGreaterThan(40);
@@ -75,10 +76,11 @@ describe("the MCP server over Streamable HTTP", () => {
     }
   });
 
-  it("exposes no write tool", async () => {
+  it("exposes every write kind the contract declares, and nothing that deletes", async () => {
     const { payload } = await rpc("tools/list");
-    const names = (payload.result.tools as Array<{ name: string }>).map((t) => t.name);
-    for (const forbidden of [
+    const tools = payload.result.tools as Array<Record<string, any>>;
+    const names = tools.map((tool) => tool.name);
+    for (const expected of [
       "set_targets",
       "update_program",
       "set_staples",
@@ -91,8 +93,66 @@ describe("the MCP server over Streamable HTTP", () => {
       "schedule_workout",
       "trigger_export",
     ]) {
-      expect(names).not.toContain(forbidden);
+      expect(names).toContain(expected);
     }
+    // No delete tools in v1 (docs/MUSE_CAPABILITIES.md), and nothing advertises
+    // itself as destructive.
+    expect(names.filter((name) => /delete|remove|clear|wipe/.test(name))).toEqual([]);
+    for (const tool of tools) {
+      expect(tool.annotations?.destructiveHint, tool.name).not.toBe(true);
+    }
+  });
+
+  it("marks the read tools read-only and the write tools not", async () => {
+    const { payload } = await rpc("tools/list");
+    const tools = payload.result.tools as Array<Record<string, any>>;
+    const byName = new Map(tools.map((tool) => [tool.name, tool]));
+    expect(byName.get("get_today")?.annotations?.readOnlyHint).toBe(true);
+    expect(byName.get("set_targets")?.annotations?.readOnlyHint).toBe(false);
+  });
+
+  it("says in its instructions that Tier-2 writes are not landed yet", async () => {
+    const { payload } = await rpc("initialize", {
+      protocolVersion: "2025-06-18",
+      capabilities: {},
+      clientInfo: { name: "test", version: "0" },
+    });
+    expect(payload.result.instructions).toContain("pending_device_apply");
+    expect(payload.result.instructions).toContain("no delete tools");
+  });
+
+  it("applies a Tier-1 write through the transport", async () => {
+    await seedDocuments();
+    const { payload } = await rpc("tools/call", {
+      name: "set_targets",
+      arguments: { kcal: 2050 },
+    });
+    const result = toolPayload(payload);
+    expect(result).toMatchObject({ schemaVersion: 1, status: "applied" });
+    expect(result.document).toMatchObject({ key: "goalSettings", version: 2 });
+  });
+
+  it("queues a Tier-2 write through the transport, and says it is pending", async () => {
+    await seedDocuments();
+    const { payload } = await rpc("tools/call", {
+      name: "log_water",
+      arguments: { date: LAST_DAY, ml: 500 },
+    });
+    const result = toolPayload(payload);
+    expect(result.status).toBe("pending_device_apply");
+    expect(result.mutationId).toHaveLength(26);
+  });
+
+  it("reports a rejected write as an error with the offending values", async () => {
+    await seedDocuments();
+    const { payload } = await rpc("tools/call", {
+      name: "set_targets",
+      arguments: { kcal: 12000 },
+    });
+    expect(payload.result.isError).toBe(true);
+    const body = JSON.parse(payload.result.content[0].text);
+    expect(body).toMatchObject({ schemaVersion: 1, error: "invariant_violation" });
+    expect(body.issues[0].message).toContain("1400...4000");
   });
 
   it.each(readTools.map((tool) => tool.name))(
