@@ -1,0 +1,97 @@
+# The bundled slice of free-exercise-db (Unlicense). One id per line.
+#
+# Rule for inclusion: the 17 exercises the seeded program references, plus the
+# alternatives for each of its movement patterns. Nothing else — the full 876-row
+# dataset is 9x this and carries ~1700 images the app would never show.
+
+# --- program: the ids SeedExerciseId maps onto (see ExerciseLibraryMapping.swift)
+Dumbbell_Bench_Press
+Wide-Grip_Lat_Pulldown
+Dumbbell_Shoulder_Press
+Seated_Cable_Rows
+Incline_Dumbbell_Press
+Bent_Over_Two-Dumbbell_Row
+Close-Grip_Front_Lat_Pulldown
+Farmers_Walk
+Goblet_Squat
+Stiff-Legged_Dumbbell_Deadlift
+Bodyweight_Walking_Lunge
+Plank
+Leg_Press
+Barbell_Hip_Thrust
+Lying_Leg_Curls
+Hanging_Leg_Raise
+Walking_Treadmill
+
+# --- horizontal press
+Barbell_Bench_Press_-_Medium_Grip
+Machine_Bench_Press
+Pushups
+Cable_Chest_Press
+
+# --- incline press
+Barbell_Incline_Bench_Press_-_Medium_Grip
+Leverage_Incline_Chest_Press
+
+# --- vertical pull
+Chin-Up
+Band_Assisted_Pull-Up
+V-Bar_Pulldown
+Straight-Arm_Pulldown
+
+# --- horizontal pull
+Bent_Over_Barbell_Row
+One-Arm_Dumbbell_Row
+T-Bar_Row_with_Handle
+Face_Pull
+
+# --- overhead press
+Standing_Military_Press
+Arnold_Dumbbell_Press
+Machine_Shoulder_Military_Press
+
+# --- squat / leg press
+Barbell_Squat
+Front_Barbell_Squat
+Dumbbell_Squat
+Bodyweight_Squat
+Hack_Squat
+
+# --- hip hinge
+Romanian_Deadlift
+Barbell_Deadlift
+Trap_Bar_Deadlift
+Good_Morning
+
+# --- hip thrust
+Barbell_Glute_Bridge
+
+# --- lunge / single leg
+Dumbbell_Lunges
+Split_Squat_with_Dumbbells
+Step-up_with_Knee_Raise
+Dumbbell_Rear_Lunge
+
+# --- knee flexion / posterior chain
+Seated_Leg_Curl
+Glute_Ham_Raise
+Hyperextensions_Back_Extensions
+
+# --- trunk
+Dead_Bug
+Pallof_Press
+Russian_Twist
+Reverse_Crunch
+Cable_Crunch
+
+# --- loaded carry
+Rickshaw_Carry
+Dumbbell_Shrug
+
+# --- zone 2 conditioning
+Stairmaster
+Rowing_Stationary
+Elliptical_Trainer
+Recumbent_Bike
+Air_Bike
+Running_Treadmill
