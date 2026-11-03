@@ -1,0 +1,33 @@
+{
+  "name": "ascension-edge",
+  "private": true,
+  "type": "module",
+  "description": "Ascension cloud bridge: stateless MCP server, D1 and the phone's ingest API.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "types": "wrangler types",
+    "db:apply:local": "wrangler d1 migrations apply ascension --local",
+    "db:apply:remote": "wrangler d1 migrations apply ascension --remote",
+    "inspect": "npx -y @modelcontextprotocol/inspector",
+    "seed:local": "tsx scripts/seed-local.ts"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "^1.2.4",
+    "@modelcontextprotocol/server": "^2.4.0",
+    "agents": "^0.33.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.5.1",
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.157.0"
+  }
+}

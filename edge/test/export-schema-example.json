@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-03",
+  "timezone": "America/Toronto",
+  "updatedAt": "2026-11-03T23:05:00-05:00",
+
+  "nutrition": { "kcal": 2180, "proteinG": 148, "fatG": 64, "carbsG": 248, "waterMl": 2400 },
+  "activity":  { "steps": 10240, "activeEnergyKcal": 612, "exerciseMinutes": 54, "standHours": 10 },
+  "sleep":     { "asleepMinutes": 462, "inBedMinutes": 495, "consistencySd7Minutes": 34 },
+  "vitals":    { "restingHrBpm": 58, "hrvSdnnMs": 41, "vo2Max": 44.2, "respiratoryRate": 14.1, "spo2Pct": 97 },
+  "body":      { "weightKg": 73.6, "weightAvg7Kg": 73.9, "rateKgPerWeek": -0.4, "bodyFatPct": null, "waistCm": null },
+
+  "training": {
+    "sessionPlanned": "upperA",
+    "sessionDone": true,
+    "loadAu": 6120,
+    "workouts": [{
+      "healthKitId": "A1B2C3D4-0000-0000-0000-000000000001",
+      "type": "traditionalStrengthTraining",
+      "startedAt": "2026-11-03T19:04:00-05:00",
+      "endedAt":   "2026-11-03T19:55:00-05:00",
+      "durationMinutes": 51,
+      "activeEnergyKcal": 368,
+      "hrAvgBpm": 120,
+      "hrMaxBpm": 150,
+      "timeInZonesMinutes": { "z1": 4, "z2": 22, "z3": 18, "z4": 6, "z5": 1 },
+      "source": "Apple Workout"
+    }],
+    "topSets": [
+      { "exerciseId": "Goblet_Squat", "weightKg": 24.0, "reps": 12 },
+      { "exerciseId": "DB_Bench_Press", "weightKg": 20.0, "reps": 11 }
+    ]
+  },
+
+  "checkIn": {
+    "energy": 4,
+    "soreness": { "chest": "none", "back": "mild", "shoulders": "none",
+                  "arms": "none", "quads": "sore", "hamstrings": "mild", "glutes": "none", "core": "none" }
+  },
+
+  "readiness": {
+    "score": 82,
+    "verdict": "trainAsPlanned",
+    "reasons": ["slept 7h42", "HRV near baseline"]
+  },
+
+  "wins": { "session": true, "protein": true, "steps": true, "sleep": true, "total": 4 }
+}
