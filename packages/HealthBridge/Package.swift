@@ -14,8 +14,11 @@ let package = Package(
     targets: [
         .target(
             name: "HealthBridge",
-            dependencies: ["AscensionCore"]
+            dependencies: ["AscensionCore"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
         ),
-        .testTarget(name: "HealthBridgeTests", dependencies: ["HealthBridge"])
+        .testTarget(name: "HealthBridgeTests", dependencies: ["HealthBridge"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        )
     ]
 )

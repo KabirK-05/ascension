@@ -7,7 +7,11 @@ let package = Package(
     products: [.library(name: "DesignSystem", targets: ["DesignSystem"])],
     dependencies: [],
     targets: [
-        .target(name: "DesignSystem"),
-        .testTarget(name: "DesignSystemTests", dependencies: ["DesignSystem"])
+        .target(name: "DesignSystem",
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        ),
+        .testTarget(name: "DesignSystemTests", dependencies: ["DesignSystem"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        )
     ]
 )

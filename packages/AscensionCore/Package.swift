@@ -9,8 +9,11 @@ let package = Package(
     targets: [
         .target(
             name: "AscensionCore",
-            resources: [.copy("Resources/ExerciseLibrary")]
+            resources: [.copy("Resources/ExerciseLibrary")],
+            swiftSettings: [.swiftLanguageMode(.v6)]
         ),
-        .testTarget(name: "AscensionCoreTests", dependencies: ["AscensionCore"])
+        .testTarget(name: "AscensionCoreTests", dependencies: ["AscensionCore"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        )
     ]
 )

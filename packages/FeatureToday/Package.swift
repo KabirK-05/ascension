@@ -13,8 +13,11 @@ let package = Package(
     targets: [
         .target(
             name: "FeatureToday",
-            dependencies: ["AscensionCore", "AscensionEngines", "DesignSystem"]
+            dependencies: ["AscensionCore", "AscensionEngines", "DesignSystem"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
         ),
-        .testTarget(name: "FeatureTodayTests", dependencies: ["FeatureToday"])
+        .testTarget(name: "FeatureTodayTests", dependencies: ["FeatureToday"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        )
     ]
 )

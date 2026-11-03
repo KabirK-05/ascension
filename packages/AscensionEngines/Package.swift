@@ -11,8 +11,11 @@ let package = Package(
     targets: [
         .target(
             name: "AscensionEngines",
-            dependencies: ["AscensionCore"]
+            dependencies: ["AscensionCore"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
         ),
-        .testTarget(name: "AscensionEnginesTests", dependencies: ["AscensionEngines"])
+        .testTarget(name: "AscensionEnginesTests", dependencies: ["AscensionEngines"],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        )
     ]
 )

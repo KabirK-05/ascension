@@ -71,7 +71,7 @@ jobs:
             -quiet build
 
       - name: Test ${{ matrix.package }} on the simulator
-        if: contains(fromJSON('["FeatureToday"]'), matrix.package)
+        if: contains(fromJSON('["DesignSystem", "HealthBridge", "FeatureToday", "FeatureTrain", "FeatureEat"]'), matrix.package)
         working-directory: packages/${{ matrix.package }}
         run: |
           xcodebuild -scheme ${{ matrix.package }} \
