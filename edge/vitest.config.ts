@@ -14,6 +14,10 @@ export default defineConfig({
       miniflare: {
         bindings: {
           TEST_MIGRATIONS: migrations,
+          // The origin the tests speak to. Pinned here so the suite is hermetic:
+          // `wrangler.toml` carries the deployed origin, and the OAuth metadata
+          // and MCP resource identifier derive from whatever this is.
+          PUBLIC_ORIGIN: "http://localhost:8787",
           // Test values, not secrets. The real ones live in `wrangler secret`.
           DEVICE_TOKEN: "test-device-token",
           OWNER_PASSWORD: "test-owner-password",
