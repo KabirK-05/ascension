@@ -117,7 +117,7 @@ struct ReadinessSurfacingTests {
         // controls on the card, that leaves nothing worth a line — which is the point:
         // a reason appears when it is news, not to fill the slot (§2.1).
         let presentation = TodayPresenter.present(TodayFixtures.checkInPending)
-        #expect(presentation.checkIn != nil)
+        #expect(presentation.checkIn.isOpen)
         #expect(presentation.readiness.reasons.isEmpty)
     }
 
@@ -126,7 +126,7 @@ struct ReadinessSurfacingTests {
         var snapshot = TodayFixtures.checkInPending
         snapshot.today.sleep = SleepRollup(asleepMinutes: 310, consistencySd7Minutes: 22)
         let presentation = TodayPresenter.present(snapshot)
-        #expect(presentation.checkIn != nil)
+        #expect(presentation.checkIn.isOpen)
         #expect(presentation.readiness.reasons.contains("Slept 5h10"))
     }
 

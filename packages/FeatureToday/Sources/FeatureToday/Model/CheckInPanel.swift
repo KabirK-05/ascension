@@ -28,9 +28,6 @@ public struct CheckInGroupState: Hashable, Sendable, Identifiable {
 }
 
 /// The morning check-in, as the screen draws it (spec §F4).
-///
-/// Present only while today has no check-in. Once one is in, this is `nil` and the
-/// controls are gone for the day — a completed check-in is not a card that stays.
 public struct CheckInPanel: Hashable, Sendable {
     public let groups: [CheckInGroupState]
     /// The closed 1–5 scale, from the contract rather than from a literal.
@@ -60,4 +57,39 @@ public struct CheckInPanel: Hashable, Sendable {
     public var marked: [CheckInGroupState] {
         groups.filter { $0.level != .none }
     }
+}
+
+/// How the morning check-in stands on the readiness card.
+///
+/// Three states, not a panel and a flag, because only these three exist: the controls
+/// are open because today has no check-in, the card is finished and collapsed, or the
+/// finished card has been opened again to change an answer. A completed check-in is not
+/// a card that stays — but it is not a dead end either, so `done` discloses.
+public enum CheckInDisclosure: Hashable, Sendable {
+    /// Today has no check-in. The controls are open and there is nothing to collapse.
+    case pending(CheckInPanel)
+    /// Today's check-in is in, and the card reads as done: no controls, and a chevron.
+    case done
+    /// Opened again, prefilled with what was already answered.
+    case reopened(CheckInPanel)
+
+    /// The controls to draw, or `nil` when the card is collapsed.
+    public var panel: CheckInPanel? {
+        switch self {
+        case .pending(let panel), .reopened(let panel): return panel
+        case .done: return nil
+        }
+    }
+
+    /// Whether the card can be opened and closed at all. False only while the check-in
+    /// is still outstanding: there is no collapsed state to go to, and burying the one
+    /// thing the screen is asking for would be the wrong kind of tidy.
+    public var isDisclosable: Bool {
+        switch self {
+        case .pending: return false
+        case .done, .reopened: return true
+        }
+    }
+
+    public var isOpen: Bool { panel != nil }
 }

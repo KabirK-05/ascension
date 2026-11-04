@@ -82,11 +82,17 @@ struct CheckInTests {
         #expect(panel.marked.map(\.group) == [.core])
     }
 
-    @Test("the controls are there while today needs a check-in, and gone once it has one")
+    @Test("the controls are there while today needs a check-in, and collapse once it has one")
     func panelIsConditional() {
-        #expect(TodayPresenter.present(TodayFixtures.checkInPending).checkIn != nil)
-        #expect(TodayPresenter.present(TodayFixtures.trainingDay).checkIn == nil)
-        #expect(TodayPresenter.present(TodayFixtures.emptyDay).checkIn != nil)
+        #expect(TodayPresenter.present(TodayFixtures.checkInPending).checkIn.isOpen)
+        #expect(TodayPresenter.present(TodayFixtures.emptyDay).checkIn.isOpen)
+        #expect(TodayPresenter.present(TodayFixtures.trainingDay).checkIn == .done)
+    }
+
+    @Test("an outstanding check-in cannot be collapsed; a finished one can")
+    func onlyAFinishedCheckInDiscloses() {
+        #expect(!TodayPresenter.present(TodayFixtures.checkInPending).checkIn.isDisclosable)
+        #expect(TodayPresenter.present(TodayFixtures.trainingDay).checkIn.isDisclosable)
     }
 
     @Test("a pending check-in is not a sixth card")
@@ -149,7 +155,7 @@ struct CheckInTests {
         #expect(saved.energy == 2)
 
         let presentation = try #require(ready(model))
-        #expect(presentation.checkIn == nil)
+        #expect(presentation.checkIn == .done)
         #expect(presentation.summary.contains("Quads sore"))
     }
 
@@ -174,7 +180,7 @@ struct CheckInTests {
         await model.load()
         await model.submitCheckIn(energy: 5)
         let presentation = try #require(ready(model))
-        #expect(presentation.checkIn == nil)
+        #expect(presentation.checkIn == .done)
     }
 
     @MainActor
@@ -187,11 +193,11 @@ struct CheckInTests {
         await model.submitCheckIn(energy: 9)
         #expect(await store.saved.isEmpty)
         let presentation = try #require(ready(model))
-        #expect(presentation.checkIn != nil)
+        #expect(presentation.checkIn.isOpen)
     }
 
     @MainActor
-    @Test("a day already checked in offers no controls, and nothing can overwrite it")
+    @Test("a day already checked in offers no controls until it is opened again")
     func completedForTodayStaysCompleted() async throws {
         let store = RecordingCheckInStore()
         let model = TodayModel(dataSource: FixtureDataSource(TodayFixtures.trainingDay),
@@ -201,7 +207,7 @@ struct CheckInTests {
         await model.submitCheckIn(energy: 1)
 
         let presentation = try #require(ready(model))
-        #expect(presentation.checkIn == nil)
+        #expect(presentation.checkIn == .done)
         #expect(await store.saved.isEmpty)
         // The day keeps the check-in it came with, not the one those taps built.
         #expect(presentation.readiness.reasons.contains("Chest mild") == false)
@@ -220,7 +226,7 @@ struct CheckInTests {
 
         await model.submitCheckIn(energy: 4)
         let afterFailure = try #require(ready(model))
-        let failed = try #require(afterFailure.checkIn)
+        let failed = try #require(afterFailure.checkIn.panel)
         #expect(failed.status == .failed)
         #expect(failed.energy == 4)
         #expect(afterFailure.readiness.score == before)
@@ -238,7 +244,7 @@ struct CheckInTests {
 
         #expect(await store.attempts == 2)
         let presentation = try #require(ready(model))
-        #expect(presentation.checkIn == nil)
+        #expect(presentation.checkIn == .done)
         #expect(presentation.readiness.reasons.contains("Energy 3 of 5"))
     }
 
@@ -252,7 +258,7 @@ struct CheckInTests {
         await model.submitCheckIn(energy: 4)
         model.cycleSoreness(.back)
         let afterEdit = try #require(ready(model))
-        let panel = try #require(afterEdit.checkIn)
+        let panel = try #require(afterEdit.checkIn.panel)
         #expect(panel.status == .editing)
         #expect(panel.groups.first { $0.group == .back }?.level == .mild)
     }

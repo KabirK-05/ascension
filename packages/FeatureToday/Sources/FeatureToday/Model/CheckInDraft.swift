@@ -66,15 +66,30 @@ public enum CheckInStatus: Hashable, Sendable {
 public struct CheckInState: Hashable, Sendable {
     public var draft: CheckInDraft
     public var status: CheckInStatus
-    /// The energy last tapped, kept so a failed save has something to retry.
+    /// The energy last tapped, kept so a failed save has something to retry and so a
+    /// reopened check-in shows the answer it is amending.
     public var energy: Int?
+
+    /// True while today's finished check-in has been opened again to change it. The
+    /// draft is then what was already answered, not a blank one: an amendment starts
+    /// from the answers, or it is just a second form.
+    public var isReopened: Bool
 
     public init(draft: CheckInDraft = CheckInDraft(),
                 status: CheckInStatus = .editing,
-                energy: Int? = nil) {
+                energy: Int? = nil,
+                isReopened: Bool = false) {
         self.draft = draft
         self.status = status
         self.energy = energy
+        self.isReopened = isReopened
+    }
+
+    /// The state that reopens `checkIn` for editing, prefilled with its own answers.
+    public static func reopening(_ checkIn: CheckInRollup) -> CheckInState {
+        CheckInState(draft: CheckInDraft(soreness: checkIn.soreness),
+                     energy: checkIn.energy,
+                     isReopened: true)
     }
 }
 
