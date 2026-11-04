@@ -1,38 +1,52 @@
 import DesignSystem
 import SwiftUI
 
-/// The Eat tab's half of Settings: the USDA key, and the attribution the food sources
-/// require.
+/// The Eat tab's half of Settings: the two optional keys, the photo permission, and the
+/// attribution the food sources require.
 ///
-/// It lives here because the key and the credits belong to this feature; Settings
+/// It lives here because the keys and the credits belong to this feature; Settings
 /// itself is a Today surface (spec §4), so it presents this view rather than
-/// reimplementing it. The key is written straight to the Keychain and never shown
+/// reimplementing it. A key is written straight to the Keychain and never shown
 /// back — a field that redisplays a secret is a secret in a screenshot.
 public struct FoodDataSettingsView: View {
     private let keys: any APIKeyStore
+    private let consent: any MealPhotoConsenting
 
-    @State private var entry = ""
-    @State private var isStored: Bool
+    @State private var usdaEntry = ""
+    @State private var claudeEntry = ""
+    @State private var hasUSDA: Bool
+    @State private var hasClaude: Bool
+    @State private var allowsPhotos: Bool
     @Environment(\.dismiss) private var dismiss
 
-    public init(keys: any APIKeyStore) {
+    public init(keys: any APIKeyStore,
+                consent: any MealPhotoConsenting = DefaultsMealPhotoConsent()) {
         self.keys = keys
-        _isStored = State(initialValue: keys.apiKey(for: .usda) != nil)
+        self.consent = consent
+        _hasUSDA = State(initialValue: keys.apiKey(for: .usda) != nil)
+        _hasClaude = State(initialValue: keys.apiKey(for: .anthropic) != nil)
+        _allowsPhotos = State(initialValue: consent.isGranted)
     }
 
     public var body: some View {
         NavigationStack {
             Form {
                 Section("USDA key") {
-                    SecureField("Key", text: $entry)
-                        .textContentType(.password)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                    Button("Save") { save(entry) }
-                        .disabled(entry.trimmingCharacters(in: .whitespaces).isEmpty)
-                    if isStored {
-                        Button("Remove", role: .destructive) { save(nil) }
-                    }
+                    keyField(text: $usdaEntry, stored: hasUSDA, kind: .usda)
+                }
+
+                Section("Claude key") {
+                    keyField(text: $claudeEntry, stored: hasClaude, kind: .anthropic)
+                }
+
+                // The revocation half of the consent the photo flow asks for. A toggle
+                // rather than a paragraph: the dialog at the point of use is where the
+                // decision is explained, and this is where it is changed.
+                Section {
+                    Toggle("Send photos", isOn: $allowsPhotos)
+                        .onChange(of: allowsPhotos) { _, allowed in
+                            allowed ? consent.grant() : consent.revoke()
+                        }
                 }
 
                 Section("Credits") {
@@ -53,10 +67,24 @@ public struct FoodDataSettingsView: View {
         }
     }
 
-    private func save(_ key: String?) {
-        try? keys.setAPIKey(key, for: .usda)
-        entry = ""
-        isStored = keys.apiKey(for: .usda) != nil
+    @ViewBuilder
+    private func keyField(text: Binding<String>, stored: Bool, kind: APIKeyKind) -> some View {
+        SecureField("Key", text: text)
+            .textContentType(.password)
+            .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
+        Button("Save") { save(text.wrappedValue, for: kind, field: text) }
+            .disabled(text.wrappedValue.trimmingCharacters(in: .whitespaces).isEmpty)
+        if stored {
+            Button("Remove", role: .destructive) { save(nil, for: kind, field: text) }
+        }
+    }
+
+    private func save(_ key: String?, for kind: APIKeyKind, field: Binding<String>) {
+        try? keys.setAPIKey(key, for: kind)
+        field.wrappedValue = ""
+        hasUSDA = keys.apiKey(for: .usda) != nil
+        hasClaude = keys.apiKey(for: .anthropic) != nil
     }
 }
 

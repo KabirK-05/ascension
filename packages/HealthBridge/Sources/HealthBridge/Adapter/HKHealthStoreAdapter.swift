@@ -9,7 +9,9 @@ import HealthKit
 /// how a mirror is keyed, when a write is idempotent — lives above it and is tested
 /// against a fake. What cannot be tested off-device is exactly what is left here.
 public final class HKHealthStoreAdapter: HealthStore, @unchecked Sendable {
-    private let store: HKHealthStore
+    /// Internal rather than private so `HKHealthStoreAdapter+Delete.swift` can reach it;
+    /// it is not part of the package's public surface either way.
+    let store: HKHealthStore
     /// Observer queries must outlive `startObserving`, so references are held here.
     /// Guarded by a lock because HealthKit calls back on its own queues.
     private let lock = NSLock()

@@ -10,12 +10,15 @@ import SwiftUI
 /// state is a control, not a paragraph (`docs/DESIGN_RULES.md` §1.4).
 ///
 /// Mobbin references: MyFitnessPal and Cronometer for the meal-grouped diary with the
-/// meal's own total on its header, MacroFactor for the day's figures above the log and
-/// for reaching scan and search from one place, Cal AI for confirming a portion before
-/// it is logged. Patterns only.
+/// meal's own total on its header and for swipe-to-delete and tap-to-edit on a logged
+/// row, MacroFactor for the day's figures above the log, for reaching scan and search
+/// from one place and for the editable logged-food detail, Cal AI for the photo
+/// scan → result → confirm sequence and for confirming a portion before it is logged.
+/// Patterns only.
 public struct EatScreen: View {
     @State private var model: EatModel
     @State private var sheet: EatSheet?
+    @State private var editing: DiaryEntry?
 
     /// The shell's entry point. Resolves the app's own store; see `EatDependencies`.
     public init() {
@@ -42,7 +45,9 @@ public struct EatScreen: View {
 
                 ForEach(model.meals) { section in
                     DiarySection(section: section) { entry in
-                        model.delete(entry)
+                        Task { await model.delete(entry) }
+                    } edit: { entry in
+                        editing = entry
                     }
                 }
             }
@@ -50,6 +55,12 @@ public struct EatScreen: View {
             .navigationTitle("Eat")
             .toolbar { toolbar }
             .sheet(item: $sheet, content: sheetContent)
+            .sheet(item: $editing, content: editor)
+            .alert("Still in Apple Health",
+                   isPresented: Binding(get: { model.mutationFailure == .healthUnreachable },
+                                        set: { if !$0 { model.clearMutationFailure() } })) {
+                Button("OK") { model.clearMutationFailure() }
+            }
             .onAppear { model.load() }
         }
     }
@@ -60,6 +71,9 @@ public struct EatScreen: View {
             Menu {
                 Button("Search", systemImage: "magnifyingglass") { sheet = .search }
                 Button("Scan", systemImage: "barcode.viewfinder") { sheet = .barcode }
+                if model.isPhotoAvailable {
+                    Button("Photo", systemImage: "camera") { sheet = .photo }
+                }
                 Button("Custom", systemImage: "square.and.pencil") { sheet = .custom }
                 if model.hasYesterday {
                     Button("Repeat yesterday", systemImage: "arrow.clockwise") {
@@ -79,8 +93,21 @@ public struct EatScreen: View {
             AddFoodSheet(model: model)
         case .barcode:
             BarcodeSheet(model: model)
+        case .photo:
+            PhotoScanSheet(model: model)
         case .custom:
             CustomFoodSheet(model: model)
+        }
+    }
+
+    /// Tapping a row opens the same editor the photo path confirms into, with the
+    /// delete on it as well — the row's swipe is the quick way, this is the deliberate
+    /// one (MyFitnessPal and MacroFactor both offer the pair).
+    private func editor(_ entry: DiaryEntry) -> some View {
+        MealEditorSheet(mode: .edit(entry), meal: entry.meal) { portion, meal in
+            await model.update(entry, to: portion, meal: meal)
+        } remove: {
+            await model.delete(entry)
         }
     }
 }
@@ -88,6 +115,7 @@ public struct EatScreen: View {
 enum EatSheet: String, Identifiable {
     case search
     case barcode
+    case photo
     case custom
 
     var id: String { rawValue }

@@ -1,10 +1,12 @@
 import Foundation
 import Security
 
-/// The API keys this feature can hold. One today; the enum is the seam for the
-/// optional Claude key spec §F3 leaves to v2.
+/// The API keys this feature can hold: the USDA key search needs, and the Claude key
+/// spec §F3 leaves optional and §8 says belongs in the Keychain. Neither is required —
+/// staples, barcodes and manual entry work with neither set.
 public enum APIKeyKind: String, Sendable, CaseIterable {
     case usda
+    case anthropic
 }
 
 /// Where a key lives. Spec §8: in the Keychain, never in the repo.

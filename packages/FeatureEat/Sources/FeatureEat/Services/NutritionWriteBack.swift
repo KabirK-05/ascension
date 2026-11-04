@@ -48,8 +48,37 @@ extension NutritionWriteOutcome {
     }
 }
 
+/// What a removal actually did.
+///
+/// `partial` mirrors `NutritionWriteOutcome.partial` and means the same thing: HealthKit
+/// authorisation is per type, and a scope the user refused was never written either, so
+/// nothing of ours is left behind under it. A partial removal is therefore a complete
+/// one as far as this app's data goes.
+public enum NutritionRemovalOutcome: Hashable, Sendable {
+    case removed
+    case partial
+    /// Nothing could be reached. The caller must **not** drop its local row on this —
+    /// the diary and Apple Health would then disagree silently, which is the ASC-24 bug.
+    case unavailable
+}
+
 public protocol NutritionWriteBack: Sendable {
     func write(_ sample: NutritionSample) async throws -> NutritionWriteOutcome
+
+    /// Takes a previously written sample back out of Apple Health (ASC-24).
+    ///
+    /// `sampleId` is the same id `write` was given: the write-back turns it into the
+    /// HealthKit sync identifier, so a removal finds exactly the samples that write
+    /// produced rather than guessing by timestamp.
+    func remove(sampleId: String) async throws -> NutritionRemovalOutcome
+}
+
+extension NutritionWriteBack {
+    /// The honest default for a write-back that only knows how to add. A shell that has
+    /// not injected a removal says `unavailable`, and the caller keeps its row.
+    public func remove(sampleId: String) async throws -> NutritionRemovalOutcome {
+        .unavailable
+    }
 }
 
 /// The default until the app shell injects `HealthBridge`.

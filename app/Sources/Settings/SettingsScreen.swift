@@ -1,5 +1,6 @@
 import AscensionCore
 import DesignSystem
+import FeatureEat
 import SwiftUI
 
 /// Settings. Answers one question: **is this connected, and to what?**
@@ -15,6 +16,7 @@ struct SettingsScreen: View {
     @State private var model: SettingsModel
     @State private var isEnteringToken = false
     @State private var isChoosingFolder = false
+    @State private var isEditingFoodData = false
     @Environment(\.dismiss) private var dismiss
 
     private let composition: AppComposition
@@ -29,6 +31,7 @@ struct SettingsScreen: View {
             Form {
                 worker
                 muse
+                food
                 export
             }
             .navigationTitle("Settings")
@@ -40,6 +43,10 @@ struct SettingsScreen: View {
             }
             .sheet(isPresented: $isEnteringToken) {
                 TokenSheet { model.save(token: $0) }
+            }
+            .sheet(isPresented: $isEditingFoodData) {
+                FoodDataSettingsView(keys: KeychainAPIKeyStore(),
+                                     consent: DefaultsMealPhotoConsent())
             }
             .fileImporter(isPresented: $isChoosingFolder,
                           allowedContentTypes: [.folder]) { result in
@@ -97,6 +104,22 @@ struct SettingsScreen: View {
             NavigationLink("Changes") {
                 ChangesScreen(composition: composition)
             }
+        }
+    }
+
+    // MARK: - Food
+
+    /// `FoodDataSettingsView` always said Settings would present it, and until ASC-24
+    /// nothing did — so the USDA key was reachable only from a failed search, and the
+    /// Claude key and the photo permission would have had the same problem. Granting is
+    /// asked for at the point of use; **revoking** needs a place that does not depend on
+    /// being mid-flow, and this is it.
+    private var food: some View {
+        Section {
+            // A sheet rather than a push: `FoodDataSettingsView` owns its own
+            // `NavigationStack` and its own Done, the way `TokenSheet` does.
+            Button("Food data") { isEditingFoodData = true }
+                .tint(Palette.primaryText)
         }
     }
 
