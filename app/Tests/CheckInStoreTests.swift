@@ -12,7 +12,7 @@ import Testing
 @Suite("the check-in reaches the store")
 @MainActor
 struct CheckInStoreTests {
-    private let date = CalendarDate(rawValue: "2026-11-03") ?? CalendarDate.distantPast
+    private let date = CalendarDate.literal("2026-11-03")
 
     private func store() throws -> LocalStore {
         let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
