@@ -13,6 +13,13 @@ import Foundation
 /// guarantee holds only for samples this app saved: HealthKit will not replace a sample
 /// another app owns, and it does not deduplicate across different entry ids. A caller
 /// that invents a fresh id per attempt gets duplicates, by its own choice.
+///
+/// **Nothing here is `@discardableResult`, deliberately.** A refused scope is reported in
+/// the receipt rather than thrown, so a caller that drops the receipt cannot tell a write
+/// that landed from one that did not — and for a while one did exactly that, which is how a
+/// meal Muse logged could be acked having never reached Apple Health (ASC-27). The receipt
+/// is the only evidence a write happened, so a caller that throws it away now says so in
+/// the open, as a `result of call to 'write' is unused` warning at the line that does it.
 public struct HealthWriter: Sendable {
     private let store: any HealthStore
 
@@ -21,21 +28,18 @@ public struct HealthWriter: Sendable {
     }
 
     /// Writes a meal's macros, and water when the entry carries it.
-    @discardableResult
     public func write(_ entry: NutritionEntry) async throws -> HealthWriteReceipt {
         let built = HealthSampleFactory.samples(for: entry)
         return try await save(entryId: entry.id, built: built)
     }
 
     /// Writes a manual weight or waist measurement.
-    @discardableResult
     public func write(_ entry: BodyMeasurementEntry) async throws -> HealthWriteReceipt {
         let built = HealthSampleFactory.samples(for: entry)
         return try await save(entryId: entry.id, built: built)
     }
 
     /// Water on its own, which is the quick-log in F4.
-    @discardableResult
     public func writeWater(millilitres: Double, at instant: Date,
                            entryId: String) async throws -> HealthWriteReceipt {
         try await write(NutritionEntry(id: entryId, consumedAt: instant, waterMl: millilitres))

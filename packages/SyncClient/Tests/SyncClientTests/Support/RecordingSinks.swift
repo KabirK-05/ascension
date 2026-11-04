@@ -15,17 +15,31 @@ final class RecordingHealthWriteBack: HealthWriteBack, @unchecked Sendable {
     private(set) var waters: [WaterWrite] = []
     /// Set to fail the next write, for the blocked-drain test.
     var failure: (any Error)?
+    /// Metric names Apple Health is refusing. Non-empty makes every write come back
+    /// incomplete, which is how a refused scope reaches the drain (ASC-27): the real writer
+    /// reports it in a receipt and never throws.
+    var refusedMetrics: [String] = []
+    /// What a write records when it is not refusing anything.
+    var grantedMetrics: [String] = ["dietary_energy"]
 
-    func writeMeal(_ meal: HealthMealWrite) async throws {
-        if let failure { throw failure }
-        lock.withLock { meals.append(meal) }
+    private func outcome() -> HealthWriteOutcome {
+        HealthWriteOutcome(savedMetrics: refusedMetrics.isEmpty ? grantedMetrics : [],
+                           refusedMetrics: refusedMetrics)
     }
 
-    func writeWater(millilitres: Double, at instant: Date, entryId: String) async throws {
+    func writeMeal(_ meal: HealthMealWrite) async throws -> HealthWriteOutcome {
+        if let failure { throw failure }
+        lock.withLock { meals.append(meal) }
+        return outcome()
+    }
+
+    func writeWater(millilitres: Double, at instant: Date,
+                    entryId: String) async throws -> HealthWriteOutcome {
         if let failure { throw failure }
         lock.withLock {
             waters.append(WaterWrite(millilitres: millilitres, instant: instant, entryId: entryId))
         }
+        return outcome()
     }
 
     func mealWrites(forEntry id: String) -> [HealthMealWrite] {
@@ -50,6 +64,7 @@ final class RecordingLocalApplier: LocalStateApplier, @unchecked Sendable {
     private(set) var targets: [MutationPayload.TargetsPatch] = []
     private(set) var topSets: [MutationPayload.TopSetPayload] = []
     private(set) var meals: [LoggedMeal] = []
+    private(set) var refusals: [RefusedHealthWrite] = []
     var failure: (any Error)?
 
     private func record(_ entry: String) throws {
@@ -100,6 +115,12 @@ final class RecordingLocalApplier: LocalStateApplier, @unchecked Sendable {
                           mutationId: String) async throws {
         try record("log_meal:\(mutationId)")
         lock.withLock { meals.append(meal) }
+    }
+
+    func recordRefusedHealthWrite(_ refusal: RefusedHealthWrite,
+                                  mutationId: String) async throws {
+        try record("refused_health_write:\(mutationId)")
+        lock.withLock { refusals.append(refusal) }
     }
 }
 
