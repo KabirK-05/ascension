@@ -262,7 +262,16 @@ export const ProgramBody = z.strictObject({
       }),
     )
     .length(7),
-  sessions: z.record(
+  /**
+   * Only the kinds the week actually plans, keyed by session kind -- `rest` has
+   * no template and a program need not define every lifting split.
+   *
+   * `partialRecord`, not `record`: a zod 4 `record` over an enum key is
+   * exhaustive, so it demanded a template for all seven kinds and rejected the
+   * program docs/EXPORT_SCHEMA.md §2.2 prints. The Swift side is a partial
+   * dictionary, so this is the shape the contract always described.
+   */
+  sessions: z.partialRecord(
     SessionKind,
     z.strictObject({
       name: z.string().min(1),
@@ -313,3 +322,275 @@ export type DocumentKey = (typeof documentKeys)[number];
 export type GoalSettingsBody = z.infer<typeof GoalSettingsBody>;
 export type FlagsBody = z.infer<typeof FlagsBody>;
 export type Targets = z.infer<typeof Targets>;
+
+/* --------------------------------------------------------------- mutations -- */
+
+/**
+ * The write log's closed set of kinds (docs/EXPORT_SCHEMA.md §3), in the order
+ * the table lists them. ASC-12 asked for this tuple: the kinds were the one
+ * closed set that lived in prose only, so the phone's contract check had to read
+ * the markdown table instead of this file.
+ */
+export const mutationKinds = [
+  "set_targets",
+  "update_program",
+  "set_staples",
+  "set_flag",
+  "accept_suggestion",
+  "log_meal",
+  "log_water",
+  "log_top_set",
+  "log_checkin",
+  "schedule_workout",
+  "trigger_export",
+] as const;
+export const MutationKind = z.enum(mutationKinds);
+export type MutationKind = (typeof mutationKinds)[number];
+
+/**
+ * Tier 1 is state the Worker owns; Tier 2 needs an API only the phone has, so a
+ * Tier-2 tool may never answer anything but `pending_device_apply`
+ * (docs/MUSE_CAPABILITIES.md). Mirrors `MutationKind.tier` in AscensionCore.
+ */
+const TIER_ONE: readonly MutationKind[] = [
+  "set_targets",
+  "update_program",
+  "set_staples",
+  "set_flag",
+  "accept_suggestion",
+];
+
+export function tierOf(kind: MutationKind): 1 | 2 {
+  return TIER_ONE.includes(kind) ? 1 : 2;
+}
+
+/** Spec §7 spelling: `OFF` and `USDA` are uppercase. */
+export const foodSources = ["staple", "OFF", "USDA", "custom"] as const;
+
+/**
+ * The `FoodItem` of the `set_staples` payload. §3 names the type but no section
+ * declares it; this is the shape AscensionCore encodes (spec §7 field for
+ * field), per the ASC-2 hand-over note. Macros are per 100 g for every food so
+ * portion scaling is uniform; `servingGrams` is what a one-tap staple logs.
+ *
+ * The four optional fields are written as explicit `null` by the device and may
+ * be omitted by Muse, so both are accepted.
+ */
+export const FoodItem = z.strictObject({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  brand: z.string().nullable().optional(),
+  kcalPer100g: z.number().min(0),
+  proteinPer100g: z.number().min(0),
+  fatPer100g: z.number().min(0),
+  carbsPer100g: z.number().min(0),
+  source: z.enum(foodSources),
+  barcode: z.string().nullable().optional(),
+  servingGrams: z.number().positive().nullable().optional(),
+  servingName: z.string().nullable().optional(),
+});
+
+/**
+ * A partial `goalSettings.targets`: only the fields Muse set are present. Every
+ * target is an integer on the device (`GoalTargets` in AscensionCore), so a
+ * fractional calorie target would fail to decode there — it is rejected here.
+ */
+export const TargetsPatch = z.strictObject({
+  kcal: z.number().int().optional(),
+  proteinG: z.number().int().optional(),
+  proteinMinG: z.number().int().optional(),
+  fatMinG: z.number().int().optional(),
+  fatMaxG: z.number().int().optional(),
+  steps: z.number().int().optional(),
+  sleepMinutes: z.number().int().optional(),
+});
+
+export const flagKeys = [
+  "remoteBridgeEnabled",
+  "museWritesEnabled",
+  "museWriteMode",
+  "rawDetailSyncEnabled",
+  "foundationModelsEnabled",
+] as const;
+export const museWriteModes = ["apply", "propose"] as const;
+
+/**
+ * `{ key, value }`. Split by key rather than taking `unknown`: `museWriteMode`
+ * is the one flag that is not a boolean, and a `true` written to it would be a
+ * document the app cannot decode.
+ */
+export const FlagChange = z.union([
+  z.strictObject({
+    key: z.literal("museWriteMode"),
+    value: z.enum(museWriteModes),
+  }),
+  z.strictObject({
+    key: z.enum([
+      "remoteBridgeEnabled",
+      "museWritesEnabled",
+      "rawDetailSyncEnabled",
+      "foundationModelsEnabled",
+    ]),
+    value: z.boolean(),
+  }),
+]);
+
+export const StaplesPayload = z.strictObject({
+  staples: z.array(FoodItem),
+});
+
+export const AcceptSuggestionPayload = z.strictObject({
+  suggestionId: z.string().min(1),
+});
+
+/**
+ * One line of a logged meal. `foodItemId` is absent for a food Muse described
+ * rather than picked from the staples.
+ */
+export const MealItem = z.strictObject({
+  foodItemId: z.string().min(1).nullable().optional(),
+  name: z.string().min(1),
+  grams: z.number().min(0),
+  kcal: z.number().min(0),
+  proteinG: z.number().min(0),
+  fatG: z.number().min(0),
+  carbsG: z.number().min(0),
+});
+
+export const LogMealPayload = z.strictObject({
+  date: isoDate,
+  meal: z.enum(mealSlots),
+  items: z.array(MealItem).min(1),
+});
+
+/** A single sane bound: HealthKit takes millilitres, and 10 L is a typo. */
+export const LogWaterPayload = z.strictObject({
+  date: isoDate,
+  ml: z.number().positive().max(10_000),
+});
+
+export const LogTopSetPayload = z.strictObject({
+  date: isoDate,
+  exerciseId: z.string().min(1),
+  weightKg: z.number().min(0),
+  reps: z.number().int().min(1),
+});
+
+export const LogCheckInPayload = z.strictObject({
+  date: isoDate,
+  energy: z.number().int().min(1).max(5),
+  soreness: Soreness,
+});
+
+export const ScheduleWorkoutPayload = z.strictObject({
+  date: isoDate,
+  sessionKind: SessionKind,
+});
+
+export const TriggerExportPayload = z.strictObject({});
+
+/** Payload schema per kind, so a log row can be re-validated on the way out. */
+export const mutationPayloads = {
+  set_targets: TargetsPatch,
+  update_program: ProgramBody,
+  set_staples: StaplesPayload,
+  set_flag: FlagChange,
+  accept_suggestion: AcceptSuggestionPayload,
+  log_meal: LogMealPayload,
+  log_water: LogWaterPayload,
+  log_top_set: LogTopSetPayload,
+  log_checkin: LogCheckInPayload,
+  schedule_workout: ScheduleWorkoutPayload,
+  trigger_export: TriggerExportPayload,
+} as const;
+
+/**
+ * One row of the append-only log as `GET /v1/mutations` serves it
+ * (docs/EXPORT_SCHEMA.md §3). `appliedAt` and `appliedResult` are explicit
+ * `null` until set, never omitted.
+ */
+export const Mutation = z.strictObject({
+  id: z.string().length(26),
+  createdAt: isoTimestamp,
+  actor: Actor,
+  kind: MutationKind,
+  payload: z.unknown(),
+  appliedAt: isoTimestamp.nullable(),
+  appliedResult: z.unknown().nullable(),
+});
+
+export type Mutation = z.infer<typeof Mutation>;
+
+/**
+ * `POST /v1/mutations/ack`. `appliedAt` is the *device's* instant, not the
+ * Worker's: a drain that happened offline keeps the time it really happened.
+ */
+export const MutationAck = z.strictObject({
+  schemaVersion: z.literal(SCHEMA_VERSION).optional(),
+  ids: z.array(z.string().length(26)).min(1).max(500),
+  appliedAt: isoTimestamp,
+});
+
+/* ------------------------------------------------------------- suggestions -- */
+
+export const suggestionSources = ["muse", "device"] as const;
+export const suggestionStatuses = ["pending", "accepted"] as const;
+
+/**
+ * Something waiting for a one-tap accept: either the §F6 calorie auto-adjust the
+ * device raised, or — when `flags.museWriteMode` is `propose` — a Tier-1 write
+ * Muse asked for and the Worker has not made.
+ *
+ * `action` is what accepting *does*. A suggestion without one can only be
+ * applied on the phone (it is the phone's own, and it knows the id), so
+ * `accept_suggestion` queues it rather than applying it here.
+ */
+export const Suggestion = z.strictObject({
+  id: z.string().min(1).max(64),
+  createdAt: isoTimestamp,
+  source: z.enum(suggestionSources),
+  /** The suggestion's own label, e.g. `calorieAdjust`. Open: §4 pins no set. */
+  kind: z.string().min(1),
+  /** One plain-language line, as `summary-latest.md` lists it. */
+  text: z.string().min(1),
+  action: z
+    .strictObject({ kind: MutationKind, payload: z.unknown() })
+    .nullable(),
+  status: z.enum(suggestionStatuses),
+  decidedAt: isoTimestamp.nullable(),
+});
+
+export type Suggestion = z.infer<typeof Suggestion>;
+
+/** `POST /v1/suggestions` — the device handing its open suggestions up. */
+export const SuggestionUpload = z.strictObject({
+  schemaVersion: z.literal(SCHEMA_VERSION).optional(),
+  suggestions: z
+    .array(
+      z.strictObject({
+        id: z.string().min(1).max(64),
+        createdAt: isoTimestamp,
+        kind: z.string().min(1),
+        text: z.string().min(1),
+        action: z
+          .strictObject({ kind: MutationKind, payload: z.unknown() })
+          .nullable()
+          .optional(),
+      }),
+    )
+    .max(100),
+});
+
+/* ------------------------------------------------------------- write status -- */
+
+/**
+ * What a write tool answers. `pending_device_apply` is the contract's own word
+ * (docs/EXPORT_SCHEMA.md §3): an assistant may never report a HealthKit write as
+ * landed before the phone has applied it.
+ */
+export const writeStatuses = ["applied", "pending_device_apply", "proposed"] as const;
+export type WriteStatus = (typeof writeStatuses)[number];
+
+export type ProgramBody = z.infer<typeof ProgramBody>;
+export type MealItem = z.infer<typeof MealItem>;
+export type FoodItem = z.infer<typeof FoodItem>;

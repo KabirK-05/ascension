@@ -25,6 +25,20 @@ struct ExportRunner: Sendable {
 
     var hasDestination: Bool { destination.hasDestination }
 
+    /// Takes the folder the user picked in Settings, as a security-scoped bookmark.
+    ///
+    /// ASC-20 left `ExportRunner.run` returning `nil` on every call because no folder had
+    /// ever been chosen — there was no picker. This is the other half of it.
+    @discardableResult
+    func adopt(_ folder: URL) -> Bool {
+        do {
+            try destination.adopt(folder)
+            return true
+        } catch {
+            return false
+        }
+    }
+
     /// Writes the export, or returns `nil` when there is no folder to write to.
     ///
     /// `suggestions` is empty on purpose: spec §7 defines no suggestion entity, so the app

@@ -86,6 +86,19 @@ extension LocalStore {
         try context.save()
     }
 
+    /// Inserts one logged portion of a stored food.
+    ///
+    /// The App Intents path, which has no mutation behind it and therefore no
+    /// `MutationPayload.LoggedMealPayload` to build — those types carry no public
+    /// memberwise initialiser, and adding one would mean editing `SyncClient` to save a
+    /// line here.
+    func insertMeal(date: CalendarDate, meal: MealKind, food: FoodItemDTO,
+                    grams: Double, macros: Macros) throws {
+        context.insert(MealLog(date: date, meal: meal, grams: grams, macros: macros,
+                               foodItem: storedFood(id: food.id), foodName: food.name))
+        try context.save()
+    }
+
     func storedFood(id: String) -> FoodItem? {
         let descriptor = FetchDescriptor<FoodItem>(predicate: #Predicate { $0.id == id })
         return (try? context.fetch(descriptor))?.first

@@ -1,3 +1,4 @@
+import AscensionCore
 import ExportKit
 import Foundation
 import HealthBridge
@@ -80,6 +81,32 @@ struct ConfigurationTests {
     /// chose the same one deliberately — the nightly export and the nightly push are one
     /// job. If these ever diverge the shell would register two handlers for a single
     /// permitted identifier, which is a crash on the first background wake.
+    @Test("the write mode is a flag like any other, and only a known mode is taken")
+    func writeMode() {
+        let flags = FlagsStore(defaults: defaults("writeMode"))
+        #expect(flags.document.museWriteMode == Seed.flags.museWriteMode)
+
+        flags.apply(key: "museWriteMode", value: .string("apply"))
+        #expect(flags.document.museWriteMode == .apply)
+
+        flags.apply(key: "museWriteMode", value: .string("whatever"))
+        #expect(flags.document.museWriteMode == .apply)
+
+        flags.apply(key: "museWriteMode", value: .bool(true))
+        #expect(flags.document.museWriteMode == .apply)
+    }
+
+    @Test("setting the write mode bumps the document so the Worker sees a new version")
+    func writeModeBumpsVersion() {
+        let flags = FlagsStore(defaults: defaults("writeModeVersion"))
+        let before = flags.document.version
+        let updated = flags.setMuseWriteMode(.apply)
+        #expect(updated.museWriteMode == .apply)
+        #expect(updated.version == before + 1)
+        // Setting the mode it is already in changes nothing, version included.
+        #expect(flags.setMuseWriteMode(.apply).version == before + 1)
+    }
+
     @Test("the nightly export and the nightly push share one background identifier")
     func nightlyIdentifiersAgree() {
         #expect(NightlyExport.taskIdentifier == SyncTaskIdentifier.nightlyPush)

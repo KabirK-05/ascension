@@ -41,11 +41,14 @@ actor DayRefreshService {
     private let bridge: HealthBridgeService
     private let store: LocalStore
     private let ledger: RollupStore
+    private let calendar: any TrainingBlockSource
 
-    init(bridge: HealthBridgeService, store: LocalStore, ledger: RollupStore) {
+    init(bridge: HealthBridgeService, store: LocalStore, ledger: RollupStore,
+         calendar: any TrainingBlockSource = NoTrainingBlocks()) {
         self.bridge = bridge
         self.store = store
         self.ledger = ledger
+        self.calendar = calendar
     }
 
     /// Re-derives the window and returns what the tabs and the sync need.
@@ -119,8 +122,8 @@ actor DayRefreshService {
     ///
     /// Deliberately the matcher and not a rule of the shell's own: ASC-10 warns that an
     /// independent `sessionDone` would make Train and the export disagree about the same
-    /// week. Calendar blocks are not read — EventKit is wired nowhere yet — so a day with
-    /// two eligible workouts credits the longest rather than the one on the calendar.
+    /// week. The calendar blocks are the same ones Train reads, so the rollup the Worker
+    /// is sent and the week the tab draws credit the same workout.
     private func matched(dates: [CalendarDate],
                          snapshots: [String: DayHealthSnapshot],
                          program: ProgramDocument,
@@ -130,8 +133,11 @@ actor DayRefreshService {
             .compactMap { snapshots[$0.rawValue] }
             .flatMap(\.workouts)
             .compactMap { CompletedSession($0.summary(timeZone: clock.timeZone)) }
+        let blocks = await calendar.blocks(on: dates, program: program,
+                                           timeZone: clock.timeZone)
         return SessionMatcher.days(dates, program: program, today: today,
-                                   sessions: sessions, blocks: [], timeZone: clock.timeZone)
+                                   sessions: sessions, blocks: blocks,
+                                   timeZone: clock.timeZone)
     }
 
     /// The weight series the trend engine reads: the ledger's history with the window's
