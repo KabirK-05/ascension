@@ -191,7 +191,8 @@ final class AppComposition {
                 try await watch.send(kind: kind, program: program,
                                      exerciseNames: names, clock: clock)
             } : nil,
-            openEat: openEat)
+            openEat: openEat,
+            checkInStore: LocalCheckInStore(store: store))
     }
 
     func trainScreen() -> TrainScreen {

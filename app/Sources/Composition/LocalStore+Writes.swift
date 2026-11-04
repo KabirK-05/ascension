@@ -54,13 +54,21 @@ extension LocalStore {
     /// One check-in per day: `CheckIn.date` is `@Attribute(.unique)`, so a second insert
     /// for the same date would fail rather than update.
     func upsertCheckIn(_ payload: MutationPayload.CheckInPayload) throws {
-        let day = payload.date.rawValue
+        try upsertCheckIn(date: payload.date, energy: payload.energy,
+                          soreness: payload.soreness)
+    }
+
+    /// The same upsert from the app's own check-in, which has a `CheckInRollup` rather than
+    /// a drained mutation. `CheckInPayload`'s memberwise initialiser is internal to
+    /// `SyncClient`, so the shell cannot build one — the same reason `insertMeal` carries
+    /// two overloads.
+    func upsertCheckIn(date: CalendarDate, energy: Int, soreness: Soreness) throws {
+        let day = date.rawValue
         let existing = FetchDescriptor<CheckIn>(predicate: #Predicate { $0.date == day })
         for stale in (try? context.fetch(existing)) ?? [] {
             context.delete(stale)
         }
-        context.insert(CheckIn(date: payload.date, energy: payload.energy,
-                               soreness: payload.soreness))
+        context.insert(CheckIn(date: date, energy: energy, soreness: soreness))
         try context.save()
     }
 
