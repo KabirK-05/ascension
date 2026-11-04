@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [AscensionCore, AscensionEngines, ExportKit, SyncClient]
+        package: [AscensionCore, AscensionEngines, ExportKit, SyncClient, SystemSurfaces]
     steps:
       - uses: actions/checkout@v5
       - name: Select newest Xcode
@@ -50,8 +50,9 @@ jobs:
       - name: Test ${{ matrix.package }}
         run: swift test --package-path packages/${{ matrix.package }}
 
-  # iOS-only packages: build for the simulator. No tests here yet; UI tests land
-  # with the feature tickets.
+  # iOS-only packages: build for the simulator, and test the ones that have tests.
+  # A package opts in by adding itself to the list in the test step below; it needs a
+  # booted simulator, so it stays opt-in rather than running for every scaffold.
   ios-packages:
     runs-on: macos-latest
     strategy:
@@ -68,6 +69,29 @@ jobs:
           xcodebuild -scheme ${{ matrix.package }} \
             -destination 'generic/platform=iOS Simulator' \
             -quiet build
+
+      - name: Resolve a simulator
+        run: |
+          IFS=$'\t' read -r udid name os < <("$GITHUB_WORKSPACE/scripts/ci-simulator.sh")
+          echo "SIMULATOR_ID=$udid" >> "$GITHUB_ENV"
+          echo "Testing on $name (iOS $os) — $udid"
+
+      - name: Test ${{ matrix.package }} on the simulator
+        if: contains(fromJSON('["DesignSystem", "HealthBridge", "FeatureToday", "FeatureTrain", "FeatureEat", "FeatureTrends"]'), matrix.package)
+        working-directory: packages/${{ matrix.package }}
+        run: |
+          bundle="$RUNNER_TEMP/${{ matrix.package }}.xcresult"
+          set +e
+          xcodebuild -scheme ${{ matrix.package }} \
+            -destination "id=$SIMULATOR_ID" \
+            -resultBundlePath "$bundle" \
+            -quiet test
+          test_status=$?
+          set -e
+          # `xcodebuild test` exits 0 having run nothing, and `-quiet` prints no count
+          # at all, so the number of tests is asserted rather than assumed. ASC-26.
+          "$GITHUB_WORKSPACE/scripts/assert-tests-ran.sh" "$bundle" "${{ matrix.package }}"
+          exit $test_status
 
   app:
     runs-on: macos-latest
@@ -86,3 +110,28 @@ jobs:
           xcodebuild -workspace Ascension.xcworkspace -scheme Ascension \
             -destination 'generic/platform=iOS Simulator' \
             -quiet build
+
+      - name: Resolve a simulator
+        run: |
+          IFS=$'\t' read -r udid name os < <("$GITHUB_WORKSPACE/scripts/ci-simulator.sh")
+          echo "SIMULATOR_ID=$udid" >> "$GITHUB_ENV"
+          echo "Testing on $name (iOS $os) — $udid"
+
+      # The composition root is the only place the packages are actually joined up, so
+      # its tests are the only ones that can catch a seam that no longer fits. They need
+      # a booted simulator, which is why they run here rather than in the `packages` job.
+      - name: Test the app shell on the simulator
+        run: |
+          bundle="$RUNNER_TEMP/app-shell.xcresult"
+          set +e
+          xcodebuild -workspace Ascension.xcworkspace -scheme Ascension \
+            -destination "id=$SIMULATOR_ID" \
+            -resultBundlePath "$bundle" \
+            -quiet test
+          test_status=$?
+          set -e
+          # The app's tests are all Swift Testing, and the only count xcodebuild
+          # prints is XCTest's — which reads `Executed 0 tests` beside a full passing
+          # run. The real numbers come out of the result bundle. ASC-26.
+          "$GITHUB_WORKSPACE/scripts/assert-tests-ran.sh" "$bundle" "app shell"
+          exit $test_status

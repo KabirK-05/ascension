@@ -1,0 +1,65 @@
+{
+  "actors" : [
+    "muse",
+    "device",
+    "system"
+  ],
+  "documentKeys" : [
+    "goalSettings",
+    "program",
+    "flags"
+  ],
+  "mealSlots" : [
+    "breakfast",
+    "lunch",
+    "dinner",
+    "snack"
+  ],
+  "muscleGroups" : [
+    "chest",
+    "back",
+    "shoulders",
+    "arms",
+    "quads",
+    "hamstrings",
+    "glutes",
+    "core"
+  ],
+  "museWriteModes" : [
+    "apply",
+    "propose"
+  ],
+  "mutationKinds" : [
+    "set_targets",
+    "update_program",
+    "set_staples",
+    "set_flag",
+    "accept_suggestion",
+    "log_meal",
+    "log_water",
+    "log_top_set",
+    "log_checkin",
+    "schedule_workout",
+    "trigger_export"
+  ],
+  "sessionKinds" : [
+    "upperA",
+    "upperB",
+    "lowerA",
+    "lowerB",
+    "fullBody",
+    "zone2",
+    "rest"
+  ],
+  "sorenessLevels" : [
+    "none",
+    "mild",
+    "sore"
+  ],
+  "verdicts" : [
+    "trainAsPlanned",
+    "capIntensity",
+    "swapSession",
+    "activeRecovery"
+  ]
+}

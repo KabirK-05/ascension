@@ -43,12 +43,24 @@ packages/
   ExportKit          export.json, CSV, daily-log.md, summary-latest.md (§9.1).
   SyncClient         Cloudflare push/pull + mutation application.
   DesignSystem       Tokens, components, the consistency grid.
+  SystemSurfaces     The shared day snapshot the widgets, App Intents and
+                     notifications read, plus the streak rule (§F8).
   FeatureToday / FeatureTrain / FeatureEat / FeatureTrends
-app/                 Thin shell: 4 tabs, DI wiring, entitlements.
+app/                 Thin shell: 4 tabs, Settings, DI wiring, entitlements.
+widgets/             WidgetKit extension: Today, protein, streak.
 ```
 
 Dependency rule, enforced in review: `Features → DesignSystem, Core, Engines`.
 `Core` and `Engines` depend on **nothing**. No feature imports another feature.
+`SystemSurfaces` depends on `Core` and `Engines` only, because the widget extension
+links it and a feature in that process would drag four screens into a target that
+draws one number.
+
+The widget extension and the app share the app group
+`group.com.kabirkumar.ascension`. A widget runs in its own process with no HealthKit
+authorization and no SwiftData container, so the app writes `surface.json` into that
+group after every refresh and the widgets read it — which is also why a widget can
+never disagree with the tab behind it.
 
 ---
 

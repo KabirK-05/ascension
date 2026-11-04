@@ -1,0 +1,190 @@
+{
+  "checkIns" : [
+    {
+      "date" : "2026-11-03",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-04",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-06",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-07",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-08",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-09",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-11",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-12",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-13",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-14",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-16",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-17",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-18",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-19",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "ba

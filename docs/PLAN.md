@@ -97,6 +97,12 @@ verdicts with their top two reasons on Today.
 suggestions, load/deload, VO2/RHR/sleep trends, Sunday review (F7).
 **ASC-16 — System surfaces** — widgets, App Intents/Siri, smart notifications (only the
 four in §F8), optional Live Activity. Plus **Settings → Changes** with Muse-write undo.
+**Runs after ASC-20**, not beside it: both own `app/` and `Project.swift`.
+Delivered with the three wiring gaps ASC-20 documented (Settings pairing, the Trends
+tab, EventKit). **The Live Activity was deliberately not built**: the app is not a
+recorder (§5), so a gym-day card could only mirror a session name and a Send-to-Watch
+state it cannot update without a push, which is a second live surface to keep correct
+for no answer the Today widget does not already give.
 **ASC-17 — Local stdio MCP** · `mcp-local/` — read-only server over the export folder,
 for Claude Code on the Mac.
 
@@ -104,6 +110,49 @@ for Claude Code on the Mac.
 the connector attached, Muse answers "how is my training going this month?" accurately
 **and** successfully changes a calorie target and swaps a session, with the phone
 applying a queued `log_meal` into Apple Health.
+Delivered as a pair of suites that meet at `edge/test/golden/mutations.page.json`
+rather than one harness spanning both languages: the cloud half drives `/mcp` as a
+real connector (OAuth, PKCE, Streamable HTTP) over a hand-counted October 2026, and
+the device half replays the Worker's own drain page through `MutationDrainer` into the
+fake health store. See docs/DELIVERY.md. **One finding, reported not fixed:** a
+`log_meal` applied while the HealthKit nutrition scopes are refused is acked having
+written nothing to Apple Health — `HealthMutationWriteBack` discards the receipt
+`HealthWriter` returns, so nothing retries it and the meal survives only as a local
+total.
+
+---
+
+## Maintenance tickets (found during the build, not planned up front)
+
+**ASC-20 — Composition root**
+Every feature package takes HealthKit, networking and write-back through protocols
+injected "by the app shell" — and no ticket owned that wiring. `app/` is still the
+ASC-1 scaffold: `RootTabView` constructs each screen with no arguments, so the app
+runs with nothing connected to anything. Builds the composition root in `app/`,
+wiring `HealthBridge`, `SyncClient`, `ExportKit` and the engines into all four tabs.
+Origin: a gap in this plan — the composition root was never assigned. **ASC-16 is
+resequenced to run after it**, since it extends the same shell.
+
+**ASC-19 — Toolchain alignment**
+Every package manifest built under laxer rules than the app target, which sets
+`SWIFT_STRICT_CONCURRENCY=complete`. A Swift 6 concurrency error in `SyncClient`
+therefore passed the package's own tests and only failed the `app` job (ASC-12, PR #9).
+Pins `.swiftLanguageMode(.v6)` on every target so a package cannot pass while the app
+it ships in does not compile. Also extends the opt-in simulator test list ASC-9 added
+to CI — `FeatureEat`'s and `FeatureTrain`'s tests were not running anywhere.
+Origin: an ASC-1 scaffolding gap.
+
+**ASC-20 — Composition root**
+Every feature package was built to receive HealthKit, networking and write-back through
+protocols injected by the app shell — which is what keeps them building and testing with
+no device, since CI has no HealthKit. No ticket owned that injection, so after twelve
+merges `app/Sources/RootTabView.swift` was still the ASC-1 scaffold and nothing was
+connected to anything. Adds the composition root, the app lifecycle (HealthKit
+authorization and observers, the two background tasks, APNs, the nightly export), the
+Send-to-Watch link both Today and Train leave to the shell, and a rollup ledger — the
+store of `DayRollup`s that `AscensionSchema` has no entity for and that the grid, the
+export and the Worker push all read.
+Origin: a gap in this plan, not in any ticket's execution.
 
 ---
 

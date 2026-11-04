@@ -1,0 +1,5005 @@
+{
+  "checkIns" : [
+    {
+      "date" : "2026-11-03",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-04",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-06",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-07",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-08",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-09",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-11",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-12",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-13",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-14",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-16",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-17",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-18",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-19",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-21",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-22",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-24",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-26",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-27",
+      "energy" : 3,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "none",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "sore",
+        "quads" : "mild",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-28",
+      "energy" : 4,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "mild",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "none",
+        "quads" : "sore",
+        "shoulders" : "none"
+      }
+    },
+    {
+      "date" : "2026-11-29",
+      "energy" : 5,
+      "soreness" : {
+        "arms" : "none",
+        "back" : "sore",
+        "chest" : "none",
+        "core" : "none",
+        "glutes" : "none",
+        "hamstrings" : "mild",
+        "quads" : "none",
+        "shoulders" : "none"
+      }
+    }
+  ],
+  "documents" : {
+    "flags" : {
+      "foundationModelsEnabled" : true,
+      "museWriteMode" : "propose",
+      "museWritesEnabled" : false,
+      "rawDetailSyncEnabled" : false,
+      "remoteBridgeEnabled" : false,
+      "version" : 1
+    },
+    "goalSettings" : {
+      "body" : {
+        "goalWeightKg" : 68,
+        "heightCm" : 170
+      },
+      "deloadEveryWeeks" : 5,
+      "dietaryRules" : {
+        "allowedDairy" : [
+          "milk_bournvita"
+        ],
+        "excludedMeats" : [
+          "pork",
+          "beef"
+        ],
+        "noLiquidCalories" : true
+      },
+      "programStartDate" : "2026-11-03",
+      "targets" : {
+        "fatMaxG" : 70,
+        "fatMinG" : 60,
+        "kcal" : 2200,
+        "proteinG" : 150,
+        "proteinMinG" : 140,
+        "sleepMinutes" : 450,
+        "steps" : 10000
+      },
+      "timezone" : "America/Toronto",
+      "updatedAt" : "2026-11-03T00:00:00-05:00",
+      "updatedBy" : "device",
+      "version" : 1
+    },
+    "program" : {
+      "days" : [
+        {
+          "kind" : "upperA",
+          "weekday" : 1
+        },
+        {
+          "kind" : "lowerA",
+          "weekday" : 2
+        },
+        {
+          "kind" : "rest",
+          "weekday" : 3
+        },
+        {
+          "kind" : "upperB",
+          "weekday" : 4
+        },
+        {
+          "kind" : "lowerB",
+          "weekday" : 5
+        },
+        {
+          "kind" : "rest",
+          "weekday" : 6
+        },
+        {
+          "kind" : "rest",
+          "weekday" : 7
+        }
+      ],
+      "deload" : {
+        "active" : false,
+        "loadFactor" : 0.6,
+        "volumeFactor" : 0.5
+      },
+      "finisher" : {
+        "daysPerWeek" : 2,
+        "inclinePct" : 9,
+        "kind" : "inclineWalk",
+        "minutes" : 15
+      },
+      "name" : "Upper/Lower 4-day",
+      "progression" : {
+        "incrementKg" : 2.5,
+        "rule" : "rir2"
+      },
+      "sessions" : {
+        "lowerA" : {
+          "exercises" : [
+            {
+              "exerciseId" : "Goblet_Squat",
+              "finisher" : false,
+              "order" : 1,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "DB_Romanian_Deadlift",
+              "finisher" : false,
+              "order" : 2,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Walking_Lunge",
+              "finisher" : false,
+              "order" : 3,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Plank",
+              "finisher" : false,
+              "order" : 4,
+              "repsHigh" : 1,
+              "repsLow" : 1,
+              "sets" : 3
+            }
+          ],
+          "name" : "Lower A"
+        },
+        "lowerB" : {
+          "exercises" : [
+            {
+              "exerciseId" : "Leg_Press",
+              "finisher" : false,
+              "order" : 1,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Hip_Thrust",
+              "finisher" : false,
+              "order" : 2,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Lying_Leg_Curl",
+              "finisher" : false,
+              "order" : 3,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Hanging_Leg_Raise",
+              "finisher" : false,
+              "order" : 4,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Incline_Treadmill_Walk",
+              "finisher" : true,
+              "order" : 5,
+              "repsHigh" : 1,
+              "repsLow" : 1,
+              "sets" : 1
+            }
+          ],
+          "name" : "Lower B"
+        },
+        "upperA" : {
+          "exercises" : [
+            {
+              "exerciseId" : "DB_Bench_Press",
+              "finisher" : false,
+              "order" : 1,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Lat_Pulldown",
+              "finisher" : false,
+              "order" : 2,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Overhead_DB_Press",
+              "finisher" : false,
+              "order" : 3,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Seated_Cable_Row",
+              "finisher" : false,
+              "order" : 4,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Incline_Treadmill_Walk",
+              "finisher" : true,
+              "order" : 5,
+              "repsHigh" : 1,
+              "repsLow" : 1,
+              "sets" : 1
+            }
+          ],
+          "name" : "Upper A"
+        },
+        "upperB" : {
+          "exercises" : [
+            {
+              "exerciseId" : "Incline_DB_Press",
+              "finisher" : false,
+              "order" : 1,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Bent_Over_DB_Row",
+              "finisher" : false,
+              "order" : 2,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Close_Grip_Lat_Pulldown",
+              "finisher" : false,
+              "order" : 3,
+              "repsHigh" : 12,
+              "repsLow" : 10,
+              "sets" : 3
+            },
+            {
+              "exerciseId" : "Farmers_Carry",
+              "finisher" : false,
+              "order" : 4,
+              "repsHigh" : 1,
+              "repsLow" : 1,
+              "sets" : 3
+            }
+          ],
+          "name" : "Upper B"
+        }
+      },
+      "updatedAt" : "2026-11-03T00:00:00-05:00",
+      "updatedBy" : "device",
+      "version" : 1
+    }
+  },
+  "exportedAt" : "2026-11-30T06:00:00-05:00",
+  "meals" : [
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-03",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-03",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-03",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-03",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-04",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-04",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-04",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-05",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-05",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-05",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-06",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-06",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-06",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-06",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-07",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-07",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-07",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-08",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-08",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-08",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-09",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-09",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-09",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-09",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-10",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-10",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-10",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-11",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-11",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-11",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-12",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-12",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-12",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-12",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-13",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-13",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-13",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-14",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-14",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-14",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-15",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-15",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-15",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-15",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-16",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-16",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-16",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-17",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-17",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-17",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-18",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-18",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-18",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-18",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-19",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-19",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-19",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-20",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-20",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-20",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-21",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-21",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-21",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-21",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-22",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-22",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-22",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-24",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-24",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-24",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-24",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-25",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-25",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-25",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-26",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-26",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-26",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-27",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-27",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-27",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-27",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-28",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-28",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-28",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-29",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-29",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-29",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 35.9,
+      "date" : "2026-11-30",
+      "fatG" : 21.1,
+      "foodItemId" : "staple_omelette_toast",
+      "grams" : 315,
+      "kcal" : 430,
+      "meal" : "breakfast",
+      "name" : "3-egg omelette, veggies, 2 toast",
+      "proteinG" : 23.9
+    },
+    {
+      "carbsG" : 75.9,
+      "date" : "2026-11-30",
+      "fatG" : 13.8,
+      "foodItemId" : "staple_chicken_breast_rice",
+      "grams" : 550,
+      "kcal" : 650.1,
+      "meal" : "lunch",
+      "name" : "Chicken breast, rice, vegetables",
+      "proteinG" : 55
+    },
+    {
+      "carbsG" : 60,
+      "date" : "2026-11-30",
+      "fatG" : 28.8,
+      "foodItemId" : "staple_chicken_thighs_potatoes",
+      "grams" : 600,
+      "kcal" : 700.2,
+      "meal" : "dinner",
+      "name" : "Chicken thighs, potatoes, salad",
+      "proteinG" : 49.8
+    },
+    {
+      "carbsG" : 32.5,
+      "date" : "2026-11-30",
+      "fatG" : 7.5,
+      "foodItemId" : "staple_milk_bournvita",
+      "grams" : 250,
+      "kcal" : 231.5,
+      "meal" : "snack",
+      "name" : "Milk with Bournvita",
+      "proteinG" : 9.3
+    }
+  ],
+  "readiness" : [
+    {
+      "date" : "2026-11-03",
+      "reasons" : [
+        "slept 6h50",
+        "HRV near baseline"
+      ],
+      "score" : 68,
+      "verdict" : "swapSession"
+    },
+    {
+      "date" : "2026-11-04",
+      "reasons" : [
+        "slept 7h07",
+        "HRV near baseline"
+      ],
+      "score" : 75,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-05",
+      "reasons" : [
+        "slept 7h24",
+        "HRV near baseline"
+      ],
+      "score" : 82,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-06",
+      "reasons" : [
+        "slept 7h41",
+        "HRV near baseline"
+      ],
+      "score" : 89,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-07",
+      "reasons" : [
+        "slept 7h58",
+        "HRV near baseline"
+      ],
+      "score" : 69,
+      "verdict" : "swapSession"
+    },
+    {
+      "date" : "2026-11-08",
+      "reasons" : [
+        "slept 6h55",
+        "HRV near baseline"
+      ],
+      "score" : 76,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-09",
+      "reasons" : [
+        "slept 7h12",
+        "HRV near baseline"
+      ],
+      "score" : 83,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-10",
+      "reasons" : [
+        "slept 7h29",
+        "HRV near baseline"
+      ],
+      "score" : 90,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-11",
+      "reasons" : [
+        "slept 7h46",
+        "HRV near baseline"
+      ],
+      "score" : 70,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-12",
+      "reasons" : [
+        "slept 8h03",
+        "HRV near baseline"
+      ],
+      "score" : 77,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-13",
+      "reasons" : [
+        "slept 7h00",
+        "HRV near baseline"
+      ],
+      "score" : 84,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-14",
+      "reasons" : [
+        "slept 7h17",
+        "HRV near baseline"
+      ],
+      "score" : 91,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-15",
+      "reasons" : [
+        "slept 7h34",
+        "HRV near baseline"
+      ],
+      "score" : 71,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-16",
+      "reasons" : [
+        "slept 7h51",
+        "HRV near baseline"
+      ],
+      "score" : 78,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-17",
+      "reasons" : [
+        "slept 8h08",
+        "HRV near baseline"
+      ],
+      "score" : 85,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-18",
+      "reasons" : [
+        "slept 7h05",
+        "HRV near baseline"
+      ],
+      "score" : 92,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-19",
+      "reasons" : [
+        "slept 7h22",
+        "HRV near baseline"
+      ],
+      "score" : 72,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-20",
+      "reasons" : [
+        "slept 7h39",
+        "HRV near baseline"
+      ],
+      "score" : 79,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-21",
+      "reasons" : [
+        "slept 7h56",
+        "HRV near baseline"
+      ],
+      "score" : 86,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-22",
+      "reasons" : [
+        "slept 6h53",
+        "HRV near baseline"
+      ],
+      "score" : 93,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-24",
+      "reasons" : [
+        "slept 7h27",
+        "HRV near baseline"
+      ],
+      "score" : 80,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-25",
+      "reasons" : [
+        "slept 7h44",
+        "HRV near baseline"
+      ],
+      "score" : 87,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-26",
+      "reasons" : [
+        "slept 8h01",
+        "HRV near baseline"
+      ],
+      "score" : 94,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-27",
+      "reasons" : [
+        "slept 6h58",
+        "HRV near baseline"
+      ],
+      "score" : 74,
+      "verdict" : "capIntensity"
+    },
+    {
+      "date" : "2026-11-28",
+      "reasons" : [
+        "slept 7h15",
+        "HRV near baseline"
+      ],
+      "score" : 81,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-29",
+      "reasons" : [
+        "slept 7h32",
+        "HRV near baseline"
+      ],
+      "score" : 88,
+      "verdict" : "trainAsPlanned"
+    },
+    {
+      "date" : "2026-11-30",
+      "reasons" : [
+        "slept 7h49",
+        "HRV near baseline"
+      ],
+      "score" : 68,
+      "verdict" : "swapSession"
+    }
+  ],
+  "recordCounts" : {
+    "checkIns" : 21,
+    "meals" : 91,
+    "readiness" : 27,
+    "rollups" : 28,
+    "sleep" : 28,
+    "suggestions" : 1,
+    "topSets" : 26,
+    "weight" : 28,
+    "workouts" : 13
+  },
+  "rollups" : [
+    {
+      "activity" : {
+        "activeEnergyKcal" : 520,
+        "exerciseMinutes" : 52,
+        "standHours" : 9,
+        "steps" : 8600
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.5,
+        "weightKg" : 74.4
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-03",
+      "nutrition" : {
+        "carbsG" : 230,
+        "fatG" : 61,
+        "kcal" : 2050,
+        "proteinG" : 132,
+        "waterMl" : 2000
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 6h50",
+          "HRV near baseline"
+        ],
+        "score" : 68,
+        "verdict" : "swapSession"
+      },
+      "sleep" : {
+        "asleepMinutes" : 410,
+        "consistencySd7Minutes" : 28,
+        "inBedMinutes" : 440
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 101.1,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerA",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 24
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 22
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 340,
+            "durationMinutes" : 48,
+            "endedAt" : "2026-11-03T19:52:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000001",
+            "hrAvgBpm" : 118,
+            "hrMaxBpm" : 146,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-03T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-03T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 38,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 56,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 1
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 551,
+        "exerciseMinutes" : 18,
+        "standHours" : 10,
+        "steps" : 8737
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.5,
+        "weightKg" : 74.4
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-04",
+      "nutrition" : {
+        "carbsG" : 259,
+        "fatG" : 68,
+        "kcal" : 2103,
+        "proteinG" : 143,
+        "waterMl" : 2097
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h07",
+          "HRV near baseline"
+        ],
+        "score" : 75,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 427,
+        "consistencySd7Minutes" : 29,
+        "inBedMinutes" : 457
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-04T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 39,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 57,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 582,
+        "exerciseMinutes" : 52,
+        "standHours" : 11,
+        "steps" : 8874
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.4,
+        "weightKg" : 74.3
+      },
+      "checkIn" : null,
+      "date" : "2026-11-05",
+      "nutrition" : {
+        "carbsG" : 248,
+        "fatG" : 66,
+        "kcal" : 2156,
+        "proteinG" : 154,
+        "waterMl" : 2194
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h24",
+          "HRV near baseline"
+        ],
+        "score" : 82,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 444,
+        "consistencySd7Minutes" : 30,
+        "inBedMinutes" : 474
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 103.4,
+        "sessionDone" : true,
+        "sessionPlanned" : "upperB",
+        "topSets" : [
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "reps" : 11,
+            "weightKg" : 20
+          },
+          {
+            "exerciseId" : "Lat_Pulldown",
+            "reps" : 12,
+            "weightKg" : 45
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 366,
+            "durationMinutes" : 50,
+            "endedAt" : "2026-11-05T19:54:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000003",
+            "hrAvgBpm" : 120,
+            "hrMaxBpm" : 148,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-05T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-05T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 40,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 613,
+        "exerciseMinutes" : 52,
+        "standHours" : 12,
+        "steps" : 9011
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.4,
+        "weightKg" : 74.3
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-06",
+      "nutrition" : {
+        "carbsG" : 237,
+        "fatG" : 64,
+        "kcal" : 2209,
+        "proteinG" : 135,
+        "waterMl" : 2291
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h41",
+          "HRV near baseline"
+        ],
+        "score" : 89,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 461,
+        "consistencySd7Minutes" : 31,
+        "inBedMinutes" : 491
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 104.6,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerB",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 24
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 22
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 379,
+            "durationMinutes" : 51,
+            "endedAt" : "2026-11-06T19:55:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000004",
+            "hrAvgBpm" : 121,
+            "hrMaxBpm" : 149,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-06T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-06T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : null,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 59,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : true,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 644,
+        "exerciseMinutes" : 18,
+        "standHours" : 9,
+        "steps" : 9148
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.4,
+        "weightKg" : 74.3
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-07",
+      "nutrition" : {
+        "carbsG" : 266,
+        "fatG" : 62,
+        "kcal" : 2262,
+        "proteinG" : 146,
+        "waterMl" : 2388
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h58",
+          "HRV near baseline"
+        ],
+        "score" : 69,
+        "verdict" : "swapSession"
+      },
+      "sleep" : {
+        "asleepMinutes" : 478,
+        "consistencySd7Minutes" : 32,
+        "inBedMinutes" : 508
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-07T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 42,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 60,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : false,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 675,
+        "exerciseMinutes" : 18,
+        "standHours" : 10,
+        "steps" : 9285
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.4,
+        "weightKg" : 74.3
+      },
+      "checkIn" : {
+        "energy" : 5,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "sore",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "none",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-08",
+      "nutrition" : {
+        "carbsG" : 255,
+        "fatG" : 69,
+        "kcal" : 2315,
+        "proteinG" : 157,
+        "waterMl" : 2485
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 6h55",
+          "HRV near baseline"
+        ],
+        "score" : 76,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 415,
+        "consistencySd7Minutes" : 33,
+        "inBedMinutes" : 445
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-08T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 43,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 56,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 526,
+        "exerciseMinutes" : 52,
+        "standHours" : 11,
+        "steps" : 9422
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.3,
+        "weightKg" : 74.2
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-09",
+      "nutrition" : {
+        "carbsG" : 244,
+        "fatG" : 67,
+        "kcal" : 2068,
+        "proteinG" : 138,
+        "waterMl" : 2582
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h12",
+          "HRV near baseline"
+        ],
+        "score" : 83,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 432,
+        "consistencySd7Minutes" : 34,
+        "inBedMinutes" : 462
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 117.5,
+        "sessionDone" : true,
+        "sessionPlanned" : "upperA",
+        "topSets" : [
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "reps" : 11,
+            "weightKg" : 20
+          },
+          {
+            "exerciseId" : "Lat_Pulldown",
+            "reps" : 12,
+            "weightKg" : 45
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 348,
+            "durationMinutes" : 54,
+            "endedAt" : "2026-11-09T19:58:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000007",
+            "hrAvgBpm" : 124,
+            "hrMaxBpm" : 152,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-09T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-09T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 44,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 57,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 1
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 557,
+        "exerciseMinutes" : 52,
+        "standHours" : 12,
+        "steps" : 9559
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.3,
+        "weightKg" : 74.2
+      },
+      "checkIn" : null,
+      "date" : "2026-11-10",
+      "nutrition" : {
+        "carbsG" : 233,
+        "fatG" : 65,
+        "kcal" : 2121,
+        "proteinG" : 149,
+        "waterMl" : 2679
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h29",
+          "HRV near baseline"
+        ],
+        "score" : 90,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 449,
+        "consistencySd7Minutes" : 35,
+        "inBedMinutes" : 479
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 111.9,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerA",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 26.5
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 24.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 361,
+            "durationMinutes" : 55,
+            "endedAt" : "2026-11-10T19:59:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000008",
+            "hrAvgBpm" : 118,
+            "hrMaxBpm" : 153,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-10T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-10T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 45,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 588,
+        "exerciseMinutes" : 18,
+        "standHours" : 9,
+        "steps" : 9696
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.3,
+        "weightKg" : 74.2
+      },
+      "checkIn" : {
+        "energy" : 5,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "sore",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "none",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-11",
+      "nutrition" : {
+        "carbsG" : 262,
+        "fatG" : 63,
+        "kcal" : 2174,
+        "proteinG" : 160,
+        "waterMl" : 2776
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h46",
+          "HRV near baseline"
+        ],
+        "score" : 70,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 466,
+        "consistencySd7Minutes" : 36,
+        "inBedMinutes" : 496
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-11T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 46,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 59,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : false,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 619,
+        "exerciseMinutes" : 18,
+        "standHours" : 10,
+        "steps" : 9833
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.2,
+        "weightKg" : 74.1
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-12",
+      "nutrition" : {
+        "carbsG" : 251,
+        "fatG" : 61,
+        "kcal" : 2227,
+        "proteinG" : 141,
+        "waterMl" : 2873
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 8h03",
+          "HRV near baseline"
+        ],
+        "score" : 77,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 483,
+        "consistencySd7Minutes" : 37,
+        "inBedMinutes" : 513
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "upperB",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-12T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 38,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 60,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : false,
+        "sleep" : true,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 650,
+        "exerciseMinutes" : 52,
+        "standHours" : 11,
+        "steps" : 9970
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.2,
+        "weightKg" : 74.1
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-13",
+      "nutrition" : {
+        "carbsG" : 240,
+        "fatG" : 68,
+        "kcal" : 2280,
+        "proteinG" : 152,
+        "waterMl" : 2070
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h00",
+          "HRV near baseline"
+        ],
+        "score" : 84,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 420,
+        "consistencySd7Minutes" : 38,
+        "inBedMinutes" : 450
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 105.9,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerB",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 26.5
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 24.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 400,
+            "durationMinutes" : 49,
+            "endedAt" : "2026-11-13T19:53:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000011",
+            "hrAvgBpm" : 121,
+            "hrMaxBpm" : 147,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-13T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-13T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 39,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 56,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 681,
+        "exerciseMinutes" : 18,
+        "standHours" : 12,
+        "steps" : 10107
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.2,
+        "weightKg" : 74.1
+      },
+      "checkIn" : {
+        "energy" : 5,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "sore",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "none",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-14",
+      "nutrition" : {
+        "carbsG" : 269,
+        "fatG" : 66,
+        "kcal" : 2333,
+        "proteinG" : 133,
+        "waterMl" : 2167
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h17",
+          "HRV near baseline"
+        ],
+        "score" : 91,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 437,
+        "consistencySd7Minutes" : 39,
+        "inBedMinutes" : 467
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-14T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 40,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 57,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 532,
+        "exerciseMinutes" : 18,
+        "standHours" : 9,
+        "steps" : 10244
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.2,
+        "weightKg" : 74
+      },
+      "checkIn" : null,
+      "date" : "2026-11-15",
+      "nutrition" : {
+        "carbsG" : 258,
+        "fatG" : 64,
+        "kcal" : 2086,
+        "proteinG" : 144,
+        "waterMl" : 2264
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h34",
+          "HRV near baseline"
+        ],
+        "score" : 71,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 454,
+        "consistencySd7Minutes" : 28,
+        "inBedMinutes" : 484
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-15T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : null,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 4
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 563,
+        "exerciseMinutes" : 52,
+        "standHours" : 10,
+        "steps" : 10381
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.1,
+        "weightKg" : 74
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-16",
+      "nutrition" : {
+        "carbsG" : 247,
+        "fatG" : 62,
+        "kcal" : 2139,
+        "proteinG" : 155,
+        "waterMl" : 2361
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h51",
+          "HRV near baseline"
+        ],
+        "score" : 78,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 471,
+        "consistencySd7Minutes" : 29,
+        "inBedMinutes" : 501
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 109.3,
+        "sessionDone" : true,
+        "sessionPlanned" : "upperA",
+        "topSets" : [
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "reps" : 11,
+            "weightKg" : 22.5
+          },
+          {
+            "exerciseId" : "Lat_Pulldown",
+            "reps" : 12,
+            "weightKg" : 47.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 369,
+            "durationMinutes" : 52,
+            "endedAt" : "2026-11-16T19:56:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000014",
+            "hrAvgBpm" : 124,
+            "hrMaxBpm" : 150,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-16T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-16T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 42,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 59,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 4
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 594,
+        "exerciseMinutes" : 52,
+        "standHours" : 11,
+        "steps" : 10518
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.1,
+        "weightKg" : 74
+      },
+      "checkIn" : {
+        "energy" : 5,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "sore",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "none",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-17",
+      "nutrition" : {
+        "carbsG" : 236,
+        "fatG" : 69,
+        "kcal" : 2192,
+        "proteinG" : 136,
+        "waterMl" : 2458
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 8h08",
+          "HRV near baseline"
+        ],
+        "score" : 85,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 488,
+        "consistencySd7Minutes" : 30,
+        "inBedMinutes" : 518
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 104.2,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerA",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 29
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 27
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 382,
+            "durationMinutes" : 53,
+            "endedAt" : "2026-11-17T19:57:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000015",
+            "hrAvgBpm" : 118,
+            "hrMaxBpm" : 151,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-17T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-17T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 43,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 60,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 625,
+        "exerciseMinutes" : 18,
+        "standHours" : 12,
+        "steps" : 10655
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.1,
+        "weightKg" : 74
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-18",
+      "nutrition" : {
+        "carbsG" : 265,
+        "fatG" : 67,
+        "kcal" : 2245,
+        "proteinG" : 147,
+        "waterMl" : 2555
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h05",
+          "HRV near baseline"
+        ],
+        "score" : 92,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 425,
+        "consistencySd7Minutes" : 31,
+        "inBedMinutes" : 455
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-18T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 44,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 56,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 656,
+        "exerciseMinutes" : 18,
+        "standHours" : 9,
+        "steps" : 10792
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74.1,
+        "weightKg" : 73.9
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-19",
+      "nutrition" : {
+        "carbsG" : 254,
+        "fatG" : 65,
+        "kcal" : 2298,
+        "proteinG" : 158,
+        "waterMl" : 2652
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h22",
+          "HRV near baseline"
+        ],
+        "score" : 72,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 442,
+        "consistencySd7Minutes" : 32,
+        "inBedMinutes" : 472
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "upperB",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-19T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 45,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 57,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : false,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 2
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 687,
+        "exerciseMinutes" : 52,
+        "standHours" : 10,
+        "steps" : 10929
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74,
+        "weightKg" : 73.9
+      },
+      "checkIn" : null,
+      "date" : "2026-11-20",
+      "nutrition" : {
+        "carbsG" : 243,
+        "fatG" : 63,
+        "kcal" : 2051,
+        "proteinG" : 139,
+        "waterMl" : 2749
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h39",
+          "HRV near baseline"
+        ],
+        "score" : 79,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 459,
+        "consistencySd7Minutes" : 33,
+        "inBedMinutes" : 489
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 116.8,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerB",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 29
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 27
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 351,
+            "durationMinutes" : 56,
+            "endedAt" : "2026-11-20T20:00:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000018",
+            "hrAvgBpm" : 121,
+            "hrMaxBpm" : 154,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-20T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-20T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 46,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 538,
+        "exerciseMinutes" : 18,
+        "standHours" : 11,
+        "steps" : 11066
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74,
+        "weightKg" : 73.9
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-21",
+      "nutrition" : {
+        "carbsG" : 232,
+        "fatG" : 61,
+        "kcal" : 2104,
+        "proteinG" : 150,
+        "waterMl" : 2846
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h56",
+          "HRV near baseline"
+        ],
+        "score" : 86,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 476,
+        "consistencySd7Minutes" : 34,
+        "inBedMinutes" : 506
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-21T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 38,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 59,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 4
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 569,
+        "exerciseMinutes" : 18,
+        "standHours" : 12,
+        "steps" : 11203
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 74,
+        "weightKg" : 73.8
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-22",
+      "nutrition" : {
+        "carbsG" : 261,
+        "fatG" : 68,
+        "kcal" : 2157,
+        "proteinG" : 161,
+        "waterMl" : 2043
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 6h53",
+          "HRV near baseline"
+        ],
+        "score" : 93,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 413,
+        "consistencySd7Minutes" : 35,
+        "inBedMinutes" : 443
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-22T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 39,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 60,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 600,
+        "exerciseMinutes" : 18,
+        "standHours" : 9,
+        "steps" : 11340
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.9,
+        "weightKg" : 73.8
+      },
+      "checkIn" : null,
+      "date" : "2026-11-23",
+      "nutrition" : {
+        "carbsG" : null,
+        "fatG" : null,
+        "kcal" : null,
+        "proteinG" : null,
+        "waterMl" : null
+      },
+      "readiness" : null,
+      "sleep" : {
+        "asleepMinutes" : 430,
+        "consistencySd7Minutes" : 36,
+        "inBedMinutes" : 460
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "upperA",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-23T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 40,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 56,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : false,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 1
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 631,
+        "exerciseMinutes" : 52,
+        "standHours" : 10,
+        "steps" : 11477
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.9,
+        "weightKg" : 73.8
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-24",
+      "nutrition" : {
+        "carbsG" : 239,
+        "fatG" : 64,
+        "kcal" : 2263,
+        "proteinG" : 153,
+        "waterMl" : 2237
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h27",
+          "HRV near baseline"
+        ],
+        "score" : 80,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 447,
+        "consistencySd7Minutes" : 37,
+        "inBedMinutes" : 477
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 105.6,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerA",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 31.5
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 29.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 403,
+            "durationMinutes" : 51,
+            "endedAt" : "2026-11-24T19:55:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000022",
+            "hrAvgBpm" : 118,
+            "hrMaxBpm" : 149,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-24T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-24T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : null,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 57,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 662,
+        "exerciseMinutes" : 18,
+        "standHours" : 11,
+        "steps" : 11614
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.9,
+        "weightKg" : 73.7
+      },
+      "checkIn" : null,
+      "date" : "2026-11-25",
+      "nutrition" : {
+        "carbsG" : 268,
+        "fatG" : 62,
+        "kcal" : 2316,
+        "proteinG" : 134,
+        "waterMl" : 2334
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h44",
+          "HRV near baseline"
+        ],
+        "score" : 87,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 464,
+        "consistencySd7Minutes" : 38,
+        "inBedMinutes" : 494
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-25T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 42,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 693,
+        "exerciseMinutes" : 52,
+        "standHours" : 12,
+        "steps" : 11751
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.9,
+        "weightKg" : 73.7
+      },
+      "checkIn" : {
+        "energy" : 5,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "sore",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "none",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-26",
+      "nutrition" : {
+        "carbsG" : 257,
+        "fatG" : 69,
+        "kcal" : 2069,
+        "proteinG" : 145,
+        "waterMl" : 2431
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 8h01",
+          "HRV near baseline"
+        ],
+        "score" : 94,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 481,
+        "consistencySd7Minutes" : 39,
+        "inBedMinutes" : 511
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 107.8,
+        "sessionDone" : true,
+        "sessionPlanned" : "upperB",
+        "topSets" : [
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "reps" : 11,
+            "weightKg" : 27.5
+          },
+          {
+            "exerciseId" : "Lat_Pulldown",
+            "reps" : 12,
+            "weightKg" : 52.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 359,
+            "durationMinutes" : 53,
+            "endedAt" : "2026-11-26T19:57:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000024",
+            "hrAvgBpm" : 120,
+            "hrMaxBpm" : 151,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-26T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-26T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 43,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 59,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 4
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 544,
+        "exerciseMinutes" : 52,
+        "standHours" : 9,
+        "steps" : 11888
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.8,
+        "weightKg" : 73.7
+      },
+      "checkIn" : {
+        "energy" : 3,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "none",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "sore",
+          "quads" : "mild",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-27",
+      "nutrition" : {
+        "carbsG" : 246,
+        "fatG" : 67,
+        "kcal" : 2122,
+        "proteinG" : 156,
+        "waterMl" : 2528
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 6h58",
+          "HRV near baseline"
+        ],
+        "score" : 74,
+        "verdict" : "capIntensity"
+      },
+      "sleep" : {
+        "asleepMinutes" : 418,
+        "consistencySd7Minutes" : 28,
+        "inBedMinutes" : 448
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 108.9,
+        "sessionDone" : true,
+        "sessionPlanned" : "lowerB",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 31.5
+          },
+          {
+            "exerciseId" : "Romanian_Deadlift",
+            "reps" : 12,
+            "weightKg" : 29.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 372,
+            "durationMinutes" : 54,
+            "endedAt" : "2026-11-27T19:58:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000025",
+            "hrAvgBpm" : 121,
+            "hrMaxBpm" : 152,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-27T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-27T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 44,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 60,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : false,
+        "steps" : true,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 575,
+        "exerciseMinutes" : 18,
+        "standHours" : 10,
+        "steps" : 8625
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.8,
+        "weightKg" : 73.7
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "none",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-28",
+      "nutrition" : {
+        "carbsG" : 235,
+        "fatG" : 65,
+        "kcal" : 2175,
+        "proteinG" : 137,
+        "waterMl" : 2625
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h15",
+          "HRV near baseline"
+        ],
+        "score" : 81,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 435,
+        "consistencySd7Minutes" : 29,
+        "inBedMinutes" : 465
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-28T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 45,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 56,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : false,
+        "session" : true,
+        "sleep" : false,
+        "steps" : false,
+        "total" : 1
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 606,
+        "exerciseMinutes" : 18,
+        "standHours" : 11,
+        "steps" : 8762
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.8,
+        "weightKg" : 73.6
+      },
+      "checkIn" : {
+        "energy" : 5,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "sore",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "none",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-29",
+      "nutrition" : {
+        "carbsG" : 264,
+        "fatG" : 63,
+        "kcal" : 2228,
+        "proteinG" : 148,
+        "waterMl" : 2722
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h32",
+          "HRV near baseline"
+        ],
+        "score" : 88,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 452,
+        "consistencySd7Minutes" : 30,
+        "inBedMinutes" : 482
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : null,
+        "sessionDone" : false,
+        "sessionPlanned" : "rest",
+        "topSets" : [
+
+        ],
+        "workouts" : [
+
+        ]
+      },
+      "updatedAt" : "2026-11-29T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 46,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 57,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : false,
+        "total" : 3
+      }
+    },
+    {
+      "activity" : {
+        "activeEnergyKcal" : 637,
+        "exerciseMinutes" : 52,
+        "standHours" : 12,
+        "steps" : 8899
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.7,
+        "weightKg" : 73.6
+      },
+      "checkIn" : null,
+      "date" : "2026-11-30",
+      "nutrition" : {
+        "carbsG" : 253,
+        "fatG" : 61,
+        "kcal" : 2281,
+        "proteinG" : 159,
+        "waterMl" : 2819
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h49",
+          "HRV near baseline"
+        ],
+        "score" : 68,
+        "verdict" : "swapSession"
+      },
+      "sleep" : {
+        "asleepMinutes" : 469,
+        "consistencySd7Minutes" : 31,
+        "inBedMinutes" : 499
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 102.6,
+        "sessionDone" : true,
+        "sessionPlanned" : "upperA",
+        "topSets" : [
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "reps" : 11,
+            "weightKg" : 27.5
+          },
+          {
+            "exerciseId" : "Lat_Pulldown",
+            "reps" : 12,
+            "weightKg" : 52.5
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 341,
+            "durationMinutes" : 48,
+            "endedAt" : "2026-11-30T19:52:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000028",
+            "hrAvgBpm" : 124,
+            "hrMaxBpm" : 146,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-30T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-30T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 38,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : false,
+        "total" : 3
+      }
+    }
+  ],
+  "schemaVersion" : 1,
+  "sleep" : [
+    {
+      "asleepMinutes" : 410,
+      "consistencySd7Minutes" : 28,
+      "date" : "2026-11-03",
+      "inBedMinutes" : 440
+    },
+    {
+      "asleepMinutes" : 427,
+      "consistencySd7Minutes" : 29,
+      "date" : "2026-11-04",
+      "inBedMinutes" : 457
+    },
+    {
+      "asleepMinutes" : 444,
+      "consistencySd7Minutes" : 30,
+      "date" : "2026-11-05",
+      "inBedMinutes" : 474
+    },
+    {
+      "asleepMinutes" : 461,
+      "consistencySd7Minutes" : 31,
+      "date" : "2026-11-06",
+      "inBedMinutes" : 491
+    },
+    {
+      "asleepMinutes" : 478,
+      "consistencySd7Minutes" : 32,
+      "date" : "2026-11-07",
+      "inBedMinutes" : 508
+    },
+    {
+      "asleepMinutes" : 415,
+      "consistencySd7Minutes" : 33,
+      "date" : "2026-11-08",
+      "inBedMinutes" : 445
+    },
+    {
+      "asleepMinutes" : 432,
+      "consistencySd7Minutes" : 34,
+      "date" : "2026-11-09",
+      "inBedMinutes" : 462
+    },
+    {
+      "asleepMinutes" : 449,
+      "consistencySd7Minutes" : 35,
+      "date" : "2026-11-10",
+      "inBedMinutes" : 479
+    },
+    {
+      "asleepMinutes" : 466,
+      "consistencySd7Minutes" : 36,
+      "date" : "2026-11-11",
+      "inBedMinutes" : 496
+    },
+    {
+      "asleepMinutes" : 483,
+      "consistencySd7Minutes" : 37,
+      "date" : "2026-11-12",
+      "inBedMinutes" : 513
+    },
+    {
+      "asleepMinutes" : 420,
+      "consistencySd7Minutes" : 38,
+      "date" : "2026-11-13",
+      "inBedMinutes" : 450
+    },
+    {
+      "asleepMinutes" : 437,
+      "consistencySd7Minutes" : 39,
+      "date" : "2026-11-14",
+      "inBedMinutes" : 467
+    },
+    {
+      "asleepMinutes" : 454,
+      "consistencySd7Minutes" : 28,
+      "date" : "2026-11-15",
+      "inBedMinutes" : 484
+    },
+    {
+      "asleepMinutes" : 471,
+      "consistencySd7Minutes" : 29,
+      "date" : "2026-11-16",
+      "inBedMinutes" : 501
+    },
+    {
+      "asleepMinutes" : 488,
+      "consistencySd7Minutes" : 30,
+      "date" : "2026-11-17",
+      "inBedMinutes" : 518
+    },
+    {
+      "asleepMinutes" : 425,
+      "consistencySd7Minutes" : 31,
+      "date" : "2026-11-18",
+      "inBedMinutes" : 455
+    },
+    {
+      "asleepMinutes" : 442,
+      "consistencySd7Minutes" : 32,
+      "date" : "2026-11-19",
+      "inBedMinutes" : 472
+    },
+    {
+      "asleepMinutes" : 459,
+      "consistencySd7Minutes" : 33,
+      "date" : "2026-11-20",
+      "inBedMinutes" : 489
+    },
+    {
+      "asleepMinutes" : 476,
+      "consistencySd7Minutes" : 34,
+      "date" : "2026-11-21",
+      "inBedMinutes" : 506
+    },
+    {
+      "asleepMinutes" : 413,
+      "consistencySd7Minutes" : 35,
+      "date" : "2026-11-22",
+      "inBedMinutes" : 443
+    },
+    {
+      "asleepMinutes" : 430,
+      "consistencySd7Minutes" : 36,
+      "date" : "2026-11-23",
+      "inBedMinutes" : 460
+    },
+    {
+      "asleepMinutes" : 447,
+      "consistencySd7Minutes" : 37,
+      "date" : "2026-11-24",
+      "inBedMinutes" : 477
+    },
+    {
+      "asleepMinutes" : 464,
+      "consistencySd7Minutes" : 38,
+      "date" : "2026-11-25",
+      "inBedMinutes" : 494
+    },
+    {
+      "asleepMinutes" : 481,
+      "consistencySd7Minutes" : 39,
+      "date" : "2026-11-26",
+      "inBedMinutes" : 511
+    },
+    {
+      "asleepMinutes" : 418,
+      "consistencySd7Minutes" : 28,
+      "date" : "2026-11-27",
+      "inBedMinutes" : 448
+    },
+    {
+      "asleepMinutes" : 435,
+      "consistencySd7Minutes" : 29,
+      "date" : "2026-11-28",
+      "inBedMinutes" : 465
+    },
+    {
+      "asleepMinutes" : 452,
+      "consistencySd7Minutes" : 30,
+      "date" : "2026-11-29",
+      "inBedMinutes" : 482
+    },
+    {
+      "asleepMinutes" : 469,
+      "consistencySd7Minutes" : 31,
+      "date" : "2026-11-30",
+      "inBedMinutes" : 499
+    }
+  ],
+  "suggestions" : [
+    {
+      "createdAt" : "2026-11-27T07:00:00-05:00",
+      "id" : "sug_01",
+      "kind" : "calorieAdjustment",
+      "text" : "Weight is falling 0.6 kg/week; drop the target by 100 kcal to 2,100 kcal."
+    }
+  ],
+  "topSets" : [
+    {
+      "date" : "2026-11-03",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 24
+    },
+    {
+      "date" : "2026-11-03",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 22
+    },
+    {
+      "date" : "2026-11-05",
+      "exerciseId" : "DB_Bench_Press",
+      "reps" : 11,
+      "weightKg" : 20
+    },
+    {
+      "date" : "2026-11-05",
+      "exerciseId" : "Lat_Pulldown",
+      "reps" : 12,
+      "weightKg" : 45
+    },
+    {
+      "date" : "2026-11-06",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 24
+    },
+    {
+      "date" : "2026-11-06",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 22
+    },
+    {
+      "date" : "2026-11-09",
+      "exerciseId" : "DB_Bench_Press",
+      "reps" : 11,
+      "weightKg" : 20
+    },
+    {
+      "date" : "2026-11-09",
+      "exerciseId" : "Lat_Pulldown",
+      "reps" : 12,
+      "weightKg" : 45
+    },
+    {
+      "date" : "2026-11-10",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 26.5
+    },
+    {
+      "date" : "2026-11-10",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 24.5
+    },
+    {
+      "date" : "2026-11-13",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 26.5
+    },
+    {
+      "date" : "2026-11-13",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 24.5
+    },
+    {
+      "date" : "2026-11-16",
+      "exerciseId" : "DB_Bench_Press",
+      "reps" : 11,
+      "weightKg" : 22.5
+    },
+    {
+      "date" : "2026-11-16",
+      "exerciseId" : "Lat_Pulldown",
+      "reps" : 12,
+      "weightKg" : 47.5
+    },
+    {
+      "date" : "2026-11-17",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 29
+    },
+    {
+      "date" : "2026-11-17",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 27
+    },
+    {
+      "date" : "2026-11-20",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 29
+    },
+    {
+      "date" : "2026-11-20",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 27
+    },
+    {
+      "date" : "2026-11-24",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 31.5
+    },
+    {
+      "date" : "2026-11-24",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 29.5
+    },
+    {
+      "date" : "2026-11-26",
+      "exerciseId" : "DB_Bench_Press",
+      "reps" : 11,
+      "weightKg" : 27.5
+    },
+    {
+      "date" : "2026-11-26",
+      "exerciseId" : "Lat_Pulldown",
+      "reps" : 12,
+      "weightKg" : 52.5
+    },
+    {
+      "date" : "2026-11-27",
+      "exerciseId" : "Goblet_Squat",
+      "reps" : 12,
+      "weightKg" : 31.5
+    },
+    {
+      "date" : "2026-11-27",
+      "exerciseId" : "Romanian_Deadlift",
+      "reps" : 12,
+      "weightKg" : 29.5
+    },
+    {
+      "date" : "2026-11-30",
+      "exerciseId" : "DB_Bench_Press",
+      "reps" : 11,
+      "weightKg" : 27.5
+    },
+    {
+      "date" : "2026-11-30",
+      "exerciseId" : "Lat_Pulldown",
+      "reps" : 12,
+      "weightKg" : 52.5
+    }
+  ],
+  "weight" : [
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-03",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.5,
+      "weightKg" : 74.4
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-04",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.5,
+      "weightKg" : 74.4
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-05",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.4,
+      "weightKg" : 74.3
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-06",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.4,
+      "weightKg" : 74.3
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-07",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.4,
+      "weightKg" : 74.3
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-08",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.4,
+      "weightKg" : 74.3
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-09",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.3,
+      "weightKg" : 74.2
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-10",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.3,
+      "weightKg" : 74.2
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-11",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.3,
+      "weightKg" : 74.2
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-12",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.2,
+      "weightKg" : 74.1
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-13",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.2,
+      "weightKg" : 74.1
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-14",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.2,
+      "weightKg" : 74.1
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-15",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.2,
+      "weightKg" : 74
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-16",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.1,
+      "weightKg" : 74
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-17",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.1,
+      "weightKg" : 74
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-18",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.1,
+      "weightKg" : 74
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-19",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74.1,
+      "weightKg" : 73.9
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-20",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74,
+      "weightKg" : 73.9
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-21",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74,
+      "weightKg" : 73.9
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-22",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 74,
+      "weightKg" : 73.8
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-23",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.9,
+      "weightKg" : 73.8
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-24",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.9,
+      "weightKg" : 73.8
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-25",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.9,
+      "weightKg" : 73.7
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-26",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.9,
+      "weightKg" : 73.7
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-27",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.8,
+      "weightKg" : 73.7
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-28",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.8,
+      "weightKg" : 73.7
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-29",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.8,
+      "weightKg" : 73.6
+    },
+    {
+      "bodyFatPct" : null,
+      "date" : "2026-11-30",
+      "rateKgPerWeek" : -0.4,
+      "waistCm" : null,
+      "weightAvg7Kg" : 73.7,
+      "weightKg" : 73.6
+    }
+  ],
+  "workouts" : [
+    {
+      "activeEnergyKcal" : 340,
+      "date" : "2026-11-03",
+      "durationMinutes" : 48,
+      "endedAt" : "2026-11-03T19:52:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000001",
+      "hrAvgBpm" : 118,
+      "hrMaxBpm" : 146,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-03T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 366,
+      "date" : "2026-11-05",
+      "durationMinutes" : 50,
+      "endedAt" : "2026-11-05T19:54:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000003",
+      "hrAvgBpm" : 120,
+      "hrMaxBpm" : 148,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-05T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 379,
+      "date" : "2026-11-06",
+      "durationMinutes" : 51,
+      "endedAt" : "2026-11-06T19:55:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000004",
+      "hrAvgBpm" : 121,
+      "hrMaxBpm" : 149,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-06T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 348,
+      "date" : "2026-11-09",
+      "durationMinutes" : 54,
+      "endedAt" : "2026-11-09T19:58:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000007",
+      "hrAvgBpm" : 124,
+      "hrMaxBpm" : 152,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-09T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 361,
+      "date" : "2026-11-10",
+      "durationMinutes" : 55,
+      "endedAt" : "2026-11-10T19:59:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000008",
+      "hrAvgBpm" : 118,
+      "hrMaxBpm" : 153,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-10T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 400,
+      "date" : "2026-11-13",
+      "durationMinutes" : 49,
+      "endedAt" : "2026-11-13T19:53:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000011",
+      "hrAvgBpm" : 121,
+      "hrMaxBpm" : 147,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-13T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 369,
+      "date" : "2026-11-16",
+      "durationMinutes" : 52,
+      "endedAt" : "2026-11-16T19:56:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000014",
+      "hrAvgBpm" : 124,
+      "hrMaxBpm" : 150,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-16T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 382,
+      "date" : "2026-11-17",
+      "durationMinutes" : 53,
+      "endedAt" : "2026-11-17T19:57:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000015",
+      "hrAvgBpm" : 118,
+      "hrMaxBpm" : 151,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-17T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 351,
+      "date" : "2026-11-20",
+      "durationMinutes" : 56,
+      "endedAt" : "2026-11-20T20:00:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000018",
+      "hrAvgBpm" : 121,
+      "hrMaxBpm" : 154,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-20T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 403,
+      "date" : "2026-11-24",
+      "durationMinutes" : 51,
+      "endedAt" : "2026-11-24T19:55:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000022",
+      "hrAvgBpm" : 118,
+      "hrMaxBpm" : 149,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-24T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 359,
+      "date" : "2026-11-26",
+      "durationMinutes" : 53,
+      "endedAt" : "2026-11-26T19:57:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000024",
+      "hrAvgBpm" : 120,
+      "hrMaxBpm" : 151,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-26T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 372,
+      "date" : "2026-11-27",
+      "durationMinutes" : 54,
+      "endedAt" : "2026-11-27T19:58:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000025",
+      "hrAvgBpm" : 121,
+      "hrMaxBpm" : 152,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-27T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    },
+    {
+      "activeEnergyKcal" : 341,
+      "date" : "2026-11-30",
+      "durationMinutes" : 48,
+      "endedAt" : "2026-11-30T19:52:00-05:00",
+      "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000028",
+      "hrAvgBpm" : 124,
+      "hrMaxBpm" : 146,
+      "source" : "Apple Workout",
+      "startedAt" : "2026-11-30T19:04:00-05:00",
+      "timeInZonesMinutes" : {
+        "z1" : 4,
+        "z2" : 22,
+        "z3" : 18,
+        "z4" : 6,
+        "z5" : 1
+      },
+      "type" : "traditionalStrengthTraining"
+    }
+  ]
+}

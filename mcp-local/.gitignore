@@ -1,0 +1,10 @@
+# The root `.gitignore` blocks `daily-log.md` and `summary-latest.md` by name, anywhere
+# in the repo, so a real export can never be committed by accident. That rule stands.
+#
+# These two exceptions are the test fixtures, and only under `test/fixtures/`. They are
+# the `ExportKit` golden files — invented data, no real health record — and this server
+# has to read them under the names the app actually writes, because a fixture named
+# something else would not be testing the thing. Nobody exports into a fixtures folder,
+# so the hole is as narrow as the need.
+!test/fixtures/*/daily-log.md
+!test/fixtures/*/summary-latest.md

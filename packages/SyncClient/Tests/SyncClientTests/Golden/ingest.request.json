@@ -1,0 +1,107 @@
+{
+  "rollups" : [
+    {
+      "activity" : {
+        "activeEnergyKcal" : 612,
+        "exerciseMinutes" : 54,
+        "standHours" : 10,
+        "steps" : 10240
+      },
+      "body" : {
+        "bodyFatPct" : null,
+        "rateKgPerWeek" : -0.4,
+        "waistCm" : null,
+        "weightAvg7Kg" : 73.9,
+        "weightKg" : 73.6
+      },
+      "checkIn" : {
+        "energy" : 4,
+        "soreness" : {
+          "arms" : "none",
+          "back" : "mild",
+          "chest" : "none",
+          "core" : "none",
+          "glutes" : "none",
+          "hamstrings" : "mild",
+          "quads" : "sore",
+          "shoulders" : "none"
+        }
+      },
+      "date" : "2026-11-03",
+      "nutrition" : {
+        "carbsG" : 248,
+        "fatG" : 64,
+        "kcal" : 2180,
+        "proteinG" : 148,
+        "waterMl" : 2400
+      },
+      "readiness" : {
+        "reasons" : [
+          "slept 7h42",
+          "HRV near baseline"
+        ],
+        "score" : 82,
+        "verdict" : "trainAsPlanned"
+      },
+      "sleep" : {
+        "asleepMinutes" : 462,
+        "consistencySd7Minutes" : 34,
+        "inBedMinutes" : 495
+      },
+      "timezone" : "America/Toronto",
+      "training" : {
+        "loadAu" : 105.5,
+        "sessionDone" : true,
+        "sessionPlanned" : "upperA",
+        "topSets" : [
+          {
+            "exerciseId" : "Goblet_Squat",
+            "reps" : 12,
+            "weightKg" : 24
+          },
+          {
+            "exerciseId" : "DB_Bench_Press",
+            "reps" : 11,
+            "weightKg" : 20
+          }
+        ],
+        "workouts" : [
+          {
+            "activeEnergyKcal" : 368,
+            "durationMinutes" : 51,
+            "endedAt" : "2026-11-03T19:55:00-05:00",
+            "healthKitId" : "A1B2C3D4-0000-0000-0000-000000000001",
+            "hrAvgBpm" : 120,
+            "hrMaxBpm" : 150,
+            "source" : "Apple Workout",
+            "startedAt" : "2026-11-03T19:04:00-05:00",
+            "timeInZonesMinutes" : {
+              "z1" : 4,
+              "z2" : 22,
+              "z3" : 18,
+              "z4" : 6,
+              "z5" : 1
+            },
+            "type" : "traditionalStrengthTraining"
+          }
+        ]
+      },
+      "updatedAt" : "2026-11-03T23:05:00-05:00",
+      "vitals" : {
+        "hrvSdnnMs" : 41,
+        "respiratoryRate" : 14.1,
+        "restingHrBpm" : 58,
+        "spo2Pct" : 97,
+        "vo2Max" : 44.2
+      },
+      "wins" : {
+        "protein" : true,
+        "session" : true,
+        "sleep" : true,
+        "steps" : true,
+        "total" : 4
+      }
+    }
+  ],
+  "schemaVersion" : 1
+}

@@ -1,0 +1,29 @@
+# Ascension — edge Worker (ASC-4)
+#
+# NO SECRETS IN THIS FILE. `DEVICE_TOKEN`, `OWNER_PASSWORD` and `CONSENT_SECRET`
+# are set with `wrangler secret put` and listed in README.md. See
+# ../docs/TECH_STACK.md §2.6.
+
+name = "ascension-edge"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# The public origin this Worker answers on. OAuth metadata and the MCP resource
+# identifier are derived from it, so it is configuration, not a secret.
+[vars]
+PUBLIC_ORIGIN = "https://ascension-edge.ascend-muse.workers.dev"
+
+# Stream A (observed) and Stream B (intent) both live here. Rollups and the three
+# mutable documents are kilobytes, so D1 is the whole storage story.
+[[d1_databases]]
+binding = "DB"
+database_name = "ascension"
+database_id = "d87dd10b-6a15-4b8b-bd91-144004d99e60"
+migrations_dir = "migrations"
+
+# Required by @cloudflare/workers-oauth-provider, which keeps authorization
+# codes, grants and token hashes here. No health data is ever written to it.
+[[kv_namespaces]]
+binding = "OAUTH_KV"
+id = "824aaeff41984dc899ee01f87c2151c7"

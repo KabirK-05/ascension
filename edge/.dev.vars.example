@@ -1,0 +1,12 @@
+# Copy to `.dev.vars` (gitignored) for `wrangler dev`. Local values only --
+# production secrets go in `wrangler secret put`, never in a file.
+DEVICE_TOKEN="dev-device-token-change-me"
+OWNER_PASSWORD="dev-password-change-me"
+
+# APNs, for the silent wake. All four or none -- unset means no push, which is
+# the normal state locally: the phone still drains on foreground and background
+# refresh. The real `.p8` body belongs in `wrangler secret put`, never in a file.
+# APNS_KEY_ID=""
+# APNS_TEAM_ID=""
+# APNS_TOPIC=""
+# APNS_PRIVATE_KEY=""

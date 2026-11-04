@@ -12,7 +12,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # `edge/` is a placeholder until ASC-4. Skip cleanly rather than fail on a
+  # missing lockfile.
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: check
+        run: |
+          if [ -f edge/package.json ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "edge/ not implemented yet (ASC-4) — skipping."
+          fi
+
   edge:
+    needs: detect
+    if: needs.detect.outputs.ready == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -21,7 +40,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: edge/package-lock.json
       - run: npm ci
