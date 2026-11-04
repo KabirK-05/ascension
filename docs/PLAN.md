@@ -98,6 +98,11 @@ suggestions, load/deload, VO2/RHR/sleep trends, Sunday review (F7).
 **ASC-16 — System surfaces** — widgets, App Intents/Siri, smart notifications (only the
 four in §F8), optional Live Activity. Plus **Settings → Changes** with Muse-write undo.
 **Runs after ASC-20**, not beside it: both own `app/` and `Project.swift`.
+Delivered with the three wiring gaps ASC-20 documented (Settings pairing, the Trends
+tab, EventKit). **The Live Activity was deliberately not built**: the app is not a
+recorder (§5), so a gym-day card could only mirror a session name and a Send-to-Watch
+state it cannot update without a push, which is a second live surface to keep correct
+for no answer the Today widget does not already give.
 **ASC-17 — Local stdio MCP** · `mcp-local/` — read-only server over the export folder,
 for Claude Code on the Mac.
 

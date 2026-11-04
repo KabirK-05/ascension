@@ -174,6 +174,14 @@ final class LocalStore {
         return Dictionary(stored.map { ($0.id, $0.name) }, uniquingKeysWith: { first, _ in first })
     }
 
+    /// The staples, in name order — the closed list the user reaches for (spec §2) and the
+    /// only foods an App Intent offers, because "log my omelette" has to resolve without a
+    /// network lookup or a screen.
+    var staples: [FoodItemDTO] {
+        let stored = (try? context.fetch(FetchDescriptor<FoodItem>())) ?? []
+        return stored.filter { $0.source == .staple }.map(\.dto).sorted { $0.name < $1.name }
+    }
+
     func mealEntries(in dates: [CalendarDate]) -> [MealEntry] {
         dates.flatMap { date in
             mealLogs(on: date).map { log in
