@@ -17,11 +17,15 @@ struct IntentActions {
     enum Failure: Error, CustomLocalizedStringResourceConvertible {
         case notReady
         case unknownFood
+        /// Apple Health took none of the write, so there is nothing to report but the
+        /// refusal — see ``log(foodId:grams:meal:)``.
+        case healthRefused
 
         var localizedStringResource: LocalizedStringResource {
             switch self {
             case .notReady: return "Ascension is not ready yet"
             case .unknownFood: return "That is not one of your staples"
+            case .healthRefused: return "Apple Health would not take that"
             }
         }
     }
@@ -66,10 +70,15 @@ struct IntentActions {
         let clock = DayClock(goals: composition.store.goals)
         let now = Date()
 
-        try await composition.writer.write(HealthBridge.NutritionEntry(
+        let receipt = try await composition.writer.write(HealthBridge.NutritionEntry(
             id: UUID().uuidString, consumedAt: now,
             energyKcal: macros.kcal, proteinG: macros.proteinG,
             carbsG: macros.carbsG, fatG: macros.fatG))
+        // The same rule as the Eat screen and the Muse drain (ASC-27): the diary row is a
+        // claim that Apple Health holds this meal, so a write that reached nothing gets no
+        // row and the intent says so out loud. A partly authorised write keeps its row, as
+        // `FeatureEat` does — some of it is in Health and the totals are still the day's.
+        guard !receipt.saved.isEmpty else { throw Failure.healthRefused }
 
         try composition.store.insertMeal(date: clock.day(of: now), meal: meal,
                                          food: food, grams: portion, macros: macros)
@@ -78,9 +87,13 @@ struct IntentActions {
         return macros
     }
 
+    /// Water lives only in Apple Health, so a refused scope means the intent achieved
+    /// nothing whatever — saying nothing would be the quiet failure ASC-27 was about.
     func logWater(millilitres: Double) async throws {
-        try await composition.writer.writeWater(millilitres: millilitres, at: Date(),
-                                                entryId: UUID().uuidString)
+        let receipt = try await composition.writer.writeWater(millilitres: millilitres,
+                                                              at: Date(),
+                                                              entryId: UUID().uuidString)
+        guard !receipt.saved.isEmpty else { throw Failure.healthRefused }
         await publish()
     }
 

@@ -53,6 +53,22 @@ enum ChangeSummary {
         "Water \(number(Int(millilitres.rounded()))) ml"
     }
 
+    /// A write Apple Health would not take (ASC-27).
+    ///
+    /// The same line the successful write would have produced, with what happened to it on
+    /// the end — so the row reads as the meal it was, not as an error code. `Health refused`
+    /// rather than a sentence explaining HealthKit scopes: §1 allows this row one line, and
+    /// a person who sees it next to a meal they asked Muse for knows which permission is
+    /// missing better than any wording here could tell them.
+    static func refusedHealthWrite(_ refusal: RefusedHealthWrite) -> String {
+        let subject: String
+        switch refusal.subject {
+        case .meal(let payload): subject = meal(payload)
+        case .water(let millilitres): subject = water(millilitres: millilitres)
+        }
+        return "\(subject) · Health refused"
+    }
+
     static func topSet(_ payload: MutationPayload.TopSetPayload, name: String) -> String {
         "\(name) \(payload.weightKg.formatted(.number.precision(.fractionLength(0...1)))) kg"
             + " × \(payload.reps)"

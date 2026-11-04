@@ -63,12 +63,13 @@ public actor HealthBridgeService {
 
     // MARK: - Writes
 
-    @discardableResult
+    /// Both return a receipt the caller must read, for the reason ``HealthWriter`` spells
+    /// out: an unauthorised metric comes back in `skipped` and never as a throw, so a
+    /// discarded receipt is a write whose outcome nobody checked.
     public func write(_ entry: NutritionEntry) async throws -> HealthWriteReceipt {
         try await writer.write(entry)
     }
 
-    @discardableResult
     public func write(_ entry: BodyMeasurementEntry) async throws -> HealthWriteReceipt {
         try await writer.write(entry)
     }

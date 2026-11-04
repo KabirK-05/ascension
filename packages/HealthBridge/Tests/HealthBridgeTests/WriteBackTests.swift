@@ -26,9 +26,9 @@ struct WriteBackTests {
         let store = FakeHealthStore()
         let writer = HealthWriter(store: store)
 
-        try await writer.write(meal)
-        try await writer.write(meal)
-        try await writer.write(meal)
+        _ = try await writer.write(meal)
+        _ = try await writer.write(meal)
+        _ = try await writer.write(meal)
 
         // Four samples, not twelve: every sample carries the same sync identifier, so
         // HealthKit replaces rather than appends.
@@ -51,12 +51,12 @@ struct WriteBackTests {
     func editedMealBumpsTheVersion() async throws {
         let store = FakeHealthStore()
         let writer = HealthWriter(store: store)
-        try await writer.write(meal)
+        _ = try await writer.write(meal)
 
         var corrected = meal
         corrected.proteinG = 61
         corrected.revision = 2
-        try await writer.write(corrected)
+        _ = try await writer.write(corrected)
 
         #expect(store.saved.count == 4)
         let protein = store.saved.first { $0.metric == .dietaryProtein }

@@ -171,4 +171,32 @@ struct StoreMutationApplier: LocalStateApplier {
         try await MainActor.run { try store.insertMeal(payload) }
         await record(mutationId, kind: .logMeal, summary: ChangeSummary.meal(payload))
     }
+
+    /// Apple Health would not take a write Muse asked for, and the drain has stopped
+    /// retrying it (ASC-27).
+    ///
+    /// A row in the ledger and nothing in the diary. The row is the point: the mutation has
+    /// been acked, so nothing will try again, and a write that vanished without a trace is
+    /// the bug this ticket fixed rather than a smaller version of it. The user reads it in
+    /// Settings → Changes, where every other thing Muse did to this device appears, and the
+    /// line names Apple Health because the fix is a scope only the user can grant.
+    ///
+    /// Not undoable, and `previous` is `nil` for the plain reason that nothing changed:
+    /// there is no earlier value to put back.
+    func recordRefusedHealthWrite(_ refusal: RefusedHealthWrite,
+                                  mutationId: String) async throws {
+        await record(mutationId, kind: refusal.kind,
+                     summary: ChangeSummary.refusedHealthWrite(refusal))
+    }
+}
+
+private extension RefusedHealthWrite {
+    /// The mutation kind this refusal came from, so the ledger row is filed under the write
+    /// it failed rather than under a kind of its own.
+    var kind: MutationKind {
+        switch subject {
+        case .meal: return .logMeal
+        case .water: return .logWater
+        }
+    }
 }

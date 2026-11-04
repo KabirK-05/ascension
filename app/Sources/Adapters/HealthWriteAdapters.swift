@@ -67,18 +67,32 @@ struct HealthMutationWriteBack: SyncClient.HealthWriteBack {
         self.writer = writer
     }
 
-    func writeMeal(_ meal: HealthMealWrite) async throws {
-        try await writer.write(HealthBridge.NutritionEntry(
+    func writeMeal(_ meal: HealthMealWrite) async throws -> HealthWriteOutcome {
+        try await Self.outcome(of: writer.write(HealthBridge.NutritionEntry(
             id: meal.entryId,
             consumedAt: meal.consumedAt,
             energyKcal: meal.energyKcal,
             proteinG: meal.proteinG,
             carbsG: meal.carbsG,
             fatG: meal.fatG,
-            waterMl: meal.waterMl))
+            waterMl: meal.waterMl)))
     }
 
-    func writeWater(millilitres: Double, at instant: Date, entryId: String) async throws {
-        try await writer.writeWater(millilitres: millilitres, at: instant, entryId: entryId)
+    func writeWater(millilitres: Double, at instant: Date,
+                    entryId: String) async throws -> HealthWriteOutcome {
+        try await Self.outcome(of: writer.writeWater(millilitres: millilitres, at: instant,
+                                                     entryId: entryId))
+    }
+
+    /// The receipt, in the terms `SyncClient` declared.
+    ///
+    /// This mapping is the fix for ASC-27 and the reason the protocol returns anything at
+    /// all: the receipt used to be dropped on the floor here, so a meal whose nutrition
+    /// scopes were refused looked to the drain exactly like one Apple Health had taken.
+    /// Metric names cross as strings because `SyncClient` cannot see `HealthWriteMetric`,
+    /// and it only ever shows them.
+    private static func outcome(of receipt: HealthWriteReceipt) -> HealthWriteOutcome {
+        HealthWriteOutcome(savedMetrics: receipt.saved.map(\.metric.rawValue),
+                           refusedMetrics: receipt.skipped.keys.map(\.rawValue))
     }
 }

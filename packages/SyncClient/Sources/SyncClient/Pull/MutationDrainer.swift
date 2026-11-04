@@ -53,7 +53,11 @@ public struct MutationDrainer: Sendable {
                 continue
             }
             do {
-                try await applier.apply(mutation)
+                // The failure count goes in because the applier decides, for the two kinds
+                // that write to Apple Health, whether a refusal is worth one more drain or
+                // has to be reported to the user instead (ASC-27).
+                try await applier.apply(mutation,
+                                        previousFailures: current.failures[mutation.id] ?? 0)
             } catch {
                 current = current.recordingFailure(mutation.id)
                 try state.save(current)

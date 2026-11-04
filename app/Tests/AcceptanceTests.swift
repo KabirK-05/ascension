@@ -284,25 +284,63 @@ struct AcceptanceTests {
         #expect(ack.ids == [Self.targetsId])
     }
 
-    /// Documented, not endorsed. `HealthWriter` reports an unauthorised metric in its
-    /// receipt rather than throwing — which is right for `FeatureEat`, where the row is
-    /// kept out of the diary when nothing reached Health — but `HealthMutationWriteBack`
-    /// discards that receipt. A meal Muse logged while the nutrition scopes are refused
-    /// therefore becomes a local-only total and is acked, so it is never retried.
+    /// ASC-18 found this one and left it; ASC-27 fixed it, and this is the same scenario
+    /// asserting the opposite.
     ///
-    /// This asserts what the code does today so the behaviour cannot change unnoticed.
-    /// See the PR for ASC-18: it is reported there rather than fixed here, because the
-    /// fix belongs to the package that owns the seam.
-    @Test("a refused HealthKit scope is not reported: the meal is acked having reached nothing")
-    func aRefusedScopeIsSilent() async throws {
+    /// `HealthWriter` reports an unauthorised metric in its receipt rather than throwing —
+    /// right for `FeatureEat`, where the row is kept out of the diary when nothing reached
+    /// Health — and `HealthMutationWriteBack` used to discard that receipt, so a meal Muse
+    /// logged while the nutrition scopes were refused became a local-only total, was acked,
+    /// and was never retried. HealthKit is the source of truth (spec §3), so that was
+    /// silent divergence: the app held a meal Apple Health had never seen.
+    ///
+    /// Now the whole real stack — `HealthWriter`, the shell's `HealthMutationWriteBack`,
+    /// `MutationApplier`, `MutationDrainer` — refuses to call it applied.
+    @Test("a meal Apple Health refused is not acked, and does not reach the diary")
+    func aRefusedScopeIsNotAcked() async throws {
         let device = try device(authorizeNutrition: false)
 
         let report = try await device.drainer.drain()
 
-        #expect(report.applied.contains(Self.mealId))
+        // The meal did not apply, and it blocked the drain where it stands rather than
+        // being skipped, so the Worker will deliver it again.
+        #expect(!report.applied.contains(Self.mealId))
+        #expect(report.blockedBy?.id == Self.mealId)
+        #expect(report.blockedBy?.kind == .logMeal)
         #expect(device.health.savedSamples.isEmpty)
-        // The local diary still has it, and the ack has gone: nothing will retry this.
-        #expect(device.store.mealLogs(on: Self.mealDay).count == 2)
+        // Nothing on the day. The applied run writes Muse's two items — chicken breast and
+        // two boiled eggs — and a refused write must leave the diary claiming none of it.
+        #expect(device.store.mealLogs(on: Self.mealDay).isEmpty)
+
+        let acks = device.transport.requests.filter { $0.url.path.hasSuffix("/mutations/ack") }
+        let acked = try acks.compactMap(\.body)
+            .flatMap { try JSONDecoder().decode(MutationAck.self, from: $0).ids }
+        #expect(!acked.contains(Self.mealId))
+    }
+
+    /// The other half of the fix, end to end: a scope refused for good cannot block Muse's
+    /// write channel forever, so the drain gives up at
+    /// ``MutationApplier/healthWriteAttemptLimit`` and tells the user instead.
+    ///
+    /// Still no diary row. The acked mutation leaves a line in Settings → Changes saying
+    /// Apple Health refused it, which is the one thing that can prompt the one action — a
+    /// scope only the user can grant — that would have made the meal real.
+    @Test("after three refusals the meal is acked as a visible failure, not as a meal")
+    func aPermanentRefusalBecomesAVisibleFailure() async throws {
+        let device = try device(authorizeNutrition: false)
+
+        for _ in 1...2 { _ = try? await device.drainer.drain() }
+        let final = try await device.drainer.drain()
+
+        #expect(final.applied.contains(Self.mealId))
+        #expect(final.blockedBy == nil)
+        #expect(device.health.savedSamples.isEmpty)
+        #expect(device.store.mealLogs(on: Self.mealDay).isEmpty)
+
+        let row = try #require(await device.changes.change(id: Self.mealId))
+        #expect(row.kind == .logMeal)
+        #expect(row.summary.contains("Health refused"))
+        #expect(!row.canUndo)
     }
 }
 
