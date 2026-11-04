@@ -24,18 +24,38 @@ A worker that cannot push to `staging` directly is working correctly.
 
 ## CI (`.github/workflows/`)
 
-Three jobs, ordered cheapest-first so failures surface fast:
+`ci.yml` runs five jobs, ordered cheapest-first so failures surface fast. `edge.yml`
+and `mcp-local.yml` cover the Worker and the stdio bridge.
 
 | Job | Trigger | What |
 |---|---|---|
-| `lint` | every PR | SwiftLint, swift-format check, `tsc --noEmit`, prettier. ~30 s, ubuntu + macos. |
-| `packages` | every PR | `swift test` on `AscensionCore`, `AscensionEngines`, `ExportKit`, `SyncClient` for **macOS**. No simulator → fast and cheap. This is where the engine tests live. |
-| `app` | every PR | `tuist generate` + `xcodebuild build-for-testing` on the iOS 26.5 simulator. |
-| `edge` | PRs touching `edge/` | `vitest` against `wrangler dev` with a local D1. |
-| `release` | PRs into `main` | All of the above + `xcodebuild test` with UI smoke tests. |
+| `guard-release` | PRs into `main` | Rejects any PR whose source branch is not `staging`. |
+| `lint` | every PR | SwiftLint `--strict` over `app/Sources` and `packages`. |
+| `packages` | every PR | `swift test` on `AscensionCore`, `AscensionEngines`, `ExportKit`, `SyncClient`, `SystemSurfaces` for **macOS**. No simulator → fast and cheap. This is where the engine tests live. |
+| `ios-packages` | every PR | The iOS-only packages: a simulator build, then `xcodebuild test` for those that have tests. |
+| `app` | every PR | `tuist generate`, a simulator build, then `xcodebuild test` over `AscensionTests` — the composition root's seam tests. |
 
 Pure-Swift packages test on macOS without booting a simulator, which keeps the common
 path to well under two minutes.
+
+### A green test job is not evidence that tests ran
+
+`xcodebuild … test` exits 0 and prints `** TEST SUCCEEDED **` when it executes zero
+tests, and under `-quiet` it prints no count at all. The one count it *does* print
+without `-quiet` belongs to XCTest alone — so because every suite here is written in
+Swift Testing, a full passing run reads `Executed 0 tests, with 0 failures`. That line
+is counting the wrong framework, and it cost a whole session (ASC-26) before anyone
+checked the result bundle instead of the log.
+
+So every simulator test step routes its result bundle through
+[`scripts/assert-tests-ran.sh`](../scripts/assert-tests-ran.sh), which reads the real
+totals, prints them, and fails the job if nothing ran. A job log now states how many
+tests executed — and if it doesn't say, the step didn't run.
+
+Destinations are resolved at run time by
+[`scripts/ci-simulator.sh`](../scripts/ci-simulator.sh) rather than naming a device. A
+hardcoded `name=iPhone 17 Pro` breaks the day a runner image stops shipping that
+model, which has already happened here once.
 
 ## Commits
 

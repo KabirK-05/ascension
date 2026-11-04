@@ -27,7 +27,6 @@ struct MutationApplicationTests {
     }
 
     private func applier(_ store: LocalStore) -> StoreMutationApplier {
-        let health = FakeHealthStore()
         let watch = WatchSessionSender(scheduler: UnavailableSessionScheduler(), zones: nil)
         let export = ExportRunnerStub.unavailable(store: store)
         return StoreMutationApplier(
