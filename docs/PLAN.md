@@ -110,6 +110,15 @@ for Claude Code on the Mac.
 the connector attached, Muse answers "how is my training going this month?" accurately
 **and** successfully changes a calorie target and swaps a session, with the phone
 applying a queued `log_meal` into Apple Health.
+Delivered as a pair of suites that meet at `edge/test/golden/mutations.page.json`
+rather than one harness spanning both languages: the cloud half drives `/mcp` as a
+real connector (OAuth, PKCE, Streamable HTTP) over a hand-counted October 2026, and
+the device half replays the Worker's own drain page through `MutationDrainer` into the
+fake health store. See docs/DELIVERY.md. **One finding, reported not fixed:** a
+`log_meal` applied while the HealthKit nutrition scopes are refused is acked having
+written nothing to Apple Health — `HealthMutationWriteBack` discards the receipt
+`HealthWriter` returns, so nothing retries it and the meal survives only as a local
+total.
 
 ---
 

@@ -130,7 +130,7 @@ jobs:
             -quiet test
           test_status=$?
           set -e
-          # The app's 78 tests are all Swift Testing, and the only count xcodebuild
+          # The app's tests are all Swift Testing, and the only count xcodebuild
           # prints is XCTest's — which reads `Executed 0 tests` beside a full passing
           # run. The real numbers come out of the result bundle. ASC-26.
           "$GITHUB_WORKSPACE/scripts/assert-tests-ran.sh" "$bundle" "app shell"

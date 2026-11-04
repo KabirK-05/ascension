@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mutations": [
+    {
+      "id": "01MACCEPTANCE0000000000001",
+      "createdAt": "2026-10-31T20:10:00.000Z",
+      "actor": "muse",
+      "kind": "set_targets",
+      "payload": {
+        "kcal": 2400,
+        "proteinG": 165
+      },
+      "appliedAt": "2026-10-31T20:10:00.000Z",
+      "appliedResult": null
+    },
+    {
+      "id": "01MACCEPTANCE0000000000002",
+      "createdAt": "2026-10-31T20:10:01.000Z",
+      "actor": "muse",
+      "kind": "schedule_workout",
+      "payload": {
+        "date": "2026-10-31",
+        "sessionKind": "lowerB"
+      },
+      "appliedAt": null,
+      "appliedResult": null
+    },
+    {
+      "id": "01MACCEPTANCE0000000000003",
+      "createdAt": "2026-10-31T20:10:02.000Z",
+      "actor": "muse",
+      "kind": "log_meal",
+      "payload": {
+        "date": "2026-10-31",
+        "meal": "lunch",
+        "items": [
+          {
+            "foodItemId": null,
+            "name": "Chicken breast",
+            "grams": 200,
+            "kcal": 330,
+            "proteinG": 62,
+            "fatG": 7,
+            "carbsG": 0
+          },
+          {
+            "foodItemId": null,
+            "name": "Two eggs, boiled",
+            "grams": 110,
+            "kcal": 155,
+            "proteinG": 13,
+            "fatG": 11,
+            "carbsG": 1
+          }
+        ]
+      },
+      "appliedAt": null,
+      "appliedResult": null
+    }
+  ],
+  "cursor": "01MACCEPTANCE0000000000003",
+  "pending": 2
+}
