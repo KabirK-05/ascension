@@ -33,6 +33,10 @@ final class AppComposition {
     /// async for no gain. `HealthWriter` is a `Sendable` struct over the same store, so one
     /// built here and the bridge's own are the same thing.
     let writer: HealthWriter
+    /// The other half of the write-back (ASC-24): a meal deleted or edited in the Eat tab
+    /// has to leave Apple Health too, or the app and Health disagree about the day from
+    /// then on. Built over the same adapter, for the same reason `writer` is.
+    let deleter: HealthDeleter
     let ledger: RollupStore
     let refresher: DayRefreshService
     let watch: WatchSessionSender
@@ -83,6 +87,7 @@ final class AppComposition {
                                           timeZone: timeZone,
                                           zones: heartRate.zones)
         self.writer = HealthWriter(store: healthStore)
+        self.deleter = HealthDeleter(store: healthStore)
         let ledger = Self.rollupStore()
         self.ledger = ledger.store
         let calendar = CalendarBlockReader()
@@ -196,10 +201,21 @@ final class AppComposition {
     }
 
     /// Eat with the write-back connected, which is what clears the "not in Apple Health"
-    /// marker from every diary row.
+    /// marker from every diary row — and, since ASC-24, what lets a mis-entered meal be
+    /// taken back out of Health as well as out of the diary.
+    ///
+    /// `diaryDidChange` closes the other half of that. Today's nutrition card and the
+    /// `DayRollup` the Worker is sent are both assembled from `MealLog`, and nothing used
+    /// to tell the shell a meal had changed — they caught up on the next foreground or
+    /// HealthKit wake. A delete that leaves Today counting the meal for another hour is
+    /// the same complaint in a different place, so the tab now says so and the window is
+    /// re-derived at once.
     func eatScreen() -> EatScreen {
-        EatScreen(dependencies: .live(context: store.context,
-                                      writeBack: NutritionWriteBackAdapter(writer: writer)))
+        let refresher = refresher
+        return EatScreen(dependencies: .live(
+            context: store.context,
+            writeBack: NutritionWriteBackAdapter(writer: writer, deleter: deleter),
+            diaryDidChange: { _ = await refresher.refresh() }))
     }
 
     /// Trends on the real ledger, with the one write it can make.

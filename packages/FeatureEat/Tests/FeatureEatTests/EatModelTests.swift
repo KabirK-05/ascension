@@ -120,7 +120,7 @@ struct EatModelTests {
         let omelette = try #require(Seed.stapleFoods.first)
         let entry = try #require(await model.logStaple(omelette))
 
-        model.delete(entry)
+        _ = await model.delete(entry)
 
         #expect(model.entries.isEmpty)
     }

@@ -14,39 +14,63 @@ public struct EatDependencies {
     public var writeBack: any NutritionWriteBack
     public var search: (any FoodSearching)?
     public var barcodes: (any BarcodeLookup)?
+    /// The photo path (ASC-24). `nil` is a complete answer: no key, no consent, no
+    /// network — the menu simply does not offer it and nothing else changes.
+    public var photos: (any MealPhotoAnalysing)?
+    public var photoConsent: any MealPhotoConsenting
     public var keys: any APIKeyStore
     public var staples: [FoodItemDTO]
     public var targets: NutritionTargets
+    /// Called after the diary changes, so the shell can re-derive the day.
+    ///
+    /// Today's nutrition card and the `DayRollup` pushed to the Worker are both built
+    /// from `MealLog`, and before ASC-24 nothing told the shell a meal had been logged,
+    /// edited or deleted — they caught up on the next foreground or HealthKit observer
+    /// wake. For a deletion that is the difference between the diary and Today
+    /// disagreeing for an hour and agreeing at once.
+    public var diaryDidChange: @Sendable () async -> Void
 
     public init(diary: any MealDiaryStore,
                 writeBack: any NutritionWriteBack = UnavailableNutritionWriteBack(),
                 search: (any FoodSearching)? = nil,
                 barcodes: (any BarcodeLookup)? = nil,
+                photos: (any MealPhotoAnalysing)? = nil,
+                photoConsent: any MealPhotoConsenting = DefaultsMealPhotoConsent(),
                 keys: any APIKeyStore = KeychainAPIKeyStore(),
                 staples: [FoodItemDTO] = Seed.stapleFoods,
-                targets: NutritionTargets = .seeded) {
+                targets: NutritionTargets = .seeded,
+                diaryDidChange: @escaping @Sendable () async -> Void = {}) {
         self.diary = diary
         self.writeBack = writeBack
         self.search = search
         self.barcodes = barcodes
+        self.photos = photos
+        self.photoConsent = photoConsent
         self.keys = keys
         self.staples = staples
         self.targets = targets
+        self.diaryDidChange = diaryDidChange
     }
 
     /// The live wiring, over a store the caller owns.
     public static func live(context: ModelContext,
                             writeBack: any NutritionWriteBack = UnavailableNutritionWriteBack(),
-                            keys: any APIKeyStore = KeychainAPIKeyStore()) -> EatDependencies {
+                            keys: any APIKeyStore = KeychainAPIKeyStore(),
+                            consent: any MealPhotoConsenting = DefaultsMealPhotoConsent(),
+                            diaryDidChange: @escaping @Sendable () async -> Void = {})
+        -> EatDependencies {
         let cache = FileFoodCache()
         return EatDependencies(
             diary: SwiftDataMealDiaryStore(context: context),
             writeBack: writeBack,
             search: USDAFoodSearch(keys: keys, cache: cache),
             barcodes: OpenFoodFactsLookup(cache: cache),
+            photos: AnthropicMealVision(keys: keys, consent: consent),
+            photoConsent: consent,
             keys: keys,
             staples: staples(in: context),
-            targets: targets(in: context))
+            targets: targets(in: context),
+            diaryDidChange: diaryDidChange)
     }
 
     /// The tab standing on its own, for the shell that has not injected anything yet.

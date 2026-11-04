@@ -40,9 +40,13 @@ let infoPlist: [String: Plist.Value] = [
     "NSCalendarsFullAccessUsageDescription":
         "Ascension reads your calendar to match planned training blocks against completed workouts.",
 
-    // Barcode scanning (F3).
+    // Barcode scanning, and photographing a plate for a macro estimate (F3).
     "NSCameraUsageDescription":
-        "Ascension uses the camera to scan food barcodes.",
+        "Ascension uses the camera to scan food barcodes and to photograph a meal for a macro estimate.",
+    // The fallback for the photo estimate where there is no camera, and the way to use
+    // a picture taken earlier.
+    "NSPhotoLibraryUsageDescription":
+        "Ascension reads a photo you choose of a meal to estimate its macros.",
 
     // The four smart notifications (§F8). No badge: nothing here counts.
     "NSUserNotificationsUsageDescription":

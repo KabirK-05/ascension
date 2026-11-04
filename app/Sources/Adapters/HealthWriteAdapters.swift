@@ -12,9 +12,11 @@ import SyncClient
 /// the diary row shows rather than an error to throw.
 struct NutritionWriteBackAdapter: FeatureEat.NutritionWriteBack {
     private let writer: HealthWriter
+    private let deleter: HealthDeleter
 
-    init(writer: HealthWriter) {
+    init(writer: HealthWriter, deleter: HealthDeleter) {
         self.writer = writer
+        self.deleter = deleter
     }
 
     func write(_ sample: FeatureEat.NutritionSample) async throws -> NutritionWriteOutcome {
@@ -29,6 +31,22 @@ struct NutritionWriteBackAdapter: FeatureEat.NutritionWriteBack {
         let receipt = try await writer.write(entry)
         if receipt.didSaveEverything { return .written }
         return receipt.saved.isEmpty ? .unavailable : .partial
+    }
+
+    /// Takes a meal back out of Apple Health (ASC-24).
+    ///
+    /// `sampleId` is the same id `write` was given, which is what makes this exact:
+    /// `HealthBridge` rebuilds the sync identifiers that write produced and deletes the
+    /// objects holding them. Nothing here guesses by timestamp, and nothing here touches
+    /// water — F4 owns that, and a meal is not a glass of water.
+    ///
+    /// The receipt maps the way the write's does, and `reachedNothing` is the case that
+    /// matters: every nutrition scope refused, so the app cannot say what Health still
+    /// holds, and `FeatureEat` keeps its row rather than letting the two diverge.
+    func remove(sampleId: String) async throws -> NutritionRemovalOutcome {
+        let receipt = try await deleter.delete(entryId: sampleId)
+        if receipt.reachedNothing { return .unavailable }
+        return receipt.didReachEveryMetric ? .removed : .partial
     }
 }
 

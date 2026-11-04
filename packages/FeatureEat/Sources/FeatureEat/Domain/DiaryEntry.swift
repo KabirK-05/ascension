@@ -7,7 +7,12 @@ import Foundation
 /// app — so a meal that did not land is worth a status marker on its row. Four cases,
 /// because "some of it landed" is a real outcome: HealthKit authorisation is per type,
 /// and a user who allowed protein and refused fat gets a partial write.
-public enum HealthWriteState: Hashable, Sendable {
+///
+/// Persisted (ASC-24) rather than held for the life of the process. The state is what
+/// `EatModel.delete` reads to decide whether Apple Health has anything to take back, so
+/// a row that forgot it had been written would be deleted from the diary and left in
+/// Health — the exact divergence this ticket exists to close.
+public enum HealthWriteState: String, Codable, Hashable, Sendable {
     case notWritten
     case written
     case partial
