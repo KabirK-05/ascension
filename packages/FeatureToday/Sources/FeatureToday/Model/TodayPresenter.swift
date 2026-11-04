@@ -17,7 +17,7 @@ public enum TodayPresenter {
                                         plannedSession: snapshot.plannedSession,
                                         suggestedSession: assessment.suggestedSession)
         let calendar = ConsistencyMapping.calendar(timezone: snapshot.clock.timezone)
-        let pending = snapshot.today.checkIn == nil ? CheckInPanel.of(checkIn) : nil
+        let disclosure = disclosure(for: snapshot, checkIn: checkIn)
 
         return TodayPresentation(
             date: ConsistencyMapping.date(of: snapshot.clock.today, in: calendar)
@@ -28,12 +28,23 @@ public enum TodayPresenter {
                                       verdict: verdict,
                                       verdictText: verdict.text(in: snapshot.program),
                                       reasons: reasons(assessment.reasons,
-                                                       checkInPending: pending != nil)),
-            checkIn: pending,
+                                                       checkInPending: snapshot.today.checkIn == nil)),
+            checkIn: disclosure,
             session: plan(for: snapshot, verdict: verdict),
             nutrition: nutrition(for: snapshot),
             measurements: measurements(for: snapshot),
             consistency: consistency(for: snapshot, calendar: calendar))
+    }
+
+    // MARK: - The check-in
+
+    /// Open while today has no check-in, open again while one is being amended, and
+    /// collapsed otherwise.
+    static func disclosure(for snapshot: TodaySnapshot,
+                           checkIn: CheckInState) -> CheckInDisclosure {
+        guard snapshot.today.checkIn != nil else { return .pending(CheckInPanel.of(checkIn)) }
+        guard checkIn.isReopened else { return .done }
+        return .reopened(CheckInPanel.of(checkIn))
     }
 
     // MARK: - Reasons

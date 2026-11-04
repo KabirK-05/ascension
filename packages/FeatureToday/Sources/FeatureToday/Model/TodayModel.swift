@@ -38,8 +38,14 @@ public final class TodayModel {
             let loaded = try await dataSource.snapshot()
             snapshot = loaded
             // A day that already carries a check-in has no controls to hold a draft for,
-            // and a draft left over from a previous day is not today's.
-            if loaded.today.checkIn != nil { checkIn = CheckInState() }
+            // unless the user has opened it again to change an answer — a refresh is not
+            // a reason to throw their edit away. A day with no check-in keeps whatever is
+            // half-tapped, but never an amendment to some other day's.
+            if loaded.today.checkIn == nil {
+                if checkIn.isReopened { checkIn = CheckInState() }
+            } else if !checkIn.isReopened {
+                checkIn = CheckInState()
+            }
             present()
         } catch {
             snapshot = nil
@@ -48,6 +54,18 @@ public final class TodayModel {
     }
 
     // MARK: - The check-in (spec §F4)
+
+    /// Opens today's finished check-in to change it, or closes it again.
+    ///
+    /// Reopening prefills the draft from what was already answered, so this is an
+    /// amendment rather than a second blank form. Closing without tapping an energy
+    /// discards the draft and leaves the stored check-in exactly as it was, which is
+    /// what a disclosure that can be shut again has to mean.
+    public func toggleCheckIn() {
+        guard let existing = snapshot?.today.checkIn, checkIn.status != .saving else { return }
+        checkIn = checkIn.isReopened ? CheckInState() : .reopening(existing)
+        present()
+    }
 
     /// One tap on a muscle group: `none` → `mild` → `sore` → `none`.
     public func cycleSoreness(_ group: MuscleGroup) {
@@ -58,14 +76,16 @@ public final class TodayModel {
         present()
     }
 
-    /// Commits the check-in. Tapping an energy is the whole submission, which is what
-    /// makes a morning with nothing sore a single tap.
+    /// Commits the check-in, first time or amended. Tapping an energy is the whole
+    /// submission, which is what makes a morning with nothing sore a single tap.
     ///
     /// The snapshot is updated only once the save has returned, so the score never
-    /// moves on a write that did not happen.
+    /// moves on a write that did not happen. The store is keyed by date, so an
+    /// amendment replaces the day's check-in rather than adding a second one.
     public func submitCheckIn(energy: Int) async {
+        let isAmendment = checkIn.isReopened
         guard let snapshot,
-              snapshot.today.checkIn == nil,
+              snapshot.today.checkIn == nil || isAmendment,
               checkIn.status != .saving,
               let rollup = checkIn.draft.rollup(energy: energy) else { return }
 
@@ -76,10 +96,12 @@ public final class TodayModel {
         do {
             try await checkInStore?.save(rollup, on: snapshot.clock.today)
             // A reload may have landed while the save was in flight, so the check-in
-            // goes onto whatever snapshot is current — and never over one that arrived
-            // with a check-in of its own.
+            // goes onto whatever snapshot is current. A first check-in never overwrites
+            // one that arrived with that reload; an amendment is meant to.
             if var current = self.snapshot {
-                current.today.checkIn = current.today.checkIn ?? rollup
+                if isAmendment || current.today.checkIn == nil {
+                    current.today.checkIn = rollup
+                }
                 self.snapshot = current
             }
             checkIn = CheckInState()

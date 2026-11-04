@@ -70,6 +70,7 @@ public struct TodayScreen: View {
                 summary(presentation.summary)
                 ReadinessCard(panel: presentation.readiness,
                               checkIn: presentation.checkIn,
+                              toggleCheckIn: model.toggleCheckIn,
                               cycleSoreness: model.cycleSoreness,
                               submitCheckIn: { energy in
                                   Task { await model.submitCheckIn(energy: energy) }

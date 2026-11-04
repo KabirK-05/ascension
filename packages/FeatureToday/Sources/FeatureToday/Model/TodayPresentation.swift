@@ -175,9 +175,9 @@ public struct TodayPresentation: Hashable, Sendable {
     public let summary: String
     public let readiness: ReadinessPanel
 
-    /// The morning check-in, while today still needs one. `nil` once it is in, which is
-    /// how the controls leave the screen for the day (spec §F4).
-    public let checkIn: CheckInPanel?
+    /// The morning check-in: open because today needs one, collapsed because it is
+    /// done, or open again because an answer is being changed (spec §F4).
+    public let checkIn: CheckInDisclosure
 
     /// `nil` on a rest day or a stand-down.
     public let session: SessionPlan?
